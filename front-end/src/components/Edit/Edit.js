@@ -5,7 +5,7 @@ import {getProfileDetails, updateEducation} from '../../ducks/action'
 import TextField from './TextField'
 import EducationFields from './EducationFields'
 
-class Profile extends Component{x
+class Profile extends Component{
   componentDidMount() {
     this.props.getProfileDetails(this.props.match.params.username)
   }
