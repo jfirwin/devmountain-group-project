@@ -10,24 +10,12 @@ class Profile extends Component{
     this.props.getProfileDetails(this.props.match.params.username)
   }
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate fired')
-
     if (this.props.user != nextProps.user) {
-      console.log('think we should update, yeah do that')
       return true
     } else
-      console.log('don\'t update')
     return false
   }
-
-  componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps fired')
-    if(nextProps.user){
-
-    }
-  }
 	render(){
-    console.log(11111111, this.props.user)
 		return(
 			<div>
         <Navbar user = {this.props.user}/>
