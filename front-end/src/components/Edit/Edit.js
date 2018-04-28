@@ -4,6 +4,7 @@ import Navbar from '../Navbar'
 import {getProfileDetails, updateEducation} from '../../ducks/action'
 import TextField from './TextField'
 import EducationFields from './EducationFields'
+import SkillsFields from './SkillsFields'
 
 class Profile extends Component{
   componentDidMount() {
@@ -41,11 +42,11 @@ class Profile extends Component{
                 </div>
               )
             })}
+            Skills
             {this.props.user.skills.map((skill, index) => {
               return(
                 <div key={`skills_${index}`}>
-                  <TextField title="Skill" value={skill.skill}/>
-                  <TextField title="Level" value={skill.lvl}/>
+                  <SkillsFields value={skill}/>
                 </div>
               )
             })}

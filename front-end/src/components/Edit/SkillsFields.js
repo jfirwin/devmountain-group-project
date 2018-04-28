@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class TextField extends Component{
+class SkillsFields extends Component{
   constructor() {
     super()
     this.state = {
@@ -24,18 +24,17 @@ class TextField extends Component{
   render(){
     return (
       <div>
-        School Number
         <div>
           <label>
             <div>
-              School<input type="text" value={this.state.skills.skill} onChange={(e) => this.updateValue(e.target.value)}/>
+              Skill<input type="text" value={this.state.skills.skill} onChange={(e) => this.updateValue(e.target.value)}/>
             </div>
             <div>
-              Emphasis<input type="text" value={this.state.skills.lvl} onChange={(e) => this.updateValue(e.target.value)}/>
+              Level<input type="text" value={this.state.skills.lvl} onChange={(e) => this.updateValue(e.target.value)}/>
             </div>
           </label>
         </div>
-        {this.state.education !== this.props.value
+        {this.state.skills !== this.props.value
           ?
           <div>
           <button onClick={()=>this.cancelEdit()}>Cancel</button>
@@ -48,4 +47,4 @@ class TextField extends Component{
     )
   }
 }
-export default TextField
+export default SkillsFields
