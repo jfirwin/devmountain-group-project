@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Navbar from '../Navbar'
-import {getProfileDetails, updateEducation} from '../../ducks/action'
-import TextField from './TextField'
+import {getProfileDetails, updateEducation, updateSkill, updateExperience, deleteEducation, deleteSkill, deleteExperience, addEducation, addSkill, addExperience} from '../../ducks/action'
+import UserFields from './UserFields'
 import EducationFields from './EducationFields'
+import AddEducation from './AddEducation'
+import ExperienceFields from './ExperienceFields'
+import AddExperience from './AddExperience'
 import SkillsFields from './SkillsFields'
 
 class Profile extends Component{
@@ -23,33 +26,36 @@ class Profile extends Component{
         {this.props.user
           ?
           <div>
-            Account
-            <TextField title="Image URL" value={this.props.user.imgurl}/>
-            <TextField title="Username" value={this.props.user.username}/>
-            <hr/>
-            Name
-            <TextField title="First" value={this.props.user.firstname}/>
-            <TextField title="Last" value={this.props.user.lastname}/>
-            <hr/>
-            Description
-            <TextField title="Bio" value={this.props.user.description}/>
+            <UserFields user={this.props.user}/>
             <hr/>
             Education
             {this.props.user.education.map((school, index) => {
               return(
                 <div key={`education_${index}`}>
-                  <EducationFields school={school} update={this.props.updateEducation}/>
+                  <EducationFields school={school} update={this.props.updateEducation} delete={this.props.deleteEducation}/>
                 </div>
               )
             })}
+            <AddEducation add={this.props.addEducation}/>
+            <hr/>
             Skills
             {this.props.user.skills.map((skill, index) => {
               return(
                 <div key={`skills_${index}`}>
-                  <SkillsFields value={skill}/>
+                  <SkillsFields skills={skill} update={this.props.updateSkill} delete={this.props.deleteSkill}/>
                 </div>
               )
             })}
+            <hr/>
+            Experience
+            {this.props.user.experience.map((experience, index) => {
+              return(
+                <div key={`skills_${index}`}>
+                  <ExperienceFields experience={experience} update={this.props.updateExperience} delete={this.props.deleteExperience}/>
+                </div>
+              )
+            })}
+            <AddExperience add={this.props.addExperience}/>
           </div>
           :
           'Loading...'
@@ -65,4 +71,4 @@ const mapStateToProps = state => {
     loading: state.loading
   }
 }
-export default connect(mapStateToProps, {getProfileDetails, updateEducation})(Profile)
+export default connect(mapStateToProps, {getProfileDetails, updateEducation, updateSkill, updateExperience, deleteEducation, deleteSkill, deleteExperience, addEducation, addSkill, addExperience})(Profile)

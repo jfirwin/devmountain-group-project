@@ -21,7 +21,7 @@ module.exports = function(app) {
     app.get('db').skills.update_skill({
       skill: req.body.skill,
       lvl: req.body.lvl,
-      authid: req.body.authid,
+      authid: 'abc123',
       id: req.body.id
     })
     .then(response => {

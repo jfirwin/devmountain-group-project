@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 
-class EducationField extends Component{
+class AddEducation extends Component{
   constructor() {
     super()
     this.state = {
       education: {
         school: '',
         emphasis: '',
-        id: '',
         start_date: '',
         end_date: ''
-      }
+      },
+      add: false
     }
-  }
-  componentDidMount() {
-    this.setState({education: this.props.school})
   }
   updateSchool = (newValue) => {
     this.setState({education: {...this.state.education, school: newValue}})
@@ -28,23 +25,21 @@ class EducationField extends Component{
   updateEndDate = (newValue) => {
     this.setState({education: {...this.state.education, end_date: newValue}})
   }
-  cancelEdit = () => {
-    this.setState({education: this.props.school})
+  cancelAdd = () => {
+    this.setState({add: false, education: {school:'',emphasis:'',start_date:'',end_date:''}})
   }
-  saveEdit = () => {
-    this.props.update(this.state.education)
-  }
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.school !== this.props.school) {
-      this.setState({education: nextProps.school})
-    }
+  addEducation = () => {
+    this.props.add(this.state.education)
+    this.setState({education:{school:'',emphasis:'',start_date:'',end_date:''},add: false})
   }
 
   render(){
 
     return (
       <div>
-        School Number
+      {
+        this.state.add
+        ?
         <div>
           <label>
             <div>
@@ -60,20 +55,15 @@ class EducationField extends Component{
               End Date<input type="text" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
             </div>
           </label>
-          <button onClick={()=>this.props.delete(this.state.education)}>Delete</button>
+          <button onClick={()=>this.cancelAdd()}>Cancel</button>
+          <button onClick={()=>this.addEducation()}>Add</button>
         </div>
-        {this.state.education !== this.props.school
-          ?
-          <div>
-          <button onClick={()=>this.cancelEdit()}>Cancel</button>
-          <button onClick={()=>this.saveEdit()}>Save</button>
-          </div>
-          :
-          null
-        }
+        :
+        <button onClick={()=>this.setState({add: true})}>Add Education</button>
+      }
       </div>
     )
   }
 }
 
-export default EducationField
+export default AddEducation

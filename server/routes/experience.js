@@ -23,7 +23,7 @@ module.exports = function(app) {
 
   router.put('/', (req, res) => {
     app.get('db').experience.update_experience({
-      authid: req.body.authid,
+      authid: 'abc123',
       title: req.body.title,
       company: req.body.company,
       location: req.body.location,
@@ -33,6 +33,7 @@ module.exports = function(app) {
       id: req.body.id
     })
     .then(response => {
+      console.log(response)
       return res.status(200).send(response)
     })
     .catch(err => {
