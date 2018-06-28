@@ -61,14 +61,18 @@ function ProfileInput(props){
           props.selected == 'Education' &&
           <div>
             <h1 style={title}>Education</h1>
-            {props.user.education.map((school, index) => {
+            {
+              props.user.education ? props.user.education.map((school, index) => {
               return(
                 <div key={`education_${index}`} style={{marginBottom: 50}}>
                   <EducationFields school={school}/>
                 </div>
               )
-            })}
-            <AddEducation/>
+            }) 
+            :
+            null
+          }
+          <AddEducation/>
           </div>
         }
 
@@ -76,13 +80,18 @@ function ProfileInput(props){
           props.selected == 'Experience' &&
           <div>
             <h1 style={title}>Experience</h1>
-            {props.user.experience.map((job, index) => {
-              return(
-                <div key={`experience_${index}`} style={{marginBottom: 50}}>
-                  <ExperienceFields experience={job}/>
-                </div>
-              )
-            })}
+            {
+              props.user.experience ? props.user.experience.map((job, index) => {
+                return(
+                  <div key={`experience_${index}`} style={{marginBottom: 50}}>
+                    <ExperienceFields experience={job}/>
+                  </div>
+                )
+              }
+            )
+              :
+              null
+            }
             <AddExperience/>
           </div>
         }
@@ -91,14 +100,19 @@ function ProfileInput(props){
           props.selected == 'Skills' &&
           <div>
             <h1 style={title}>Skills</h1>
-            {props.user.skills.map((skill, index) => {
-              return(
-                <div key={`skills_${index}`}>
-                  <SkillsFields title="Skill" skills={skill}/>
-                </div>
-              )
-            })}
-            <AddSkill/>
+            {
+              props.user.skills ? props.user.skills.map((skill, index) => {
+                return(
+                  <div key={`skills_${index}`}>
+                    <SkillsFields title="Skill" skills={skill}/>
+                  </div>
+                )
+              }
+            )
+              :
+                null
+            }
+          <AddSkill/>
           </div>
         }
     </div>
