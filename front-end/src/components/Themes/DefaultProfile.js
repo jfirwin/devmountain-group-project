@@ -20,7 +20,7 @@ const DefaultProfile = (props) => {
                 return(
                   <div key={skill.skill}>
                     <h5 style={textColor}>{skill.skill}</h5>
-                    <div className="w3-light-grey w3-round-xlarge" style={{width: '100%'}}>
+                    <div className="w3-light-grey w3-round-xlarge" style={{width: '100%', color: textColor}}>
                       <div className="w3-container w3-center w3-round-xlarge" style={{width: `${skill.lvl}%`, backgroundColor: wrapper.backgroundColor}}>{skill.lvl}%</div>
                     </div>
                   </div>

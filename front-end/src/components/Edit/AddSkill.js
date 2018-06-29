@@ -40,7 +40,8 @@ class AddSkill extends Component{
               Skill<input type="text" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
             </div>
             <div>
-              Level<input type="text" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+              Competency<input type="range" min="0" max="100" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+              {this.state.skill.lvl}%
             </div>
           </label>
           <button onClick={()=>this.cancelAdd()}>Cancel</button>
