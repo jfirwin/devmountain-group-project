@@ -5,7 +5,6 @@ import {style} from './homeStyle'
 import resume from './images/default-theme.png'
 import {Link} from 'react-router-dom'
 import MediaQuery from 'react-responsive'
-import {auth} from '../ducks/action'
 import '../App.css'
 
 
@@ -18,8 +17,8 @@ const FullSizeHome = (props) => {
         </div>
         <div style={style.homeContentFullSize}>
           <div style={style.homeTextFullSize}>
-            <p>We provide a service which will allow you to build AND show your resume. 
-            Our goal is to let you focus on what content you want to display, and we will take care of the structure of it.</p> 
+            <p>We provide a service which will allow you to build AND show your resume.
+            Our goal is to let you focus on what content you want to display, and we will take care of the structure of it.</p>
           </div>
           <div>
             <img src={resume} alt="default resume" style = {style.resumeFullSize}/>
@@ -40,15 +39,15 @@ const FullSizeHome = (props) => {
 }
 
 const MobileSizeHome = () => {
-  
+
   return(
       <div style={style.mobileContainer}>
         <div style={style.mobileCenterPiece}>
           <h1>Website Name</h1>
         </div>
         <div style={style.homeTextMobile}>
-            <p>We provide a service which will allow you to build AND show your resume. 
-            Our goal is to let you focus on what content you want to display, and we will take care of the structure of it.</p> 
+            <p>We provide a service which will allow you to build AND show your resume.
+            Our goal is to let you focus on what content you want to display, and we will take care of the structure of it.</p>
         </div>
         <img src={resume} alt="resume" style = {style.resumePicMobile}/>
         <p style={style.homeTextMobile}>Search a potential employee.</p>
@@ -85,9 +84,6 @@ const ButtonWindow = (props) => {
 }
 
 class Home extends Component{
-  componentDidMount(){
-    this.props.auth()
-  }
   render(){
     return (
       <div>
@@ -104,7 +100,7 @@ class Home extends Component{
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: state.isAuthenticated 
+    isAuthenticated: state.isAuthenticated
   }
 }
-export default connect(mapStateToProps, {auth})(Home)
+export default connect(mapStateToProps)(Home)
