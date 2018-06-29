@@ -24,7 +24,6 @@ class UserFields extends Component{
       username: this.props.user.username
     }
   })
-    console.log(this.state.skills)
   }
   checkProps = () => {
     if (this.state.user.firstname !== this.props.user.firstname) {

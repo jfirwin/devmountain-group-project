@@ -15,7 +15,6 @@ class SkillsFields extends Component{
   }
   componentDidMount() {
     this.setState({skills: this.props.skills})
-    console.log(this.state.skills)
   }
   updateSkill = (newValue) => {
     this.setState({skills: {...this.state.skills, skill: newValue}})

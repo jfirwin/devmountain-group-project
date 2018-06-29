@@ -3,7 +3,6 @@ module.exports = function(app) {
   const router = express.Router()
 
   router.get(`/tiles`, (req, res) => {
-    console.log(`GET api/search/tiles hit`)
     app.get('db').search.get_users_search()
       .then(response => {
         return res.status(200).send(response)

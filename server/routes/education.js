@@ -22,7 +22,6 @@ module.exports = function(app) {
   })
 
   router.put('/', (req, res) => {
-    console.log(req.body)
     app.get('db').education.update_education({
       authid: req.session.passport.user.authid,
       school: req.body.school,

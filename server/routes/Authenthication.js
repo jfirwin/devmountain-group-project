@@ -24,13 +24,11 @@ module.exports = function(app) {
     (accessToken, refreshToken, extraParams, profile, done) => {
       app.get('db').users.get_user_session({authid: profile.id})
         .then(user => {
-          console.log(27, user)
           if(user[0]) {
             done(null, {authid: profile.id})
           } else {
             app.get('db').users.create_user({authid: profile.id})
               .then(user => {
-                console.log(33, user)
                 done(null, {authid: profile.id})
               })
           }
@@ -83,10 +81,8 @@ module.exports = function(app) {
     })})
 
   router.get('/userEdit', (req, res) => {
-    console.log('this is userEDit', req.session.passport.user.authid)
     app.get('db').users.get_user_edit({authid: req.session.passport.user.authid})
       .then(response => {
-        console.log(response)
         return res.status(200).send(response)
       })
   })

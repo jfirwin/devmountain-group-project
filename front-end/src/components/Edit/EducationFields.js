@@ -16,7 +16,6 @@ class EducationField extends Component{
     }
   }
   componentDidMount() {
-    console.log('this.props.school', this.props.school)
     this.setState({education: this.props.school})
   }
   updateSchool = (newValue) => {

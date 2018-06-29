@@ -18,7 +18,7 @@ module.exports = function(app) {
         return res.status(200).send(response)
       })
       .catch(err => {
-        console.log('this is the error', err)
+        console.log(err)
         res.status(500).send('there was an error')
       })
   })
