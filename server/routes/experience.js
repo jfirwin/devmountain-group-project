@@ -13,6 +13,8 @@ module.exports = function(app) {
       end_date: req.body.end_date
     })
       .then(response => {
+        response[0].start_date = response[0].start_date.toISOString().split('T')[0]
+        response[0].end_date = response[0].end_date.toISOString().split('T')[0]
         return res.status(200).send(response)
       })
       .catch(err => {
@@ -22,6 +24,7 @@ module.exports = function(app) {
   })
 
   router.put('/', (req, res) => {
+    console.log('experience before sql call',req.body)
     app.get('db').experience.update_experience({
       authid: req.session.passport.user.authid,
       title: req.body.title,
@@ -33,6 +36,8 @@ module.exports = function(app) {
       id: req.body.id
     })
     .then(response => {
+      response[0].start_date = response[0].start_date.toISOString().split('T')[0]
+      response[0].end_date = response[0].end_date.toISOString().split('T')[0]
       return res.status(200).send(response)
     })
     .catch(err => {
