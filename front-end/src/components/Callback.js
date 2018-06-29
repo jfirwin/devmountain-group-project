@@ -7,8 +7,6 @@ class Callback extends Component {
   componentDidMount() {
     this.props.auth()
       .then(result => {
-        console.log('result', result)
-        console.log('isAuthenticated', this.props.isAuthenticated)
         this.props.history.push('/edit')
       })
   }

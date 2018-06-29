@@ -42,7 +42,6 @@ function reducer(state = initialState, action){
 			return Object.assign({}, state)
 
 		case type.UPDATE_EDUCATION_FULFILLED:
-			console.log('UPDATE_EDUCATION_FULFILLED fired')
 			let educationStateUpdate = Object.assign({}, state)
 			let educationUserUpdate = Object.assign({}, educationStateUpdate.user)
 			let educationUpdate = Object.assign([], educationUserUpdate.education)
@@ -73,7 +72,6 @@ function reducer(state = initialState, action){
 			let deleteEducationState = Object.assign({}, state)
 			let deleteEducationUser = Object.assign({}, deleteEducationState.user)
 			let deleteEducationUpdate = Object.assign([], deleteEducationUser.education)
-			console.log('payload', action.payload)
 			let deleteEducationIndex = deleteEducationUpdate.findIndex(education => {
 				return education.id === action.payload.data.id
 			})
@@ -116,7 +114,6 @@ function reducer(state = initialState, action){
 			let deleteSkillState = Object.assign({}, state)
 			let deleteSkillUser = Object.assign({}, deleteSkillState.user)
 			let deleteSkillUpdate = Object.assign([], deleteSkillUser.skills)
-			console.log('payload', action.payload)
 			let deleteSkillIndex = deleteSkillUpdate.findIndex(skill => {
 				return skill.id === action.payload.data.id
 			})
@@ -129,7 +126,6 @@ function reducer(state = initialState, action){
 				return Object.assign({}, state)
 
 			case type.UPDATE_EXPERIENCE_FULFILLED:
-				console.log('UPDATE_EXPERIENCE_FULFILLED fired')
 				let experienceStateUpdate = Object.assign({}, state)
 				let experienceUserUpdate = Object.assign({}, experienceStateUpdate.user)
 				let experienceUpdate = Object.assign([], experienceUserUpdate.experience)
@@ -160,7 +156,6 @@ function reducer(state = initialState, action){
 				let deleteExperienceState = Object.assign({}, state)
 				let deleteExperienceUser = Object.assign({}, deleteExperienceState.user)
 				let deleteExperienceUpdate = Object.assign([], deleteExperienceUser.experience)
-				console.log('payload', action.payload)
 				let deleteExperienceIndex = deleteExperienceUpdate.findIndex(experience => {
 					return experience.id === action.payload.data.id
 				})
@@ -199,13 +194,13 @@ function reducer(state = initialState, action){
 
 		case type.AUTH_REJECTED:
 			return Object.assign({}, state, {loading: false})
-		
+
 		case type.GET_USER_EDIT_PENDING:
 			return Object.assign({}, state, {loading: true})
 
 		case type.GET_USER_EDIT_FULFILLED:
 			return Object.assign({}, state, {loading: false, user: action.payload.data[0]})
-		
+
 		default:
 			return state
 	}

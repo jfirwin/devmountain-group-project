@@ -91,7 +91,6 @@ class Search extends Component{
 
 	componentDidMount() {
 		this.props.getUsersTiles()
-		console.log('cookies', this.props.cookies)
 	}
 
 	render(){

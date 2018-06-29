@@ -15,7 +15,6 @@ class SkillsFields extends Component{
   }
   componentDidMount() {
     this.setState({skills: this.props.skills})
-    console.log(this.state.skills)
   }
   updateSkill = (newValue) => {
     this.setState({skills: {...this.state.skills, skill: newValue}})
@@ -57,7 +56,8 @@ class SkillsFields extends Component{
               <span style={title}>Skill</span><input type="text" value={this.state.skills.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
             </div>
             <div style={spacer}>
-              <span style={title}>Level</span><input type="text" value={this.state.skills.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+              <span style={title}>Competency</span><input type="range" max="100" min="0" value={this.state.skills.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+              <span>{this.state.skills.lvl}%</span>
             </div>
           </label>
           <button onClick={()=>this.deleteSkill()}>Delete</button>

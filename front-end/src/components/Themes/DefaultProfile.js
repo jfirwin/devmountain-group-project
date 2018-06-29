@@ -19,7 +19,10 @@ const DefaultProfile = (props) => {
               {props.user.skills.map(skill => {
                 return(
                   <div key={skill.skill}>
-                    <h5 style={textColor}>{skill.skill}: {skill.lvl}</h5>
+                    <h5 style={textColor}>{skill.skill}</h5>
+                    <div className="w3-light-grey w3-round-xlarge" style={{width: '100%', color: textColor}}>
+                      <div className="w3-container w3-center w3-round-xlarge" style={{width: `${skill.lvl}%`, backgroundColor: wrapper.backgroundColor}}>{skill.lvl}%</div>
+                    </div>
                   </div>
                 )
               })}

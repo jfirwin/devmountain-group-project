@@ -24,7 +24,6 @@ module.exports = function(app) {
   })
 
   router.put('/', (req, res) => {
-    console.log('experience before sql call',req.body)
     app.get('db').experience.update_experience({
       authid: req.session.passport.user.authid,
       title: req.body.title,

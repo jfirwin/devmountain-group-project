@@ -109,7 +109,6 @@ function ProfileInput(props){
 
 class Edit extends Component{
   componentDidMount() {
-    console.log(this.props.user)
     this.props.getUserEdit()
 
   }

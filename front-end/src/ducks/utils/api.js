@@ -42,7 +42,6 @@ module.exports = {
 		return axios.delete(`http://localhost:3005/api/users/experience`, {data: details, withCredentials: true})
 	},
 	updateUser: (user) => {
-		console.log(user)
 		return axios.put(`http://localhost:3005/api/users`, user, {withCredentials: true})
 	}
 }
