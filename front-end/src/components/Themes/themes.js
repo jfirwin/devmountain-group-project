@@ -21,7 +21,7 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'150px', 
+			'paddingLeft':'100px', 
 			'borderLeft':'2px #EBE6E3',
 			borderStyle: 'dashed'
 		},
@@ -99,7 +99,7 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'150px', 
+			'paddingLeft':'100px', 
 			'borderLeft':'2px #EBE6E3',
 			borderStyle: 'dashed'
 		},
@@ -177,7 +177,7 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'150px', 
+			'paddingLeft':'100px', 
 			'borderLeft':'1px solid #8D4A4A'
 		},
 		leftPiece: {
