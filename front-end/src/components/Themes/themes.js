@@ -27,7 +27,7 @@ module.exports = {
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'150px'
+			'paddingLeft':'100px'
 		},
 		wrapper: {
 			display: 'flex',
@@ -101,12 +101,11 @@ module.exports = {
 			width: '50%',
 			'paddingLeft':'150px', 
 			'borderLeft':'2px #EBE6E3',
-			marginBottom: '1000px',
 			borderStyle: 'dashed'
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'150px'
+			'paddingLeft':'100px'
 		},
 		wrapper: {
 			display: 'flex',
@@ -179,12 +178,11 @@ module.exports = {
 		rightPiece: {
 			width: '50%',
 			'paddingLeft':'150px', 
-			'borderLeft':'1px solid #8D4A4A',
-			marginBottom: '1000px'
+			'borderLeft':'1px solid #8D4A4A'
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'150px'
+			'paddingLeft':'100px'
 		},
 		wrapper: {
 			display: 'flex',
