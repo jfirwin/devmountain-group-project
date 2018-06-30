@@ -87,5 +87,11 @@ module.exports = function(app) {
       })
   })
 
+  router.get('/logout', (req, res) => {
+    console.log('logging out')
+    req.logout()
+    res.redirect('http://lcurvelo.auth0.com/v2/logout')
+  })
+
   return router
   }

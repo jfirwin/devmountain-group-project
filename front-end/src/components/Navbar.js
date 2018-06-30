@@ -15,7 +15,7 @@ class Navbar extends Component {
         <NavLink to='/'>
           <p>Logo/Home</p>
         </NavLink>
-          { this.props.user &&
+          { this.props.isAuthenticated &&
             <div style={{display: 'flex', justifyContent: 'space-around', width: 200}}>
               <NavLink to='/Search' activeStyle={activeStyle}>
                 <p>Search</p>
@@ -23,12 +23,12 @@ class Navbar extends Component {
               <NavLink to='/edit' activeStyle={activeStyle}>
                 <p>Account</p>
               </NavLink>           
-              <NavLink to='/Logout'>
+              <a href='http://localhost:3005/auth/logout'>
                 <p>Logout</p>
-              </NavLink>
+              </a>
             </div>
           }
-          { !this.props.user &&
+          { !this.props.isAuthenticated &&
             <div style={{display: 'flex', justifyContent: 'space-around', width: 200}}>
               <NavLink to='/search' activeStyle={activeStyle}>
                 <p>Search</p>
@@ -44,11 +44,11 @@ class Navbar extends Component {
   }
 }
   
-const mapstateToProps = state => {
+const mapStateToProps = state => {
   return {
-    user: state.user
+    isAuthenticated: state.isAuthenticated
   }
 }
 
-export default connect(mapstateToProps)(Navbar)
+export default connect(mapStateToProps)(Navbar)
 
