@@ -15,20 +15,19 @@ module.exports = {
 			display: 'flex',
 			'flexDirection': 'row-reverse',
   			padding:'30px',
-  			marginTop: '100px',
+  			marginTop: '50px',
   			justifyContent: 'center',
-  			alignItems: 'center',
   			width: '100%'
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'150px', 
+			'paddingLeft':'100px', 
 			'borderLeft':'2px #EBE6E3',
-			'borderStyle': 'dashed'
+			borderStyle: 'dashed'
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'150px'
+			'paddingLeft':'100px'
 		},
 		wrapper: {
 			display: 'flex',
@@ -70,6 +69,12 @@ module.exports = {
 			color: '#454152', 
 			familyFont: 'Montserrat',
 			fontWeight: '200'
+		},
+		contentBlock: {
+			marginBottom: '70px'
+		},
+		experienceBox: {
+			marginBottom: '30px'
 		}
 	},
 	light: {
@@ -88,20 +93,19 @@ module.exports = {
 			display: 'flex',
 			'flexDirection': 'row-reverse',
   			padding:'30px',
-  			marginTop: '100px',
+			marginTop: '50px',
   			justifyContent: 'center',
-  			alignItems: 'center',
   			width: '100%'
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'150px', 
+			'paddingLeft':'100px', 
 			'borderLeft':'2px #EBE6E3',
-			'borderStyle': 'dashed'
+			borderStyle: 'dashed'
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'150px'
+			'paddingLeft':'100px'
 		},
 		wrapper: {
 			display: 'flex',
@@ -143,6 +147,12 @@ module.exports = {
 			color: '#7F7069',
 			familyFont: 'Montserrat',
 			fontWeight: '200'
+		},
+		contentBlock: {
+			marginBottom: '70px'
+		},
+		experienceBox: {
+			marginBottom: '30px'
 		}
 	},
 	dark:{
@@ -161,19 +171,18 @@ module.exports = {
 			display: 'flex',
 			'flexDirection': 'row-reverse',
   			padding:'30px',
-  			marginTop: '100px',
+			marginTop: '50px',
   			justifyContent: 'center',
-  			alignItems: 'center',
   			width: '100%'
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'150px', 
+			'paddingLeft':'100px', 
 			'borderLeft':'1px solid #8D4A4A'
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'150px'
+			'paddingLeft':'100px'
 		},
 		wrapper: {
 			display: 'flex',
@@ -215,6 +224,12 @@ module.exports = {
 			color: '#8D4A4A',
 			familyFont: 'Montserrat',
 			fontWeight: '200'
+		},
+		contentBlock: {
+			marginBottom: '70px'
+		},
+		experienceBox: {
+			marginBottom: '30px'
 		}
 	}
 }
