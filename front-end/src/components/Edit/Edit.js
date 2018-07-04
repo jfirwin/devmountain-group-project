@@ -28,7 +28,8 @@ function ProfileInput(props){
   const title = {
     fontSize: 25,
     fontFamily: 'Montserrat',
-    height: '100'
+    height: '100',
+    marginRight: '50px'
   }
 
   const textStyle = {
@@ -44,7 +45,7 @@ function ProfileInput(props){
     <div style={formContainer}>
       {
         !props.selected &&
-        <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignContent: 'flex-end', textAlign: 'center'}}>
+        <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center', textAlign: 'center'}}>
           <h1 style={title}>Hi, {props.user.firstname}. please, choose an option on the navigation bar at your left.</h1>
         </div>
       }

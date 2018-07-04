@@ -70,7 +70,7 @@ const buttonSpacing = {
 const iconStyle = {
   ':hover': {cursor: 'pointer'},
   width: '20px',
-  marginTop: '5px'
+  marginTop: '15px'
 }
 
 module.exports = {

@@ -51,10 +51,10 @@ class AddSkill extends Component{
         <div>
           <label style = {addSkill}>
             <div style = {spacer}>
-               <span>Skill</span><input style={inputStyle} type="text" key="skill" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
+               <span>Skill</span><input type="text" key="skill" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
             </div>
             <div style = {competencySpacer}>
-              <span >Competency</span><input type="range" min="0" max="100" key="competency" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+              <span >Competency</span><input style={{border: 'none'}} type="range" min="0" max="100" key="competency" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
               {this.state.skill.lvl}%
             </div>
           </label>
