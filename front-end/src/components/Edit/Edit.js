@@ -36,8 +36,8 @@ function ProfileInput(props){
     fontWeight: 'bold'
   }
 
-  const hrStyle = {
-    border: '3px solid #D7A000'
+  const spacer = {
+    marginBottom: '40px'
   }
 
   return(
@@ -93,7 +93,7 @@ function ProfileInput(props){
             <h1 style={title}>Skills</h1>
             {props.user.skills.map((skill, index) => {
               return(
-                <div key={`skills_${index}`}>
+                <div key={`skills_${index}`} style={spacer}>
                   <SkillsFields title="Skill" skills={skill}/>
                 </div>
               )

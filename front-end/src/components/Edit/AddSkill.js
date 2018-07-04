@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {addSkill} from '../../ducks/action'
+import style from './FieldsStyle'
+import Radium from 'radium'
 
 class AddSkill extends Component{
   constructor() {
@@ -29,31 +31,48 @@ class AddSkill extends Component{
 
   render(){
 
+    const {spacer, competencySpacer, button, inputStyle} = style
+
+    const addSkill = {
+      height: '80px',
+      marginBottom: '30px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      fontFamily: 'Montserrat',
+      familyWeight: '200'
+    }
+
     return (
       <div>
       {
         this.state.add
         ?
         <div>
-          <label>
-            <div>
-              Skill<input type="text" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
+          <label style = {addSkill}>
+            <div style = {spacer}>
+               <span>Skill</span><input style={inputStyle} type="text" key="skill" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
             </div>
-            <div>
-              Competency<input type="range" min="0" max="100" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+            <div style = {competencySpacer}>
+              <span >Competency</span><input type="range" min="0" max="100" key="competency" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
               {this.state.skill.lvl}%
             </div>
           </label>
-          <button onClick={()=>this.cancelAdd()}>Cancel</button>
-          <button onClick={()=>this.addSkill()}>Add</button>
+          <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
+            <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
+            <button style={button} key="Add" onClick={()=>this.addSkill()}>Add</button>
+          </div>
         </div>
         :
-        <button onClick={()=>this.setState({add: true})}>Add Skill</button>
+        <button style={button} onClick={()=>this.setState({add: true})}>Add Skill</button>
       }
       </div>
     )
   }
 }
+
+AddSkill = Radium(AddSkill)
+
 const mapStateToProps = state => {
   return{
     skillTest: true

@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {updateSkill, deleteSkill} from '../../ducks/action'
+import Radium from 'radium'
+import style from './FieldsStyle'
+import '../../App.css'
+
+
 
 class SkillsFields extends Component{
   constructor() {
@@ -39,34 +44,27 @@ class SkillsFields extends Component{
 
   render(){
 
-    const title = {
-      fontFamily: 'Montserrat',
-      familyWeight: '200'
-    }
-
-    const spacer = {
-      marginTop: 10
-    }
+    const {title, spacer, competencySpacer, button, skillBox, inputStyle, iconStyle} = style
 
     return (
       <div>
         <div>
-          <label>
+          <label style={skillBox}>
             <div style={spacer}>
-              <span style={title}>Skill</span><input type="text" value={this.state.skills.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
+              <span>Skill</span><input type="text" key="skill" style={inputStyle} value={this.state.skills.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
             </div>
-            <div style={spacer}>
-              <span style={title}>Competency</span><input type="range" max="100" min="0" value={this.state.skills.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+            <div style={competencySpacer}>
+              <span>Competency</span><input type="range" key="Competency" style={inputStyle} max="100" min="0" value={this.state.skills.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
               <span>{this.state.skills.lvl}%</span>
             </div>
-          </label>
-          <button onClick={()=>this.deleteSkill()}>Delete</button>
+            <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteSkill()}></i>
+          </label>          
         </div>
         {this.state.skills !== this.props.skills
           ?
-          <div>
-          <button onClick={()=>this.cancelEdit()}>Cancel</button>
-          <button onClick={()=>this.saveEdit()}>Save</button>
+          <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
+            <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
+            <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
           </div>
           :
           null
@@ -75,6 +73,9 @@ class SkillsFields extends Component{
     )
   }
 }
+
+SkillsFields = Radium(SkillsFields)
+
 const mapStateToProps = state => {
   return{
     skillTest: true
