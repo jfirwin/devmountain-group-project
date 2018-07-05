@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {addEducation} from '../../ducks/action'
 import style from './FieldsStyle'
 import Radium from 'radium'
+import ReactTransitionModule from './../../ducks/utils/animation'
 
 class AddEducation extends Component{
   constructor() {
@@ -46,26 +47,28 @@ class AddEducation extends Component{
       {
         this.state.add
         ?
-        <div>
-          <label>
-            <div style = {spacer}> 
-              School<input style={inputStyle} type="text" key="School" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
+        <ReactTransitionModule>
+          <div>
+            <label>
+              <div style = {spacer}> 
+                School<input style={inputStyle} type="text" key="School" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
+              </div>
+              <div style = {spacer}>
+                Emphasis<input style={inputStyle} type="text" key="Emphasis" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
+              </div>
+              <div style = {spacer}>
+                Start Date<input style={inputStyle} type="date" key="Start Date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+              </div>
+              <div style = {spacer}>
+                End Date<input style={inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              </div>
+            </label>
+            <div style={buttonSpacing}>
+              <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
+              <button style={button} key="Add" onClick={()=>this.addEducation()}>Add</button>
             </div>
-            <div style = {spacer}>
-              Emphasis<input style={inputStyle} type="text" key="Emphasis" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
-            </div>
-            <div style = {spacer}>
-              Start Date<input style={inputStyle} type="date" key="Start Date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
-            </div>
-            <div style = {spacer}>
-              End Date<input style={inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
-            </div>
-          </label>
-          <div style={buttonSpacing}>
-            <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
-            <button style={button} key="Add" onClick={()=>this.addEducation()}>Add</button>
           </div>
-        </div>
+        </ReactTransitionModule>
         :
         <button style={button} onClick={()=>this.setState({add: true})}>Add Education</button>
       }
