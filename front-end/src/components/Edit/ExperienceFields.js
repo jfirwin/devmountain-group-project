@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {updateExperience, deleteExperience} from '../../ducks/action'
+import style from './FieldsStyle'
+import Radium from 'radium'
 
 class ExperienceFields extends Component{
+
   constructor() {
+
     super()
+
     this.state = {
       experience: {
         company: '',
@@ -54,45 +59,38 @@ class ExperienceFields extends Component{
 
   render(){
 
-    const title = {
-      fontFamily: 'Montserrat',
-      familyWeight: '200'
-    }
-
-    const spacer = {
-      marginTop: 10
-    }
+    const {title, spacer, button, inputStyle, iconStyle} = style
 
     return (
       <div>
         <div>
           <label>
             <div style={spacer}>
-              <span style={title}>Company</span><input type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
+              <span>Company</span><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
             </div>
             <div style={spacer}>
-              <span style={title}>Title</span><input type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
+              <span>Title</span><input style={inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
             </div>
             <div style={spacer}>
-              <span style={title}>Location</span><input type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
+              <span>Location</span><input style={inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
             </div>
             <div style={spacer}>
-              <span style={title}>Description</span><input type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+              <span>Description</span><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
             </div>
             <div style={spacer}>
-              <span style={title}>Start Date</span><input type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+              <span style={title}>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
             </div>
             <div style={spacer}>
-              <span style={title}>End Date</span><input type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
             </div>
-            <button onClick={()=>this.deleteExperience()}>Delete</button>
+            <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
           </label>
         </div>
         {this.state.experience !== this.props.experience
           ?
-          <div>
-          <button onClick={()=>this.cancelEdit()}>Cancel</button>
-          <button onClick={()=>this.saveEdit()}>Save</button>
+          <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
+          <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
+          <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
           </div>
           :
           null
@@ -101,6 +99,8 @@ class ExperienceFields extends Component{
     )
   }
 }
+
+ExperienceFields = Radium(ExperienceFields)
 
 const mapStateToProps = state => {
   return{

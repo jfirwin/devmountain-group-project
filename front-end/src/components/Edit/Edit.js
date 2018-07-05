@@ -28,7 +28,8 @@ function ProfileInput(props){
   const title = {
     fontSize: 25,
     fontFamily: 'Montserrat',
-    height: '100'
+    height: '100',
+    marginRight: '50px'
   }
 
   const textStyle = {
@@ -36,15 +37,15 @@ function ProfileInput(props){
     fontWeight: 'bold'
   }
 
-  const hrStyle = {
-    border: '3px solid #D7A000'
+  const spacer = {
+    marginBottom: '40px'
   }
 
   return(
     <div style={formContainer}>
       {
         !props.selected &&
-        <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignContent: 'flex-end', textAlign: 'center'}}>
+        <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center', textAlign: 'center'}}>
           <h1 style={title}>Hi, {props.user.firstname}. please, choose an option on the navigation bar at your left.</h1>
         </div>
       }
@@ -93,7 +94,7 @@ function ProfileInput(props){
             <h1 style={title}>Skills</h1>
             {props.user.skills.map((skill, index) => {
               return(
-                <div key={`skills_${index}`}>
+                <div key={`skills_${index}`} style={spacer}>
                   <SkillsFields title="Skill" skills={skill}/>
                 </div>
               )

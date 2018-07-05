@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {addEducation} from '../../ducks/action'
+import style from './FieldsStyle'
+import Radium from 'radium'
 
 class AddEducation extends Component{
   constructor() {
@@ -37,6 +39,8 @@ class AddEducation extends Component{
 
   render(){
 
+    const {button, deleteButton, spacer, inputStyle, buttonSpacing} = style
+
     return (
       <div>
       {
@@ -44,29 +48,34 @@ class AddEducation extends Component{
         ?
         <div>
           <label>
-            <div>
-              School<input type="text" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
+            <div style = {spacer}> 
+              School<input style={inputStyle} type="text" key="School" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
             </div>
-            <div>
-              Emphasis<input type="text" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
+            <div style = {spacer}>
+              Emphasis<input style={inputStyle} type="text" key="Emphasis" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
             </div>
-            <div>
-              Start Date<input type="date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+            <div style = {spacer}>
+              Start Date<input style={inputStyle} type="date" key="Start Date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
             </div>
-            <div>
-              End Date<input type="date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+            <div style = {spacer}>
+              End Date<input style={inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
             </div>
           </label>
-          <button onClick={()=>this.cancelAdd()}>Cancel</button>
-          <button onClick={()=>this.addEducation()}>Add</button>
+          <div style={buttonSpacing}>
+            <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
+            <button style={button} key="Add" onClick={()=>this.addEducation()}>Add</button>
+          </div>
         </div>
         :
-        <button onClick={()=>this.setState({add: true})}>Add Education</button>
+        <button style={button} onClick={()=>this.setState({add: true})}>Add Education</button>
       }
       </div>
     )
   }
 }
+
+AddEducation = Radium(AddEducation)
+
 const mapStateToProps = state => {
   return{
     educationTest: true
