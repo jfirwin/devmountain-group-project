@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {addSkill} from '../../ducks/action'
 import style from './FieldsStyle'
 import Radium from 'radium'
+import ReactTransitionModule from './../../ducks/utils/animation'
 
 class AddSkill extends Component{
   constructor() {
@@ -44,29 +45,32 @@ class AddSkill extends Component{
     }
 
     return (
-      <div>
-      {
-        this.state.add
-        ?
+      
         <div>
-          <label style = {addSkill}>
-            <div style = {spacer}>
-               <span>Skill</span><input type="text" key="skill" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
+        {
+          this.state.add
+          ?
+          <ReactTransitionModule>
+            <div>
+              <label style = {addSkill}>
+                <div style = {spacer}>
+                  <span>Skill</span><input type="text" key="skill" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
+                </div>
+                <div style = {competencySpacer}>
+                  <span >Competency</span><input style={{border: 'none'}} type="range" min="0" max="100" key="competency" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+                  {this.state.skill.lvl}%
+                </div>
+              </label>
+              <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
+                <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
+                <button style={button} key="Add" onClick={()=>this.addSkill()}>Add</button>
+              </div>
             </div>
-            <div style = {competencySpacer}>
-              <span >Competency</span><input style={{border: 'none'}} type="range" min="0" max="100" key="competency" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
-              {this.state.skill.lvl}%
-            </div>
-          </label>
-          <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
-            <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
-            <button style={button} key="Add" onClick={()=>this.addSkill()}>Add</button>
-          </div>
-        </div>
-        :
-        <button style={button} onClick={()=>this.setState({add: true})}>Add Skill</button>
-      }
-      </div>
+          </ReactTransitionModule>
+          :
+          <button style={button} onClick={()=>this.setState({add: true})}>Add Skill</button>
+        }
+        </div>      
     )
   }
 }
