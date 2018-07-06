@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {updateExperience, deleteExperience} from '../../ducks/action'
 import style from './FieldsStyle'
 import Radium from 'radium'
+import ReactTransitionModule from './../../ducks/utils/animation'
 
 class ExperienceFields extends Component{
 
@@ -62,40 +63,42 @@ class ExperienceFields extends Component{
     const {title, spacer, button, inputStyle, iconStyle} = style
 
     return (
-      <div>
+      <ReactTransitionModule>
         <div>
-          <label>
-            <div style={spacer}>
-              <span>Company</span><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
-            </div>
-            <div style={spacer}>
-              <span>Title</span><input style={inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
-            </div>
-            <div style={spacer}>
-              <span>Location</span><input style={inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
-            </div>
-            <div style={spacer}>
-              <span>Description</span><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
-            </div>
-            <div style={spacer}>
-              <span style={title}>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
-            </div>
-            <div style={spacer}>
-              <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
-            </div>
-            <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
-          </label>
-        </div>
-        {this.state.experience !== this.props.experience
-          ?
-          <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
-          <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-          <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
+          <div>
+            <label>
+              <div style={spacer}>
+                <span>Company</span><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span>Title</span><input style={inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span>Location</span><input style={inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span>Description</span><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span style={title}>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              </div>
+              <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
+            </label>
           </div>
-          :
-          null
-        }
-      </div>
+          {this.state.experience !== this.props.experience
+            ?
+            <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
+            <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
+            <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
+            </div>
+            :
+            null
+          }
+        </div>
+      </ReactTransitionModule>
     )
   }
 }

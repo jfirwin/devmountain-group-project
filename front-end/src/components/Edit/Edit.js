@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Navbar from '../Navbar'
 import {getUserEdit, updateEditSelected} from '../../ducks/action'
-import TextField from './TextField'
 import EducationFields from './EducationFields'
 import UserFields from './UserFields'
 import SkillsFields from './SkillsFields'
@@ -11,6 +10,7 @@ import AddExperience from './AddExperience'
 import AddSkill from './AddSkill'
 import ExperienceFields from './ExperienceFields'
 import Radium from 'radium'
+import ReactTransitionModule from './../../ducks/utils/animation'
 import '../../App.css'
 
 
@@ -161,44 +161,48 @@ class Edit extends Component{
       outline: 'none'
     }
 
+
 		return(
 			<div style={wrapper}>
+        
         <Navbar user = {this.props.user}/>
         {this.props.user
           ?
-          <div style={box}>
-            <div style={boxNav}>
-              <button
-              onClick={() => this.props.updateEditSelected('Account')}
-              style={buttonStyle}
-              key='Account'
-              >
-              Account
-              </button>
-              <button
-              onClick={() => this.props.updateEditSelected('Education')}
-              style={buttonStyle}
-              key='Education'
-              >
-              Education
-              </button>
-              <button
-              onClick={() => this.props.updateEditSelected('Experience')}
-              style={buttonStyle}
-              key='Experience'
-              >
-              Experience
-              </button>
-              <button
-              onClick={() => this.props.updateEditSelected('Skills')}
-              style={buttonStyle}
-              key='Skills'
-              >
-              Skills
-              </button>
+          <ReactTransitionModule>
+            <div style={box}>
+              <div style={boxNav}>
+                <button
+                onClick={() => this.props.updateEditSelected('Account')}
+                style={buttonStyle}
+                key='Account'
+                >
+                Account
+                </button>
+                <button
+                onClick={() => this.props.updateEditSelected('Education')}
+                style={buttonStyle}
+                key='Education'
+                >
+                Education
+                </button>
+                <button
+                onClick={() => this.props.updateEditSelected('Experience')}
+                style={buttonStyle}
+                key='Experience'
+                >
+                Experience
+                </button>
+                <button
+                onClick={() => this.props.updateEditSelected('Skills')}
+                style={buttonStyle}
+                key='Skills'
+                >
+                Skills
+                </button>
+              </div>
+              <ProfileInput user={this.props.user} selected={this.props.editSelected} /> 
             </div>
-            <ProfileInput user={this.props.user} selected={this.props.editSelected} />
-          </div>
+          </ReactTransitionModule>
           :
           'Loading...'
         }

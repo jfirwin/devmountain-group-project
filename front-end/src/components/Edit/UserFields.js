@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {updateUser} from '../../ducks/action'
 import style from './FieldsStyle'
 import Radium from 'radium'
+import ReactTransitionModule from './../../ducks/utils/animation'
 
 
 class UserFields extends Component{
@@ -95,24 +96,36 @@ class UserFields extends Component{
   render(){
     const {title, spacer, buttonSpacing, button} = style
     return (
-      <div>
+      <ReactTransitionModule>
         <div>
-          <label>
-            <div style={spacer}>
-              <span style={title}>First Name</span><input type="text" value={this.state.user.firstname} onChange={(e) => this.updateFirstName(e.target.value)}/>
+          <div>
+            <label>
+              <div style={spacer}>
+                <span style={title}>First Name</span><input type="text" value={this.state.user.firstname} onChange={(e) => this.updateFirstName(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span style={title}>Last Name</span><input type="text" value={this.state.user.lastname} onChange={(e) => this.updateLastName(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span style={title}>Username</span><input type="text" value={this.state.user.username} onChange={(e) => this.updateUsername(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span style={title}>Description</span><input type="text" value={this.state.user.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+              </div>
+              <div style={spacer}>
+                <span style={title}>Image URL</span><input type="text" value={this.state.user.imgurl} onChange={(e) => this.updateImgURL(e.target.value)}/>
+              </div>
+            </label>
+          </div>
+          {this.checkProps()
+            ?
+            <div style={buttonSpacing}>
+              <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
+              <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
             </div>
-            <div style={spacer}>
-              <span style={title}>Last Name</span><input type="text" value={this.state.user.lastname} onChange={(e) => this.updateLastName(e.target.value)}/>
-            </div>
-            <div style={spacer}>
-              <span style={title}>Username</span><input type="text" value={this.state.user.username} onChange={(e) => this.updateUsername(e.target.value)}/>
-            </div>
-            <div style={spacer}>
-              <span style={title}>Description</span><input type="text" value={this.state.user.description} onChange={(e) => this.updateDescription(e.target.value)}/>
-            </div>
-            <div style={spacer}>
-              <span style={title}>Image URL</span><input type="text" value={this.state.user.imgurl} onChange={(e) => this.updateImgURL(e.target.value)}/>
-            </div>
+            :
+            null
+          }
             <div style={spacer}>
               <span style={title}>Theme</span>
               <select value={this.state.user.theme} onChange={(e) => this.updateTheme(e.target.value)}>
@@ -123,16 +136,7 @@ class UserFields extends Component{
             </div>
           </label>
         </div>
-        {this.checkProps()
-          ?
-          <div style={buttonSpacing}>
-            <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-            <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
-          </div>
-          :
-          null
-        }
-      </div>
+      </ReactTransitionModule>
     )
   }
 }
