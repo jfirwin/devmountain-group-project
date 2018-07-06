@@ -134,7 +134,6 @@ class UserFields extends Component{
                 <option value="light">Light</option>
               </select>
             </div>
-          </label>
         </div>
       </ReactTransitionModule>
     )
