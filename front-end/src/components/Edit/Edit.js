@@ -64,12 +64,12 @@ function ProfileInput(props){
             <h1 style={title}>Education</h1>
             {props.user.education.map((school, index) => {
               return(
-                <div key={`education_${index}`} style={{marginBottom: 50}}>
+                <div key={`education_{school.id}`} style={{marginBottom: 50}}>
                   <EducationFields school={school}/>
                 </div>
               )
             })}
-            <AddEducation/>
+            {props.user.education.length < 4 ? <AddEducation/> : <div/>}
           </div>
         }
 
@@ -79,12 +79,12 @@ function ProfileInput(props){
             <h1 style={title}>Experience</h1>
             {props.user.experience.map((job, index) => {
               return(
-                <div key={`experience_${index}`} style={{marginBottom: 50}}>
+                <div key={`experience_{job.id}`} style={{marginBottom: 50}}>
                   <ExperienceFields experience={job}/>
                 </div>
               )
             })}
-            <AddExperience/>
+            {props.user.experience.length < 4 ? <AddExperience/> : <div/>}
           </div>
         }
 
@@ -94,12 +94,12 @@ function ProfileInput(props){
             <h1 style={title}>Skills</h1>
             {props.user.skills.map((skill, index) => {
               return(
-                <div key={`skills_${index}`} style={spacer}>
+                <div key={`skills_{skill.id}`}>
                   <SkillsFields title="Skill" skills={skill}/>
                 </div>
               )
             })}
-            <AddSkill/>
+            {props.user.skills.length < 4 ? <AddSkill/> : <div/>}
           </div>
         }
     </div>

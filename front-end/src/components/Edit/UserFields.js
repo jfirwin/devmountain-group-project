@@ -15,7 +15,8 @@ class UserFields extends Component{
         lastname: '',
         imgurl: '',
         description: '',
-        username: ''
+        username: '',
+        theme: ''
       }
     }
   }
@@ -25,7 +26,8 @@ class UserFields extends Component{
       lastname: this.props.user.lastname,
       imgurl: this.props.user.imgurl,
       description: this.props.user.description,
-      username: this.props.user.username
+      username: this.props.user.username,
+      theme: this.props.user.theme
     }
   })
   }
@@ -39,6 +41,8 @@ class UserFields extends Component{
     } else if (this.state.user.description !== this.props.user.description) {
       return true
     } else if (this.state.user.username !== this.props.user.username) {
+      return true
+    } else if (this.state.user.theme !== this.props.user.theme) {
       return true
     }
     else return false
@@ -58,13 +62,17 @@ class UserFields extends Component{
   updateUsername = (newValue) => {
     this.setState({user: {...this.state.user, username: newValue}})
   }
+  updateTheme = (newValue) => {
+    this.setState({user: {...this.state.user, theme: newValue}})
+  }
   cancelEdit = () => {
     this.setState({user: {
       firstname: this.props.user.firstname,
       lastname: this.props.user.lastname,
       imgurl: this.props.user.imgurl,
       description: this.props.user.description,
-      username: this.props.user.username
+      username: this.props.user.username,
+      theme: this.props.user.theme
     }
   })
   }
@@ -78,7 +86,8 @@ class UserFields extends Component{
         lastname: nextProps.user.lastname,
         imgurl: nextProps.user.imgurl,
         description: nextProps.user.description,
-        username: nextProps.user.username
+        username: nextProps.user.username,
+        theme: nextProps.user.theme
       }
     })
     }
@@ -117,6 +126,15 @@ class UserFields extends Component{
             :
             null
           }
+            <div style={spacer}>
+              <span style={title}>Theme</span>
+              <select value={this.state.user.theme} onChange={(e) => this.updateTheme(e.target.value)}>
+                <option value="default">Default</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+              </select>
+            </div>
+          </label>
         </div>
       </ReactTransitionModule>
     )
