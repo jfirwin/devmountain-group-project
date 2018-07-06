@@ -18,18 +18,18 @@ const DefaultProfileMobile = (props) => {
         <div style={cvContentMobile}>
 
 
-            <h2 style={titleColor}>Skills</h2>
+        {props.user.skills.length > 0 ? <h2 style={titleColor}>Skills</h2> : <div/>}
               {props.user.skills.map(skill => {
                 return(
-                  <div key={skill.skill}>
+                  <div key={`skill_{skill.id}`}>
                     <h5 style={textColor}>{skill.skill}: {skill.lvl}</h5>
                   </div>
                 )
               })}
-            <h2 style={titleColor}>Education</h2>
-            {props.user.education.map(school => {
+            {props.user.education.length > 0 ? <h2 style={titleColor}>Education</h2> : <div/>}
+              {props.user.education.map(school => {
               return(
-                <div key={school.school}>
+                <div key={`education_{school.id}`}>
                   <h4 style={titleColor}>{school.school}</h4>
                   <h5 style={titleColor}>{school.emphasis}</h5>
                   <h6 style={textColor}>Start Date: {school.start_date}</h6>
@@ -39,10 +39,10 @@ const DefaultProfileMobile = (props) => {
             })}
 
 
-            <h2 style={titleColor}>Experience</h2>
+          {props.user.experience.length > 0 ? <h2 style={titleColor}>Experience</h2> : <div/>}
             {props.user.experience.map(experience => {
               return(
-                <div key={experience.id}>
+                <div key={`experience_{experience.id}`}>
                   <h4 style={titleColor}>{experience.title}</h4>
                   <h5 style={textColor}>{experience.company}</h5>
                   <h5 style={textColor}>{experience.location}</h5>

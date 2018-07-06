@@ -10,7 +10,7 @@ class AddSkill extends Component{
     this.state = {
       skill: {
         skill: '',
-        lvl: ''
+        lvl: 50
       },
       add: false
     }
