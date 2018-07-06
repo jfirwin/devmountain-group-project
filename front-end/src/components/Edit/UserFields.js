@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {updateUser} from '../../ducks/action'
+import style from './FieldsStyle'
+import Radium from 'radium'
+
 
 class UserFields extends Component{
   constructor() {
@@ -90,16 +93,7 @@ class UserFields extends Component{
   }
 
   render(){
-
-    const title = {
-      fontFamily: 'Montserrat',
-      familyWeight: '200'
-    }
-
-    const spacer = {
-      marginTop: 10
-    }
-
+    const {title, spacer, buttonSpacing, button} = style
     return (
       <div>
         <div>
@@ -131,9 +125,9 @@ class UserFields extends Component{
         </div>
         {this.checkProps()
           ?
-          <div>
-          <button onClick={()=>this.cancelEdit()}>Cancel</button>
-          <button onClick={()=>this.saveEdit()}>Save</button>
+          <div style={buttonSpacing}>
+            <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
+            <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
           </div>
           :
           null
@@ -142,6 +136,9 @@ class UserFields extends Component{
     )
   }
 }
+
+UserFields = Radium(UserFields)
+
 const mapStateToProps = state => {
   return{
     skillTest: true

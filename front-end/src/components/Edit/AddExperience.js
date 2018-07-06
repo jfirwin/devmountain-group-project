@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {addExperience} from '../../ducks/action'
+import style from './FieldsStyle'
+import Radium from 'radium'
 
 class AddExperience extends Component{
   constructor() {
@@ -45,6 +47,9 @@ class AddExperience extends Component{
 
   render(){
 
+    const {button, deleteButton, spacer, inputStyle, buttonSpacing} = style
+    
+
     return (
       <div>
       {
@@ -52,35 +57,40 @@ class AddExperience extends Component{
         ?
         <div>
           <label>
-            <div>
-              Company<input type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
+            <div style = {spacer}>
+              <span>Company</span><input style={inputStyle} type="text" key="Company" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
             </div>
-            <div>
-              Title<input type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
+            <div style = {spacer}>
+              <span>Title</span><input style={inputStyle} type="text" key="Title" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
             </div>
-            <div>
-              Description<input type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+            <div style = {spacer}>
+              <span>Description</span><input style={inputStyle} type="text" key="Description" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
             </div>
-            <div>
-              Location<input type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
+            <div style = {spacer}>
+              <span>Location</span><input style={inputStyle} type="text" key="Location" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
             </div>
-            <div>
-              Start Date<input type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+            <div style = {spacer}>
+              <span>Start Date</span><input style={inputStyle} type="date" key="startDate" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
             </div>
-            <div>
-              End Date<input type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+            <div style = {spacer}>
+              <span>End Date</span><input style={inputStyle} type="date" key="endDate" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
             </div>
           </label>
-          <button onClick={()=>this.cancelAdd()}>Cancel</button>
-          <button onClick={()=>this.addExperience()}>Add</button>
+          <div style={buttonSpacing}>
+            <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
+            <button style={button} key="Add" onClick={()=>this.addExperience()}>Add</button>
+          </div>
         </div>
         :
-        <button onClick={()=>this.setState({add: true})}>Add Experience</button>
+        <button style={button} onClick={()=>this.setState({add: true})}>Add Experience</button>
       }
       </div>
     )
   }
 }
+
+AddExperience = Radium(AddExperience)
+
 const mapStateToProps = state => {
   return{
     experienceTest: true
