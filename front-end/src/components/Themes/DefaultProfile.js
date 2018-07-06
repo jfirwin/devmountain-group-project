@@ -29,10 +29,10 @@ const DefaultProfile = (props) => {
                 })}
               </div>
             <div style={contentBlock}>
-              <h2 style={titleColor}>Education</h2>
+              {props.user.education.length > 0 ? <h2 style={titleColor}>Education</h2> : <div/>}
               {props.user.education.map(school => {
                 return(
-                  <div key={school.school}>
+                  <div key={`education_{school.id}`} style={experienceBox}>
                     <h4 style={titleColor}>{school.school}</h4>
                     <h5 style={titleColor}>{school.emphasis}</h5>
                     <h6 style={textColor}>Start Date: {school.start_date}</h6>
@@ -42,20 +42,6 @@ const DefaultProfile = (props) => {
               })}
             </div>
           </div>
-          <div style={leftPiece}>
-            <div style={contentBlock}>
-            {props.user.education.length > 0 ? <h2 style={titleColor}>Education</h2> : <div/>}
-            {props.user.education.map(school => {
-              return(
-                <div key={`education_{school.id}`}>
-                  <h4 style={titleColor}>{school.school}</h4>
-                  <h5 style={titleColor}>{school.emphasis}</h5>
-                  <h6 style={textColor}>Start Date: {school.start_date}</h6>
-                  <h6 style={textColor}>End Date: {school.end_date}</h6>
-                </div>
-              )
-            })}
-            </div>
           <div style={leftPiece}>
             <div style={contentBlock}>
              {props.user.experience.length > 0 ? <h2 style={titleColor}>Experience</h2> : <div/>}
