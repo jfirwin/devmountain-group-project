@@ -50,7 +50,7 @@ class EducationField extends Component{
 
   render(){
 
-    const {spacer, button, deleteButton, inputStyle, iconStyle} = style
+    const {spacer, button, inputStyle, iconStyle} = style
 
 
     return (

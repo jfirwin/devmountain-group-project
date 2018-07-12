@@ -11,7 +11,7 @@ const initialState = {
 	color: null,
 	theme: defaultTheme,
 	searchString: '',
-	editSelected: '',
+	editSelected: 'Account',
 	isAuthenticated: false
 }
 

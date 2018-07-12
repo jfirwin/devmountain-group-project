@@ -32,7 +32,7 @@ class AddSkill extends Component{
 
   render(){
 
-    const {spacer, competencySpacer, button, inputStyle} = style
+    const {spacer, competencySpacer, button} = style
 
     const addSkill = {
       height: '80px',
@@ -45,7 +45,7 @@ class AddSkill extends Component{
     }
 
     return (
-      
+
         <div>
         {
           this.state.add
@@ -70,7 +70,7 @@ class AddSkill extends Component{
           :
           <button style={button} onClick={()=>this.setState({add: true})}>Add Skill</button>
         }
-        </div>      
+        </div>
     )
   }
 }

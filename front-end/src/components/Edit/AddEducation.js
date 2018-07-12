@@ -40,7 +40,7 @@ class AddEducation extends Component{
 
   render(){
 
-    const {button, deleteButton, spacer, inputStyle, buttonSpacing} = style
+    const {button, spacer, inputStyle, buttonSpacing} = style
 
     return (
       <div>
@@ -50,7 +50,7 @@ class AddEducation extends Component{
         <ReactTransitionModule>
           <div>
             <label>
-              <div style = {spacer}> 
+              <div style = {spacer}>
                 School<input style={inputStyle} type="text" key="School" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
               </div>
               <div style = {spacer}>

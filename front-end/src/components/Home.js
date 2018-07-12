@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Navbar from './Navbar'
 import {style} from './homeStyle'
 import resume from './images/default-theme.png'
-import {Link} from 'react-router-dom'
 import MediaQuery from 'react-responsive'
 import '../App.css'
 
@@ -69,7 +68,7 @@ const ButtonWindow = (props) => {
   return (
     <div className='homeSection' style={center}>
         <div style={{textAlign: 'center'}}>
-          <p style={{'fontFamily': 'News Cycle', fontSize: '30px'}}>{props.children}</p>
+          <div style={{'fontFamily': 'News Cycle', fontSize: '30px'}}>{props.children}</div>
         </div>
         <div>
         <a href={props.link}>

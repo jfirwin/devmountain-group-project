@@ -48,8 +48,8 @@ class AddExperience extends Component{
 
   render(){
 
-    const {button, deleteButton, spacer, inputStyle, buttonSpacing} = style
-    
+    const {button, spacer, inputStyle, buttonSpacing} = style
+
 
     return (
       <div>

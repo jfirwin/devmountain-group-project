@@ -2,7 +2,6 @@ import React from 'react'
 import ReactTransition from 'react-addons-css-transition-group'
 
 const ReactTransitionModule = (props) => {
-    console.log(props.children)
     return (
         <ReactTransition
         transitionName='fade'
@@ -17,4 +16,4 @@ const ReactTransitionModule = (props) => {
     )
 }
 
-export default ReactTransitionModule  
+export default ReactTransitionModule

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import axios from 'axios'
 import { connect } from 'react-redux'
 
 const checkAuth = (isAuthenthicated) => {

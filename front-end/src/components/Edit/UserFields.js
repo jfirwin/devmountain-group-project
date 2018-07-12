@@ -117,15 +117,6 @@ class UserFields extends Component{
               </div>
             </label>
           </div>
-          {this.checkProps()
-            ?
-            <div style={buttonSpacing}>
-              <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-              <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
-            </div>
-            :
-            null
-          }
             <div style={spacer}>
               <span style={title}>Theme</span>
               <select value={this.state.user.theme} onChange={(e) => this.updateTheme(e.target.value)}>
@@ -135,6 +126,15 @@ class UserFields extends Component{
               </select>
             </div>
         </div>
+        {this.checkProps()
+          ?
+          <div style={buttonSpacing}>
+          <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
+          <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
+          </div>
+          :
+          null
+        }
       </ReactTransitionModule>
     )
   }

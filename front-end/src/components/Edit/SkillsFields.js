@@ -45,7 +45,7 @@ class SkillsFields extends Component{
 
   render(){
 
-    const {title, spacer, competencySpacer, button, skillBox, inputStyle, iconStyle} = style
+    const {spacer, competencySpacer, button, skillBox, inputStyle, iconStyle} = style
 
     return (
       <ReactTransitionModule>
@@ -60,7 +60,7 @@ class SkillsFields extends Component{
                 <span>{this.state.skills.lvl}%</span>
               </div>
               <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteSkill()}></i>
-            </label>          
+            </label>
           </div>
           {this.state.skills !== this.props.skills
             ?

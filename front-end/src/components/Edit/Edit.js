@@ -32,15 +32,6 @@ function ProfileInput(props){
     marginRight: '50px'
   }
 
-  const textStyle = {
-    fontFamily: 'Montserrat',
-    fontWeight: 'bold'
-  }
-
-  const spacer = {
-    marginBottom: '40px'
-  }
-
   return(
     <div style={formContainer}>
       {
@@ -51,7 +42,7 @@ function ProfileInput(props){
       }
 
       {
-        props.selected == 'Account' &&
+        props.selected === 'Account' &&
         <div style={{height: '100%'}}>
           <h1 style={title}>Account</h1>
           <UserFields user={props.user}/>
@@ -59,12 +50,12 @@ function ProfileInput(props){
         }
 
         {
-          props.selected == 'Education' &&
+          props.selected === 'Education' &&
           <div>
             <h1 style={title}>Education</h1>
             {props.user.education.map((school, index) => {
               return(
-                <div key={`education_{school.id}`} style={{marginBottom: 50}}>
+                <div key={`education_${school.id}`} style={{marginBottom: 50}}>
                   <EducationFields school={school}/>
                 </div>
               )
@@ -74,12 +65,12 @@ function ProfileInput(props){
         }
 
         {
-          props.selected == 'Experience' &&
+          props.selected === 'Experience' &&
           <div>
             <h1 style={title}>Experience</h1>
             {props.user.experience.map((job, index) => {
               return(
-                <div key={`experience_{job.id}`} style={{marginBottom: 50}}>
+                <div key={`experience_${job.id}`} style={{marginBottom: 50}}>
                   <ExperienceFields experience={job}/>
                 </div>
               )
@@ -89,12 +80,12 @@ function ProfileInput(props){
         }
 
         {
-          props.selected == 'Skills' &&
+          props.selected === 'Skills' &&
           <div>
             <h1 style={title}>Skills</h1>
             {props.user.skills.map((skill, index) => {
               return(
-                <div key={`skills_{skill.id}`}>
+                <div key={`skills_${skill.id}`}>
                   <SkillsFields title="Skill" skills={skill}/>
                 </div>
               )
@@ -114,7 +105,7 @@ class Edit extends Component{
 
   }
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.user != nextProps.user || this.props.editSelected != nextProps.editSelected) {
+    if (this.props.user !== nextProps.user || this.props.editSelected !== nextProps.editSelected) {
       return true
     } else return false
   }
@@ -157,14 +148,14 @@ class Edit extends Component{
       backgroundColor: 'rgb(253, 253, 253)',
       border: 'none',
       ':focus': {backgroundColor: 'rgba(156, 140, 96, 0.1)', outline: 'none', border: 'none', boxShadow: 'none'},
-      ':active': {boxShadow: 'none', border: 'none', borderStyle: 'outset'},
+      ':active': {boxShadow: 'none', borderWidth: '0px', borderStyle: 'outset'},
       outline: 'none'
     }
 
 
 		return(
 			<div style={wrapper}>
-        
+
         <Navbar user = {this.props.user}/>
         {this.props.user
           ?
@@ -200,7 +191,7 @@ class Edit extends Component{
                 Skills
                 </button>
               </div>
-              <ProfileInput user={this.props.user} selected={this.props.editSelected} /> 
+              <ProfileInput user={this.props.user} selected={this.props.editSelected} />
             </div>
           </ReactTransitionModule>
           :
