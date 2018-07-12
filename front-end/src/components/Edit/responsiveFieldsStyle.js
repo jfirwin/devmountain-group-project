@@ -1,12 +1,10 @@
 const responsiveFormContainer = {
-    width: '100%',
-    height: '90%',
+    width: '80%',
+    height: '70%',
     display: 'flex',
     flexDirection : 'column',
-    justifyContent: 'center',
     alignContent: 'center',
-    overflow: 'auto',
-    marginTop: '25px'
+    overflow: 'auto'
   }
 
   const responsiveSpacer = {
@@ -56,7 +54,7 @@ const responsiveFormContainer = {
     backgroundColor: 'white',
     border: '1px solid black',
     fontWeight: 'bold',
-    marginTop: '15px',
+    marginTop: '25px',
     ':hover': {
       backgroundColor: '#F3F3F3'
     }
@@ -76,30 +74,36 @@ const responsiveFormContainer = {
 
   const wrapper = {
     width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
   }
 
   const ResponsiveBox = {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    width: '60vw',
-    height: '70vh',
-    border: '1px solid #E2E2E1',
-    marginTop: 100
+    width: '100%',
+    height: '80vh',
+    border: '1px solid #E2E2E1'
   }
 
   const boxNav = {
     display: 'flex',
-    flexDirection: 'column',
-    width: '30%',
-    height: '100%',
-    backgroundColor: 'rgb(253, 253, 253)',
-    marginTop: '25px'
+    justifyContent: 'center',
+    width: '100%',
+    height: '80%',
+    marginTop: '95px',
+    flexWrap: 'wrap'
+  }
+
+  const icons = {
+    fontSize: '100px',
+    color: '#E3E38A'
+  }
+
+  const iconDiv = {
+    textAlign: 'center',
+    height: '150px',
+    width: '150px'
   }
 
   const buttonStyle = {
@@ -130,5 +134,7 @@ const responsiveFormContainer = {
     ResponsiveBox: ResponsiveBox,
     boxNav: boxNav,
     buttonStyle: buttonStyle,
-    inputProfileSpacer: inputProfileSpacer
+    inputProfileSpacer: inputProfileSpacer,
+    icons: icons,
+    iconDiv: iconDiv
   }

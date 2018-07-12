@@ -11,12 +11,15 @@ import ExperienceFields from './ExperienceFields'
 import ReactTransitionModule from './../../ducks/utils/animation'
 import MediaQuery from 'react-responsive'
 import style from './responsiveFieldsStyle'
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import Work from '@material-ui/icons/Work'
+import Stars from '@material-ui/icons/Stars'
+import LibraryBooks from '@material-ui/icons/LibraryBooks'
 
 
 const {
     wrapper,
     boxNav,
-    buttonStyle, 
     ResponsiveBox,
     responsiveFormContainer,
     inputProfileSpacer,
@@ -25,25 +28,20 @@ const {
     spacer,
     inputStyle,
     responsiveInputStyle,
-    responsiveCompetencySpacer
+    responsiveCompetencySpacer,
+    icons,
+    iconDiv,
+    button
   } = style
-
-  console.log(style)
 
   function ResponsiveProfileInput(props){
   
     return(
+      <div style={{overflow: 'auto', width: '80%', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
       <div style={responsiveFormContainer}>
         {
-          !props.selected &&
-          <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center', textAlign: 'center'}}>
-            <h1 style={responsiveTitle}>Hi, {props.user.firstname}. please, choose an option on the navigation bar at your left.</h1>
-          </div>
-        }
-  
-        {
           props.selected == 'Account' &&
-          <div style={{height: '100%', width: '100%', marginTop: '25px'}}>
+          <div>
             <h1 style={responsiveTitle}>Account</h1>
             <UserFields user={props.user} spacer={responsiveSpacer} title={responsiveTitle}/>
           </div>
@@ -70,7 +68,7 @@ const {
               <h1 style={responsiveTitle}>Experience</h1>
               {props.user.experience.map((job, index) => {
                 return(
-                  <div key={`experience_${index}`} style={{marginBottom: 50}}>
+                  <div key={`experience_${index}`}>
                     <ExperienceFields experience={job} spacer={responsiveSpacer} inputStyle={responsiveInputStyle}/>
                   </div>
                 )
@@ -93,13 +91,15 @@ const {
               <AddSkill spacer={responsiveSpacer}/>
             </div>
           }
-          <button onClick={()=> props.goBackEditPage()}>Go Back</button>
+          
+      </div>
+      <button style={button} onClick={()=> props.goBackEditPage()}>Go Back</button>
       </div>
     )
   }
 
-  function ResponsiveEditPage(props) {
 
+  function ResponsiveEditPage(props) {
     return (
       <div style={wrapper}>
           <Navbar user = {props.user}/>
@@ -109,34 +109,22 @@ const {
               <div style={ResponsiveBox}>
                 { !props.editSelected ? 
                 <div style={boxNav}>
-                  <button
-                  onClick={() => props.updateEditSelected('Account')}
-                  style={buttonStyle}
-                  key='Account'
-                  >
-                  Account
-                  </button>
-                  <button
-                  onClick={() => props.updateEditSelected('Education')}
-                  style={buttonStyle}
-                  key='Education'
-                  >
-                  Education
-                  </button>
-                  <button
-                  onClick={() => props.updateEditSelected('Experience')}
-                  style={buttonStyle}
-                  key='Experience'
-                  >
-                  Experience
-                  </button>
-                  <button
-                  onClick={() => props.updateEditSelected('Skills')}
-                  style={buttonStyle}
-                  key='Skills'
-                  >
-                  Skills
-                  </button>
+                  <div style={iconDiv}>
+                    <AccountCircle style={icons} onClick={() => props.updateEditSelected('Account')}> account_circle </AccountCircle>
+                    <p>Account</p>
+                  </div>
+                  <div style={iconDiv}>
+                    <Work style={icons} onClick={() => props.updateEditSelected('Experience')}> work_outline </Work>
+                    <p>Experience</p>
+                  </div>
+                  <div style={iconDiv}>
+                    <Stars style={icons} onClick={() => props.updateEditSelected('Skills')}> Stars </Stars>
+                    <p>Skills</p>
+                  </div>
+                  <div style={iconDiv}>
+                    <LibraryBooks style={icons} onClick={() => props.updateEditSelected('Education')}> LibraryBooks </LibraryBooks> 
+                    <p>Education</p>
+                  </div>
                 </div>
                 :
                 <ResponsiveProfileInput user={props.user} selected={props.editSelected} goBackEditPage={props.goBackEditPage}/> 

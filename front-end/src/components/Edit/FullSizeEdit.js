@@ -31,6 +31,27 @@ const {
   slider
 } = style
 
+function EditPageButton(props) {
+  return(
+    <div>
+      <button
+        onClick={() => props.updateEditSelected(props.selected)}
+        style={buttonStyle}
+        key={props.selected}
+      >
+        {props.selected}
+      </button>
+    </div>
+  )
+} 
+
+function EditPageNav(props){
+  let keys = ['Account', 'Education', 'Experience', 'Skills']
+  return(keys.map((key) => {
+    return <EditPageButton selected={key} {...props}/>
+  }))
+}
+
 
 function FullSizeEditPage(props) {
 
@@ -43,34 +64,7 @@ function FullSizeEditPage(props) {
           <ReactTransitionModule>
             <div style={box}>
               <div style={boxNav}>
-                <button
-                onClick={() => props.updateEditSelected('Account')}
-                style={buttonStyle}
-                key='Account'
-                >
-                Account
-                </button>
-                <button
-                onClick={() => props.updateEditSelected('Education')}
-                style={buttonStyle}
-                key='Education'
-                >
-                Education
-                </button>
-                <button
-                onClick={() => props.updateEditSelected('Experience')}
-                style={buttonStyle}
-                key='Experience'
-                >
-                Experience
-                </button>
-                <button
-                onClick={() => props.updateEditSelected('Skills')}
-                style={buttonStyle}
-                key='Skills'
-                >
-                Skills
-                </button>
+                <EditPageNav updateEditSelected={props.updateEditSelected}/>
               </div>
               <ProfileInput user={props.user} selected={props.editSelected} /> 
             </div>
