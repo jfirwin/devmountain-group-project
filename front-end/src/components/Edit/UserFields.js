@@ -92,19 +92,19 @@ class UserFields extends Component{
           <div>
             <label>
               <div style={this.props.spacer}>
-                <span>First Name</span><input type="text" value={this.state.user.firstname} onChange={(e) => this.updateFirstName(e.target.value)}/>
+                <span>First Name</span><input style={this.props.inputStyle} key='FirstName' type="text" value={this.state.user.firstname} onChange={(e) => this.updateFirstName(e.target.value)}/>
               </div>
               <div style={this.props.spacer}>
-                <span style={this.props.title}>Last Name</span><input type="text" value={this.state.user.lastname} onChange={(e) => this.updateLastName(e.target.value)}/>
+                <span style={this.props.title}>Last Name</span><input key='LastName' style={this.props.inputStyle} type="text" value={this.state.user.lastname} onChange={(e) => this.updateLastName(e.target.value)}/>
               </div>
               <div style={this.props.spacer}>
-                <span style={this.props.title}>Username</span><input type="text" value={this.state.user.username} onChange={(e) => this.updateUsername(e.target.value)}/>
+                <span style={this.props.title}>Username</span><input key='Username' style={this.props.inputStyle} type="text" value={this.state.user.username} onChange={(e) => this.updateUsername(e.target.value)}/>
               </div>
               <div style={this.props.spacer}>
-                <span style={this.props.title}>Description</span><input type="text" value={this.state.user.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+                <span style={this.props.title}>Description</span><input key='Description' style={this.props.inputStyle} type="text" value={this.state.user.description} onChange={(e) => this.updateDescription(e.target.value)}/>
               </div>
               <div style={this.props.spacer}>
-                <span style={this.props.title}>Image URL</span><input type="text" value={this.state.user.imgurl} onChange={(e) => this.updateImgURL(e.target.value)}/>
+                <span style={this.props.title}>Image URL</span><input key='Image' style={this.props.inputStyle} type="text" value={this.state.user.imgurl} onChange={(e) => this.updateImgURL(e.target.value)}/>
               </div>
             </label>
           </div>

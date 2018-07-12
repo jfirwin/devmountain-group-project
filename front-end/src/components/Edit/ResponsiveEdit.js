@@ -43,7 +43,7 @@ const {
           props.selected == 'Account' &&
           <div>
             <h1 style={responsiveTitle}>Account</h1>
-            <UserFields user={props.user} spacer={responsiveSpacer} title={responsiveTitle}/>
+            <UserFields user={props.user} spacer={responsiveSpacer} title={responsiveTitle} inputStyle={responsiveInputStyle}/>
           </div>
           }
   
