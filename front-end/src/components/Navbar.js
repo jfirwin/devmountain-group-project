@@ -16,7 +16,10 @@ class Navbar extends Component {
           <p>Logo/Home</p>
         </NavLink>
           { this.props.isAuthenticated &&
-            <div style={{display: 'flex', justifyContent: 'space-around', width: 200}}>
+            <div style={{display: 'flex', justifyContent: 'space-around', width: 300}}>
+              <NavLink to={`/${this.props.userLoggedIn}`} activeStyle={activeStyle}>
+                <p>Profile</p>
+              </NavLink>
               <NavLink to='/Search' activeStyle={activeStyle}>
                 <p>Search</p>
               </NavLink> 
@@ -46,7 +49,8 @@ class Navbar extends Component {
   
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.isAuthenticated
+    isAuthenticated: state.isAuthenticated,
+    userLoggedIn: state.userLoggedIn
   }
 }
 
