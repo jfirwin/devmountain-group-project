@@ -166,7 +166,7 @@ class Search extends Component{
 				</MediaQuery>
 				<MediaQuery query='(max-width: 1000px)'>
 					<div style={responsiveContainer}>
-						<input style={inputStyle} key='midSizeSearchInput' placeholder='Search Here' type="text" onChange={(e) => this.props.updateSearchString(e.target.value)}/>
+						<input style={inputStyle} key='midSizeSearchInput' placeholder='Search' type="text" onChange={(e) => this.props.updateSearchString(e.target.value)}/>
 						<Tiles users = {this.props.users} searchString = {this.props.searchString} responsiveTileWrapper={{...responsiveTileWrapper, padding:50}} responsiveTileStyle={responsiveTileStyle}/>
 					</div>
 				</MediaQuery>
