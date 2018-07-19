@@ -30,6 +30,7 @@ module.exports = function(app) {
       lastname: req.body.lastname,
       description: req.body.description,
       imgurl: req.body.imgurl,
+      theme: req.body.theme,
       authid: req.session.passport.user.authid
     })
       .then(response => {
