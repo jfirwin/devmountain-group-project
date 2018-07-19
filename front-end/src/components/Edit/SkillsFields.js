@@ -45,7 +45,7 @@ class SkillsFields extends Component{
 
   render(){
 
-    const {spacer, competencySpacer, button, skillBox, inputStyle, iconStyle} = style
+    const {title, competencySpacer, button, skillBox, inputStyle, iconStyle} = style
 
     return (
       <ReactTransitionModule>
@@ -58,7 +58,7 @@ class SkillsFields extends Component{
                 <span>Competency</span><input style={this.props.slider} type="range" key="Competency" max="100" min="0" value={this.state.skills.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
                 <span>{this.state.skills.lvl}%</span>
               </div>
-              <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteSkill()}></i>
+              <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteSkill()}></i>         
           </div>
           {this.state.skills !== this.props.skills
             ?

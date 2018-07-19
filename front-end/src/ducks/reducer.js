@@ -11,8 +11,9 @@ const initialState = {
 	color: null,
 	theme: defaultTheme,
 	searchString: '',
-	editSelected: 'Account',
-	isAuthenticated: false
+	editSelected: '',
+	isAuthenticated: false,
+	userLoggedIn: ''
 }
 
 function reducer(state = initialState, action){
@@ -198,7 +199,6 @@ function reducer(state = initialState, action){
 				updateUser.description = update.description
 				updateUser.username = update.username
 				updateUser.imgurl = update.imgurl
-				updateUser.theme = update.theme
 				updateUserState.user = updateUser
 				return updateUserState
 
