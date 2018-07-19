@@ -143,6 +143,7 @@ function ProfileInput(props){
   )
 }
 
+EditPageButton = Radium(EditPageButton)
 FullSizeEditPage = Radium(FullSizeEditPage)
 
 export default FullSizeEditPage
