@@ -45,7 +45,7 @@ class SkillsFields extends Component{
 
   render(){
 
-    const {title, competencySpacer, button, skillBox, inputStyle, iconStyle} = style
+    const {button, skillBox, inputStyle, iconStyle} = style
 
     return (
       <ReactTransitionModule>

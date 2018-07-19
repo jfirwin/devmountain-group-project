@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from '../Navbar'
-import {getUserEdit, updateEditSelected, goBackEditPage} from '../../ducks/action'
 import EducationFields from './EducationFields'
 import UserFields from './UserFields'
 import SkillsFields from './SkillsFields'
@@ -9,7 +8,6 @@ import AddExperience from './AddExperience'
 import AddSkill from './AddSkill'
 import ExperienceFields from './ExperienceFields'
 import ReactTransitionModule from './../../ducks/utils/animation'
-import MediaQuery from 'react-responsive'
 import style from './responsiveFieldsStyle'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import Work from '@material-ui/icons/Work'
@@ -22,13 +20,9 @@ const {
     boxNav,
     ResponsiveBox,
     responsiveFormContainer,
-    inputProfileSpacer,
     responsiveSpacer,
     responsiveTitle,
-    spacer,
-    inputStyle,
     responsiveInputStyle,
-    responsiveCompetencySpacer,
     icons,
     iconDiv,
     button
