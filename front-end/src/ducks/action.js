@@ -114,5 +114,10 @@ module.exports = {
 			type: type.GET_USER_EDIT,
 			payload: api.getUserEdit()
 		}
+	},
+	goBackEditPage:() => {
+		return {
+			type: type.GO_BACK_EDIT_PAGE
+		}
 	}
 }

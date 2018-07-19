@@ -39,13 +39,14 @@ const button = {
 
 const skillBox = {
   height: '120px',
-  witdh: '100%',
+  witdh: '100vw',
   display: 'flex',
   flexDirection: 'column',
   alignContent: 'center',
   justifyContent: 'space-between',
   fontFamily: 'Montserrat',
-  familyWeight: '200'
+  familyWeight: '200',
+  marginBottom: '25px'
 }
 
 const skillSpacer = {
@@ -73,6 +74,67 @@ const iconStyle = {
   marginTop: '15px'
 }
 
+const wrapper = {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+
+  const box = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '60vw',
+    height: '70vh',
+    border: '1px solid #E2E2E1',
+    marginTop: 100
+  }
+
+  const boxNav = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '30%',
+    height: '100%',
+    backgroundColor: 'rgb(253, 253, 253)'
+  }
+
+  const buttonStyle = {
+    width: '100%',
+    height: 50,
+    backgroundColor: 'rgb(253, 253, 253)',
+    border: 'none',
+    ':focus': {backgroundColor: 'rgba(156, 140, 96, 0.1)', outline: 'none', border: 'none', boxShadow: 'none'},
+    ':active': {boxShadow: 'none', border: 'none'},
+    outline: 'none'
+  }
+
+
+  const inputProfileSpacer = {
+    marginBottom: '40px'
+  }
+
+  const fullSizeTitle = {
+    fontSize: 25,
+    fontFamily: 'Montserrat',
+    height: '100',
+    marginRight: '50px'
+  }
+
+  const fullSizeFormContainer = {
+    width: '35vw',
+    height: '90%',
+    display: 'flex',
+    flexDirection : 'column',
+    justifyContent: 'flex-start',
+    overflow: 'auto'
+  }
+
+  const slider = {
+    width: '50%'
+  }
+
 module.exports = {
     title: title,
     spacer: spacer,
@@ -83,5 +145,13 @@ module.exports = {
     skillBox: skillBox,
     inputStyle: inputStyle,
     buttonSpacing: buttonSpacing,
-    iconStyle: iconStyle
+    iconStyle: iconStyle,
+    wrapper: wrapper,
+    box: box,
+    boxNav: boxNav,
+    buttonStyle: buttonStyle,
+    inputProfileSpacer: inputProfileSpacer,
+    fullSizeFormContainer: fullSizeFormContainer,
+    fullSizeTitle: fullSizeTitle,
+    slider: slider
 }

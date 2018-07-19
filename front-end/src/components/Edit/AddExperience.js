@@ -48,7 +48,7 @@ class AddExperience extends Component{
 
   render(){
 
-    const {button, deleteButton, spacer, inputStyle, buttonSpacing} = style
+    const {button, deleteButton, buttonSpacing} = style
     
 
     return (
@@ -59,23 +59,23 @@ class AddExperience extends Component{
         <ReactTransitionModule>
           <div>
             <label>
-              <div style = {spacer}>
-                <span>Company</span><input style={inputStyle} type="text" key="Company" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                <span>Company</span><input style={this.props.inputStyle} type="text" key="Company" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>Title</span><input style={inputStyle} type="text" key="Title" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                <span>Title</span><input style={this.props.inputStyle} type="text" key="Title" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>Description</span><input style={inputStyle} type="text" key="Description" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                <span>Description</span><input style={this.props.inputStyle} type="text" key="Description" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>Location</span><input style={inputStyle} type="text" key="Location" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                <span>Location</span><input style={this.props.inputStyle} type="text" key="Location" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>Start Date</span><input style={inputStyle} type="date" key="startDate" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                <span>Start Date</span><input style={this.props.inputStyle} type="date" key="startDate" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>End Date</span><input style={inputStyle} type="date" key="endDate" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                <span>End Date</span><input style={this.props.inputStyle} type="date" key="endDate" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
               </div>
             </label>
             <div style={buttonSpacing}>

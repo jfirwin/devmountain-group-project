@@ -40,7 +40,7 @@ class AddEducation extends Component{
 
   render(){
 
-    const {button, deleteButton, spacer, inputStyle, buttonSpacing} = style
+    const {button, deleteButton, buttonSpacing} = style
 
     return (
       <div>
@@ -50,17 +50,17 @@ class AddEducation extends Component{
         <ReactTransitionModule>
           <div>
             <label>
-              <div style = {spacer}> 
-                School<input style={inputStyle} type="text" key="School" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
+              <div style={this.props.spacer}> 
+                School<input style={this.props.inputStyle} type="text" key="School" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                Emphasis<input style={inputStyle} type="text" key="Emphasis" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                Emphasis<input style={this.props.inputStyle} type="text" key="Emphasis" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                Start Date<input style={inputStyle} type="date" key="Start Date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                Start Date<input style={this.props.inputStyle} type="date" key="Start Date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                End Date<input style={inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              <div style = {this.props.spacer}>
+                End Date<input style={this.props.inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
               </div>
             </label>
             <div style={buttonSpacing}>

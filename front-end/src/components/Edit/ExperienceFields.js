@@ -60,30 +60,30 @@ class ExperienceFields extends Component{
 
   render(){
 
-    const {title, spacer, button, inputStyle, iconStyle} = style
+    const {title, button, inputStyle, iconStyle} = style
 
     return (
       <ReactTransitionModule>
         <div>
           <div>
             <label>
-              <div style={spacer}>
-                <span>Company</span><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
+              <div style={this.props.spacer}>
+                <span>Company</span><input style={this.props.inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
               </div>
-              <div style={spacer}>
-                <span>Title</span><input style={inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
+              <div style={this.props.spacer}>
+                <span>Title</span><input style={this.props.inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
               </div>
-              <div style={spacer}>
-                <span>Location</span><input style={inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
+              <div style={this.props.spacer}>
+                <span>Location</span><input style={this.props.inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
               </div>
-              <div style={spacer}>
-                <span>Description</span><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+              <div style={this.props.spacer}>
+                <span>Description</span><input style={this.props.inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
               </div>
-              <div style={spacer}>
-                <span style={title}>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+              <div style={this.props.spacer}>
+                <span style={title}>Start Date</span><input key="startDate" style={this.props.inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
-              <div style={spacer}>
-                <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              <div style={this.props.spacer}>
+                <span>End Date</span><input key="EndDate" style={this.props.inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
               </div>
               <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
             </label>
