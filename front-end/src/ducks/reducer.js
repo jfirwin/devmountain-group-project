@@ -144,6 +144,12 @@ function reducer(state = initialState, action){
 					return experience.id === action.payload.data[0].id
 				})
 				experienceUpdate[experienceIndex] = action.payload.data[0]
+				experienceUpdate.sort(function(b,a){
+					if (new Date(b.start_date) - new Date(a.start_date) === 0) {
+						return new Date(b.end_date) - new Date(a.end_date);
+					} else return new Date(b.start_date) - new Date(a.start_date);
+				})
+
 				experienceUserUpdate.experience = experienceUpdate
 				experienceStateUpdate.user = experienceUserUpdate
 				return experienceStateUpdate
