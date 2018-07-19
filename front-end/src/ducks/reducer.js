@@ -162,6 +162,12 @@ function reducer(state = initialState, action){
 				let addExperienceUserUpdate = Object.assign({}, addExperienceStateUpdate.user)
 				let addExperienceUpdate = Object.assign([], addExperienceUserUpdate.experience)
 				addExperienceUpdate.push(action.payload.data[0])
+				addExperienceUpdate.sort(function(b,a){
+					if (new Date(b.start_date) - new Date(a.start_date) === 0) {
+						return new Date(b.end_date) - new Date(a.end_date);
+					} else return new Date(b.start_date) - new Date(a.start_date);
+				})
+
 				addExperienceUserUpdate.experience = addExperienceUpdate
 				addExperienceStateUpdate.user = addExperienceUserUpdate
 				return addExperienceStateUpdate
