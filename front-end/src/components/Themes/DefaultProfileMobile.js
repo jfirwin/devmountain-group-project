@@ -1,17 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import Navbar from '../Navbar'
 import {setTheme} from '../../ducks/action'
 
 
 const DefaultProfileMobile = (props) => {
 
-  const {mobileWrapper, cvContainer, imageDiv, titleColor, textColor, cvContentMobile, rightPiece, leftPiece} = props.theme
+  const {mobileWrapper, cvContainer, imageDiv, titleColor, textColor, cvContentMobile} = props.theme
   return (
     <div style={mobileWrapper}>
       <div style={cvContainer}>
         <div style={imageDiv}>
-          <img src={props.user.imgurl} alt={`${props.user.username} profile picture`} style={{'borderRadius':100}}/>
+          <img src={props.user.imgurl} alt={`${props.user.username} profile`} style={{'borderRadius':100}}/>
           <h1 style={titleColor}>{props.user.firstname} {props.user.lastname}</h1>
           <h5 style={textColor}>{props.user.description}</h5>
         </div>

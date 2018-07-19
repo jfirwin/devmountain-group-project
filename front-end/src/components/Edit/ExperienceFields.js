@@ -8,9 +8,7 @@ import ReactTransitionModule from './../../ducks/utils/animation'
 class ExperienceFields extends Component{
 
   constructor() {
-
     super()
-
     this.state = {
       experience: {
         company: '',

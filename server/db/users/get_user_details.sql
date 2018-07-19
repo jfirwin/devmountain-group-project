@@ -46,6 +46,9 @@ FROM
                 E.id
             ) x
         )
+        ORDER BY
+        E.start_date ASC,
+        E.end_date ASC
       ) AS education
     FROM
       education_table E
@@ -70,6 +73,9 @@ FROM
                 X.id
             ) x
         )
+        ORDER BY
+        X.start_date ASC,
+        X.end_date ASC
       ) AS experience
     FROM
       experience_table X

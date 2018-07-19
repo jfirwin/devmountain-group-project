@@ -22,4 +22,4 @@ const ReactTransitionModule = (props) => {
     )
 }
 
-export default ReactTransitionModule  
+export default ReactTransitionModule

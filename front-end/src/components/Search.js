@@ -49,11 +49,10 @@ let Tiles = (props) => {
 			searchString = props.searchString.trim().toLowerCase();
 		if(searchString.length > 0) {
 			tiles = tiles.filter(user => {
-
 				return (
-				user.firstname && user.firstname.toLowerCase().match(searchString) ||
-				user.lastname && user.lastname.toLowerCase().match(searchString) ||
-				user.description && user.description.toLowerCase().match(searchString)
+				(user.firstname && user.firstname.toLowerCase().match(searchString)) ||
+				(user.lastname && user.lastname.toLowerCase().match(searchString)) ||
+				(user.description && user.description.toLowerCase().match(searchString))
 				)
 			})
 		}
@@ -81,6 +80,7 @@ let Tiles = (props) => {
 								</Link>
 							)
 						}
+						else return null
 					})
 				}
 			</div>

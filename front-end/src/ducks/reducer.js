@@ -11,9 +11,8 @@ const initialState = {
 	color: null,
 	theme: defaultTheme,
 	searchString: '',
-	editSelected: '',
-	isAuthenticated: false,
-	userLoggedIn: ''
+	editSelected: 'Account',
+	isAuthenticated: false
 }
 
 function reducer(state = initialState, action){
@@ -50,6 +49,11 @@ function reducer(state = initialState, action){
 				return school.id === action.payload.data[0].id
 			})
 			educationUpdate[educationIndex] = action.payload.data[0]
+			educationUpdate.sort(function(b,a){
+				if (new Date(b.start_date) - new Date(a.start_date) === 0) {
+					return new Date(b.end_date) - new Date(a.end_date);
+				} else return new Date(b.start_date) - new Date(a.start_date);
+			})
 			educationUserUpdate.education = educationUpdate
 			educationStateUpdate.user = educationUserUpdate
 			return educationStateUpdate
@@ -62,6 +66,11 @@ function reducer(state = initialState, action){
 			let addEducationUserUpdate = Object.assign({}, addEducationStateUpdate.user)
 			let addEducationUpdate = Object.assign([], addEducationUserUpdate.education)
 			addEducationUpdate.push(action.payload.data[0])
+			addEducationUpdate.sort(function(b,a){
+				if (new Date(b.start_date) - new Date(a.start_date) === 0) {
+					return new Date(b.end_date) - new Date(a.end_date);
+				} else return new Date(b.start_date) - new Date(a.start_date);
+			})
 			addEducationUserUpdate.education = addEducationUpdate
 			addEducationStateUpdate.user = addEducationUserUpdate
 			return addEducationStateUpdate
@@ -134,6 +143,12 @@ function reducer(state = initialState, action){
 					return experience.id === action.payload.data[0].id
 				})
 				experienceUpdate[experienceIndex] = action.payload.data[0]
+				experienceUpdate.sort(function(b,a){
+					if (new Date(b.start_date) - new Date(a.start_date) === 0) {
+						return new Date(b.end_date) - new Date(a.end_date);
+					} else return new Date(b.start_date) - new Date(a.start_date);
+				})
+
 				experienceUserUpdate.experience = experienceUpdate
 				experienceStateUpdate.user = experienceUserUpdate
 				return experienceStateUpdate
@@ -146,6 +161,12 @@ function reducer(state = initialState, action){
 				let addExperienceUserUpdate = Object.assign({}, addExperienceStateUpdate.user)
 				let addExperienceUpdate = Object.assign([], addExperienceUserUpdate.experience)
 				addExperienceUpdate.push(action.payload.data[0])
+				addExperienceUpdate.sort(function(b,a){
+					if (new Date(b.start_date) - new Date(a.start_date) === 0) {
+						return new Date(b.end_date) - new Date(a.end_date);
+					} else return new Date(b.start_date) - new Date(a.start_date);
+				})
+
 				addExperienceUserUpdate.experience = addExperienceUpdate
 				addExperienceStateUpdate.user = addExperienceUserUpdate
 				return addExperienceStateUpdate

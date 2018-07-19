@@ -9,7 +9,7 @@ const DefaultProfile = (props) => {
     <div style={wrapper}>
       <div style={cvContainer}>
         <div style={imageDiv}>
-          <img src={props.user.imgurl} alt={`${props.user.username} profile picture`} style={{'borderRadius':'50%', width: 250}}/>
+          <img src={props.user.imgurl} alt={`${props.user.username} profile`} style={{'borderRadius':'50%', width: 250}}/>
           <h1 style={titleColor}>{props.user.firstname} {props.user.lastname}</h1>
           <h5 style={textColor}>{props.user.description}</h5>
         </div>

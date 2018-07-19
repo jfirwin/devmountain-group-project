@@ -50,9 +50,8 @@ class EducationField extends Component{
 
   render(){
 
-    const { button, deleteButton, iconStyle } = style
-
-
+    const {spacer, button, inputStyle, iconStyle} = style
+    
     return (
       <ReactTransitionModule>
         <div>
