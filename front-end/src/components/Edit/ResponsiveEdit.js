@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '../Navbar'
 import {getUserEdit, updateEditSelected, goBackEditPage} from '../../ducks/action'
