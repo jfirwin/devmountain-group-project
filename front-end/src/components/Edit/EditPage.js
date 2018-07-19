@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Navbar from '../Navbar'
 import {getUserEdit, updateEditSelected, goBackEditPage} from '../../ducks/action'
-import EducationFields from './EducationFields'
-import UserFields from './UserFields'
-import SkillsFields from './SkillsFields'
-import AddEducation from './AddEducation'
-import AddExperience from './AddExperience'
-import AddSkill from './AddSkill'
-import ExperienceFields from './ExperienceFields'
 import FullSizeEditPage from './FullSizeEdit'
 import ResponsiveEditPage from './ResponsiveEdit'
 import Radium from 'radium'
-import ReactTransitionModule from './../../ducks/utils/animation'
 import MediaQuery from 'react-responsive'
-import style from './FieldsStyle'
 import '../../App.css'
 
 
