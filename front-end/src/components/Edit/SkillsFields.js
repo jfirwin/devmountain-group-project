@@ -59,7 +59,6 @@ class SkillsFields extends Component{
                 <span>{this.state.skills.lvl}%</span>
               </div>
               <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteSkill()}></i>
-            </label>
           </div>
           {this.state.skills !== this.props.skills
             ?
