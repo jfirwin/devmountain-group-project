@@ -1,8 +1,83 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import MenuIcon from '@material-ui/icons/Menu'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import MediaQuery from 'react-responsive'
+
+class CollapsiveMenu extends Component {
+
+  state = {
+    anchorEl: null
+  }
+
+  handleClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+
+
+  render(){
+    return(  
+      <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
+        <NavLink to='/'>
+          <p>Logo/Home</p>
+        </NavLink>
+        { !this.props.isAuthenticated &&
+        <div>
+          <MenuIcon           
+            aria-owns={this.state.anchorEl ? 'simple-menu' : null}
+            aria-haspopup="true"
+            onClick={this.handleClick}
+            style={{fontSize: '50px', color: '#E3E38A'}}
+            >
+            menu
+            </MenuIcon>
+            <Menu
+            id="simple-menu"
+            anchorEl={this.state.anchorEl}
+            open={Boolean(this.state.anchorEl)}
+            onClose={this.handleClose}
+          >
+              <MenuItem onClick={this.handleClose}><Link to='/search' style={{color: 'black'}}>Search</Link></MenuItem>
+              <MenuItem onClick={this.handleClose}><a href='http://localhost:3005/auth/login' style={{color: 'black'}}>Login/SignUp</a></MenuItem>
+            </Menu>
+          </div>
+        }
+        { this.props.isAuthenticated &&
+          <div> 
+            <MenuIcon           
+            aria-owns={this.state.anchorEl ? 'simple-menu' : null}
+            aria-haspopup="true"
+            onClick={this.handleClick}
+            style={{fontSize: '50px', color: '#E3E38A'}}
+            >
+            menu
+            </MenuIcon>
+            <Menu
+            id="simple-menu"
+            anchorEl={this.state.anchorEl}
+            open={Boolean(this.state.anchorEl)}
+            onClose={this.handleClose}
+          >
+              <MenuItem onClick={this.handleClose}><Link to={`/${this.props.userLoggedIn}`} style={{color: 'black'}}>Profile</Link></MenuItem>
+              <MenuItem onClick={this.handleClose}><Link to='/search' style={{color: 'black'}}>Search</Link></MenuItem>
+              <MenuItem onClick={this.handleClose}><Link to='/edit' style={{color: 'black'}}>Account</Link></MenuItem>
+              <MenuItem onClick={this.handleClose}><a href='http://localhost:3005/auth/logout' style={{color: 'black'}}>Logout</a></MenuItem>
+            </Menu>
+          </div>
+        }
+      </div>
+    )
+  }
+}
 
 class Navbar extends Component {
+
   render(){
 
     let activeStyle = {
@@ -10,43 +85,51 @@ class Navbar extends Component {
     }
   
     return (
-      <nav className='nav-container'>
-        <div className='nav-content'>    
-        <NavLink to='/'>
-          <p>Logo/Home</p>
-        </NavLink>
-          { this.props.isAuthenticated &&
-            <div style={{display: 'flex', justifyContent: 'space-around', width: 200}}>
-              <NavLink to='/Search' activeStyle={activeStyle}>
-                <p>Search</p>
-              </NavLink> 
-              <NavLink to='/edit' activeStyle={activeStyle}>
-                <p>Account</p>
-              </NavLink>           
-              <a href='http://localhost:3005/auth/logout'>
-                <p>Logout</p>
-              </a>
-            </div>
-          }
-          { !this.props.isAuthenticated &&
-            <div style={{display: 'flex', justifyContent: 'space-around', width: 200}}>
-              <NavLink to='/search' activeStyle={activeStyle}>
-                <p>Search</p>
-              </NavLink>
-              <a href='http://localhost:3005/auth/login'>
-                <p>Login/Signup</p>
-              </a>
-            </div>
-          }
+        <div className='nav-content nav-container'>    
+        <MediaQuery query='(min-width: 1000px)'>
+          <NavLink to='/'>
+            <p>Logo/Home</p>
+          </NavLink>
+            { this.props.isAuthenticated &&
+              <div style={{display: 'flex', justifyContent: 'space-around', width: 300}}>
+                <NavLink to={`/${this.props.userLoggedIn}`} activeStyle={activeStyle}>
+                  <p>Profile</p>
+                </NavLink>
+                <NavLink to='/Search' activeStyle={activeStyle}>
+                  <p>Search</p>
+                </NavLink> 
+                <NavLink to='/edit' activeStyle={activeStyle}>
+                  <p>Account</p>
+                </NavLink>           
+                <a href='http://localhost:3005/auth/logout'>
+                  <p>Logout</p>
+                </a>
+              </div>
+            }
+            { !this.props.isAuthenticated &&
+              <div style={{display: 'flex', justifyContent: 'space-around', width: 200}}>
+                <NavLink to='/search' activeStyle={activeStyle}>
+                  <p>Search</p>
+                </NavLink>
+                <a href='http://localhost:3005/auth/login'>
+                  <p>Login/Signup</p>
+                </a>
+              </div>
+            }
+          </MediaQuery>
+          <MediaQuery query='(max-width: 1000px)'>
+            <CollapsiveMenu isAuthenticated={this.props.isAuthenticated} userLoggedIn={this.props.userLoggedIn}/>
+          </MediaQuery>
         </div>
-      </nav>
+
     )
   }
 }
   
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.isAuthenticated
+    isAuthenticated: state.isAuthenticated,
+    userLoggedIn: state.userLoggedIn
   }
 }
 

@@ -164,7 +164,6 @@ class Edit extends Component{
 
 		return(
 			<div style={wrapper}>
-        
         <Navbar user = {this.props.user}/>
         {this.props.user
           ?
@@ -200,7 +199,7 @@ class Edit extends Component{
                 Skills
                 </button>
               </div>
-              <ProfileInput user={this.props.user} selected={this.props.editSelected} /> 
+              <ProfileInput user={this.props.user} selected={this.props.editSelected} />
             </div>
           </ReactTransitionModule>
           :

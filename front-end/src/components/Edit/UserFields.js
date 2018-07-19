@@ -94,7 +94,7 @@ class UserFields extends Component{
   }
 
   render(){
-    const {title, spacer, buttonSpacing, button} = style
+    const {spacer, title, buttonSpacing, button} = style
     return (
       <ReactTransitionModule>
         <div style={{width: '100%'}}>
