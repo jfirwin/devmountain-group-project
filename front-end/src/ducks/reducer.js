@@ -209,8 +209,11 @@ function reducer(state = initialState, action){
 		case type.UPDATE_EDIT_SELECTED:
 			return Object.assign({}, state, {editSelected: action.payload})
 
+		case type.GO_BACK_EDIT_PAGE:
+			return Object.assign({}, state, {editSelected: ''})
+
 		case type.AUTH_FULFILLED:
-			return Object.assign({}, state, {loading: false, user: action.payload.data[0], isAuthenticated: true})
+			return Object.assign({}, state, {loading: false, user: action.payload.data[0], isAuthenticated: true, userLoggedIn: action.payload.data[0].username})
 
 		case type.AUTH_PENDING:
 			return Object.assign({}, state, {loading: true})
@@ -223,6 +226,7 @@ function reducer(state = initialState, action){
 
 		case type.GET_USER_EDIT_FULFILLED:
 			return Object.assign({}, state, {loading: false, user: action.payload.data[0]})
+
 
 		default:
 			return state

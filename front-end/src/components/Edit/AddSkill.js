@@ -33,7 +33,7 @@ class AddSkill extends Component{
   render(){
 
     const {spacer, competencySpacer, button} = style
-
+    
     const addSkill = {
       height: '80px',
       marginBottom: '30px',
@@ -53,7 +53,7 @@ class AddSkill extends Component{
           <ReactTransitionModule>
             <div>
               <label style = {addSkill}>
-                <div style = {spacer}>
+                <div style = {this.props.spacer}>
                   <span>Skill</span><input type="text" key="skill" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
                 </div>
                 <div style = {competencySpacer}>

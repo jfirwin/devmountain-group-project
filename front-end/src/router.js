@@ -4,7 +4,7 @@ import Search from './components/Search'
 import Profile from './components/Profile'
 import Home from './components/Home'
 import Callback from './components/Callback'
-import Edit from './components/Edit/Edit'
+import Edit from './components/Edit/EditPage'
 import PrivateRoute from './components/PrivateRouter'
 import Login from './components/Login'
 

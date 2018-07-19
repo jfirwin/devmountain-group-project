@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Navbar from './Navbar'
 import {getUsersTiles, updateSearchString} from '../ducks/action'
 import Radium from 'radium'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ReactTransitionModule from './../ducks/utils/animation'
-
+import MediaQuery from 'react-responsive'
 
 
 let Tiles = (props) => {
@@ -59,13 +59,13 @@ let Tiles = (props) => {
 
 	return (
 		<ReactTransitionModule>
-			<div style={tileWrapper}>
+			<div style={props.responsiveTileWrapper || tileWrapper}>
 				{
 					tiles.map((user, index) => {
 						if(user.username){
 								return(
-								<Link to={`/${user.username}`} style={tileStyle} key={user.username ? user.username : index}>
-									<div key={user.username ? user.username : index} style={tileStyle}>
+								<Link to={`/${user.username}`} style={props.responsiveTileStyle || tileStyle} key={user.username ? user.username : index}>
+									<div key={user.username ? user.username : index} style={props.responsiveTileStyle || tileStyle}>
 										<img src={user.imgurl} alt='avatar' style={imgStyle}/>
 										<div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: 10}}>
 											<div>
@@ -97,6 +97,37 @@ class Search extends Component{
 
 	render(){
 
+		const responsiveTileStyle = {
+			display: 'flex',
+			height: 200,
+			width: '100%',
+			justifyContent: 'space-between',
+			alignItems: 'center',
+			borderRadius: '8px',
+			marginBottom: 15,
+			color: 'black'
+		}
+
+		const responsiveTileWrapper = {
+			height: '100%',
+			width: '100%',
+			'display': 'flex',
+			'flexDirection': 'column',
+			justifyContent: 'space-between',
+			alignItems: 'center',
+			borderRadius: '8px',
+			marginTop: 20,
+			overflow: 'auto'
+		}
+
+		const responsiveContainer = {
+			display: 'flex',
+			flexDirection: 'column',
+			justifyContent: 'center',
+			alignItems: 'center',
+			marginTop: 100,
+			width: '100%'
+		}
 
 		const container = {
 			display: 'flex',
@@ -105,7 +136,7 @@ class Search extends Component{
 			alignItems: 'center',
 			marginTop: 100
 		}
-
+		
 		const inputStyle ={
 			width: '50vw',
 			height: 100,
@@ -127,10 +158,18 @@ class Search extends Component{
 				<div>
 					<Navbar />
 				</div>
-				<div style={container}>
-					<input style={inputStyle} placeholder='Search Here' type="text" onChange={(e) => this.props.updateSearchString(e.target.value)}/>
-					<Tiles users = {this.props.users} searchString = {this.props.searchString}/>
-				</div>
+				<MediaQuery query='(min-width: 1000px)' >
+					<div style={container}>
+						<input style={inputStyle} key='fullSizeSearchInput' placeholder='Search Here' type="text" onChange={(e) => this.props.updateSearchString(e.target.value)}/>
+						<Tiles users = {this.props.users} searchString = {this.props.searchString}/>
+					</div>
+				</MediaQuery>
+				<MediaQuery query='(max-width: 1000px)'>
+					<div style={responsiveContainer}>
+						<input style={inputStyle} key='midSizeSearchInput' placeholder='Search' type="text" onChange={(e) => this.props.updateSearchString(e.target.value)}/>
+						<Tiles users = {this.props.users} searchString = {this.props.searchString} responsiveTileWrapper={{...responsiveTileWrapper, padding:50}} responsiveTileStyle={responsiveTileStyle}/>
+					</div>
+				</MediaQuery>
 			</div>
 		)
 	}

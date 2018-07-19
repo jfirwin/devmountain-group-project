@@ -155,7 +155,6 @@ class Edit extends Component{
 
 		return(
 			<div style={wrapper}>
-
         <Navbar user = {this.props.user}/>
         {this.props.user
           ?
