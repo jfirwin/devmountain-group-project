@@ -7,49 +7,68 @@ import {getProfileDetails, setTheme} from '../ducks/action'
 import MediaQuery from 'react-responsive'
 import DefaultProfileMobile from './Themes/DefaultProfileMobile'
 
-const FullScreenCv = (props) => {
+class FullScreenCv extends Component {
+
+static getDerivedStateFromProps(nextProps, prevState) {
+  if(nextProps.user && nextProps.user.theme){
+    nextProps.setTheme(nextProps.user.theme)
+  }
+  return null
+}
+
+  render(){
   return(
       <div>
               {
-          props.loading
+          this.props.loading
           ?
           <p>Loading...</p>
           :
-            props.user && props.user.skills
+            this.props.user && this.props.user.skills
             ?
             <div>
-              <DefaultProfile user={props.user} userLoggedIn={props.userLoggedIn}/>
+              <DefaultProfile user={this.props.user} userLoggedIn={this.props.userLoggedIn}/>
             </div>
             :
-            <MissingPage username={props.username}/>
+            <MissingPage username={this.props.username}/>
         }
       </div>
-    )
+    )}
 }
 
-const MobileSizeScreenCV = (props) => {
-  return(
-      <div>
-        {
-            props.loading
-            ?
-            <p>Loading...</p>
-            :
-              props.user && props.user.skills
+class MobileSizeScreenCV extends Component {
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if(nextProps.user && nextProps.user.theme){
+      nextProps.setTheme(nextProps.user.theme)
+    }
+    return null
+  }
+
+  render(){
+    return(
+        <div>
+          {
+              this.props.loading
               ?
-              <div>
-                <div>
-                  <Link to='/'>
-                    <i className="fas fa-sign-out-alt"></i>
-                  </Link>
-                </div>
-                <DefaultProfileMobile user={props.user}/>
-              </div>
+              <p>Loading...</p>
               :
-              <MissingPage username={props.username}/>
-          }
-      </div>
-    )
+                this.props.user && this.props.user.skills
+                ?
+                <div>
+                  <div>
+                    <Link to='/'>
+                      <i className="fas fa-sign-out-alt"></i>
+                    </Link>
+                  </div>
+                  <DefaultProfileMobile user={this.props.user}/>
+                </div>
+                :
+                <MissingPage username={this.props.username}/>
+            }
+        </div>
+      )
+    }
 }
 
 class Profile extends Component{
@@ -58,17 +77,7 @@ class Profile extends Component{
     this.props.getProfileDetails(this.props.match.params.username)
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(this.props.match.params.username !== nextProps.match.params.username) {
-      this.props.getProfileDetails(nextProps.match.params.username)
-    }
-  }
-
 	render(){
-
-    if(this.props.user && this.props.user.theme){
-        this.props.setTheme(this.props.user.theme)
-      }
 
 		return(
 			<div>
@@ -78,6 +87,7 @@ class Profile extends Component{
             loading = {this.props.loading}
             username = {this.props.match.params.username}
             userLoggedIn = {this.props.userLoggedIn} 
+            setTheme = {this.props.setTheme}
             />
         </MediaQuery>
         <MediaQuery query='(max-width: 1000px)'>
