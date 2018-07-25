@@ -18,12 +18,7 @@ const FullScreenCv = (props) => {
             props.user && props.user.skills
             ?
             <div>
-              <div>
-                <Link to='/'>
-                  <i className="fas fa-sign-out-alt"></i>
-                </Link>
-              </div>
-              <DefaultProfile user={props.user}/>
+              <DefaultProfile user={props.user} userLoggedIn={props.userLoggedIn}/>
             </div>
             :
             <MissingPage username={props.username}/>
@@ -81,7 +76,8 @@ class Profile extends Component{
           <FullScreenCv
             user = {this.props.user}
             loading = {this.props.loading}
-            username= {this.props.match.params.username}
+            username = {this.props.match.params.username}
+            userLoggedIn = {this.props.userLoggedIn} 
             />
         </MediaQuery>
         <MediaQuery query='(max-width: 1000px)'>
@@ -100,7 +96,8 @@ class Profile extends Component{
 const mapStateToProps = state => {
 	return {
 		user: state.user,
-    loading: state.loading
+    loading: state.loading,
+    userLoggedIn: state.userLoggedIn
 	}
 }
 export default connect(mapStateToProps, {getProfileDetails, setTheme})(Profile)

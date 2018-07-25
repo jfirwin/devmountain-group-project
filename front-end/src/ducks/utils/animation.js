@@ -15,6 +15,7 @@ const ReactTransitionModule = (props) => {
         transitionAppear={true}
         transitionEnterTimeout={300}
         transitionLeaveTimeout={300}
+        transitionAppearTimeout={300}
         component={FirstChild}
       >
       {props.children}

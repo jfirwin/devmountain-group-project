@@ -28,7 +28,7 @@ const {
     button
   } = style
 
-  function ResponsiveProfileInput(props){
+  function ProfileEditInput(props){
   
     return(
       <div style={{overflow: 'auto', width: '80%', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
@@ -94,24 +94,24 @@ const {
 
   function ResponsiveNavigationGrid(props){
     return(
-    <div style={boxNav}>
-        <div style={iconDiv}>
-          <AccountCircle style={icons} onClick={() => props.updateEditSelected('Account')}> account_circle </AccountCircle>
-          <p>Account</p>
-        </div>
-        <div style={iconDiv}>
-          <Work style={icons} onClick={() => props.updateEditSelected('Experience')}> work_outline </Work>
-          <p>Experience</p>
-        </div>
-        <div style={iconDiv}>
-          <Stars style={icons} onClick={() => props.updateEditSelected('Skills')}> Stars </Stars>
-          <p>Skills</p>
-        </div>
-        <div style={iconDiv}>
-          <LibraryBooks style={icons} onClick={() => props.updateEditSelected('Education')}> LibraryBooks </LibraryBooks> 
-          <p>Education</p>
-        </div>
-    </div>
+      <div style={boxNav}>
+          <div style={iconDiv}>
+            <AccountCircle style={icons} onClick={() => props.updateEditSelected('Account')}> account_circle </AccountCircle>
+            <p>Account</p>
+          </div>
+          <div style={iconDiv}>
+            <Work style={icons} onClick={() => props.updateEditSelected('Experience')}> work_outline </Work>
+            <p>Experience</p>
+          </div>
+          <div style={iconDiv}>
+            <Stars style={icons} onClick={() => props.updateEditSelected('Skills')}> Stars </Stars>
+            <p>Skills</p>
+          </div>
+          <div style={iconDiv}>
+            <LibraryBooks style={icons} onClick={() => props.updateEditSelected('Education')}> LibraryBooks </LibraryBooks> 
+            <p>Education</p>
+          </div>
+      </div>
 
     )
   }
@@ -127,7 +127,7 @@ const {
                 { !props.editSelected ? 
                 <ResponsiveNavigationGrid updateEditSelected={props.updateEditSelected}/>
                 :
-                <ResponsiveProfileInput user={props.user} selected={props.editSelected} goBackEditPage={props.goBackEditPage}/> 
+                <ProfileEditInput user={props.user} selected={props.editSelected} goBackEditPage={props.goBackEditPage}/> 
                 }
               </div>
             </ReactTransitionModule>

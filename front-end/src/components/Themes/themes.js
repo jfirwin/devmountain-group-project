@@ -5,15 +5,15 @@ module.exports = {
   			border: '4px solid #110044',
   			padding: '20px',
   			color: '#FFFFFF',
-  			'display': 'flex',
-  			'flexDirection': 'column',
-  			'justifyContent': 'center',
-  			'alignItems': 'center',
-  			'backgroundColor': '#FFFFFF'
+  			display: 'flex',
+  			flexDirection: 'column',
+  			justifyContent: 'center',
+  			alignItems: 'center',
+  			backgroundColor: '#FFFFFF'
   		},
 		cvContent:{
 			display: 'flex',
-			'flexDirection': 'row-reverse',
+			flexDirection: 'row-reverse',
   			padding:'30px',
   			marginTop: '50px',
   			justifyContent: 'center',
@@ -21,30 +21,30 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'100px', 
-			'borderLeft':'2px #EBE6E3',
+			paddingLeft:'100px', 
+			borderLeft:'2px #EBE6E3',
 			borderStyle: 'dashed'
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'100px'
+			paddingLeft:'100px'
 		},
 		wrapper: {
 			display: 'flex',
-			'alignItems': 'center',
-			'justifyContent': 'center',
-			'backgroundColor': '#EBE6E3'
+			alignItems: 'center',
+			justifyContent: 'center',
+			backgroundColor: '#EBE6E3'
 		},
 		mobileWrapper:{
 			display: 'flex',
 			flexDirection: 'column',
-			'alignItems': 'center',
-			'justifyContent': 'center',
-			'backgroundColor': '#EBE6E3'		
+			alignItems: 'center',
+			justifyContent: 'center',
+			backgroundColor: '#EBE6E3'		
 		},
 		cvContentMobile:{
 			display: 'flex',
-			'flexDirection': 'column',
+			flexDirection: 'column',
   			padding:'30px',
   			marginTop: '30px',
   			justifyContent: 'flex-start',
@@ -75,6 +75,13 @@ module.exports = {
 		},
 		experienceBox: {
 			marginBottom: '30px'
+		},
+		navButton: {
+			marginLeft:'20px', 
+			color: '#110044',
+			':hover': {
+				color: '#163887'
+			}
 		}
 	},
 	light: {
@@ -83,15 +90,15 @@ module.exports = {
   			border: '3px solid #C6ACAC',
   			padding: '20px',
   			color: '#FFFFFF',
-  			'display': 'flex',
-  			'flexDirection': 'column',
-  			'justifyContent': 'center',
-  			'alignItems': 'center',
-  			'backgroundColor': '#FFFFFF'
+  			display: 'flex',
+  			flexDirection: 'column',
+  			justifyContent: 'center',
+  			alignItems: 'center',
+  			backgroundColor: '#FFFFFF'
   		},
 		cvContent: { 
 			display: 'flex',
-			'flexDirection': 'row-reverse',
+			flexDirection: 'row-reverse',
   			padding:'30px',
 			marginTop: '50px',
   			justifyContent: 'center',
@@ -99,30 +106,30 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'100px', 
-			'borderLeft':'2px #EBE6E3',
+			paddingLeft:'100px', 
+			borderLeft:'2px #EBE6E3',
 			borderStyle: 'dashed'
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'100px'
+			paddingLeft:'100px'
 		},
 		wrapper: {
 			display: 'flex',
-			'alignItems': 'center',
-			'justifyContent': 'center',
-			'backgroundColor': '#EBE6E3'
+			alignItems: 'center',
+			justifyContent: 'center',
+			backgroundColor: '#EBE6E3'
 		},
 		mobileWrapper:{
 			display: 'flex',
 			flexDirection: 'column',
-			'alignItems': 'center',
-			'justifyContent': 'center',
-			'backgroundColor': '#EBE6E3'		
+			alignItems: 'center',
+			justifyContent: 'center',
+			backgroundColor: '#EBE6E3'		
 		},
 		cvContentMobile:{
 			display: 'flex',
-			'flexDirection': 'column',
+			flexDirection: 'column',
   			padding:'30px',
   			marginTop: '30px',
   			justifyContent: 'flex-start',
@@ -153,6 +160,13 @@ module.exports = {
 		},
 		experienceBox: {
 			marginBottom: '30px'
+		},
+		navButton: {
+			marginLeft:'20px', 
+			color: '#C6ACAC',
+			':hover': {
+				color: '#454152'
+			}
 		}
 	},
 	dark:{
@@ -161,15 +175,15 @@ module.exports = {
   			border: '3px solid #C6ACAC',
   			padding: '20px',
   			color: '#FFFFFF',
-  			'display': 'flex',
-  			'flexDirection': 'column',
-  			'justifyContent': 'center',
-  			'alignItems': 'center',
-  			'backgroundColor': '#FFFFFF'
+  			display: 'flex',
+  			flexDirection: 'column',
+  			justifyContent: 'center',
+  			alignItems: 'center',
+  			backgroundColor: '#FFFFFF'
   		},
 		cvContent:{
 			display: 'flex',
-			'flexDirection': 'row-reverse',
+			flexDirection: 'row-reverse',
   			padding:'30px',
 			marginTop: '50px',
   			justifyContent: 'center',
@@ -177,29 +191,29 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			'paddingLeft':'100px', 
-			'borderLeft':'1px solid #8D4A4A'
+			paddingLeft:'100px', 
+			borderLeft:'1px solid #8D4A4A'
 		},
 		leftPiece: {
 			width: '50%',
-			'paddingLeft':'100px'
+			paddingLeft:'100px'
 		},
 		wrapper: {
 			display: 'flex',
-			'alignItems': 'center',
-			'justifyContent': 'center',
-			'backgroundColor': '#A26868'
+			alignItems: 'center',
+			justifyContent: 'center',
+			backgroundColor: '#A26868'
 		},
 		mobileWrapper:{
 			display: 'flex',
 			flexDirection: 'column',
-			'alignItems': 'center',
-			'justifyContent': 'center',
-			'backgroundColor': '#A26868'		
+			alignItems: 'center',
+			justifyContent: 'center',
+			backgroundColor: '#A26868'		
 		},
 		cvContentMobile:{
 			display: 'flex',
-			'flexDirection': 'column',
+			flexDirection: 'column',
   			padding:'30px',
   			marginTop: '30px',
   			justifyContent: 'flex-start',
@@ -230,6 +244,13 @@ module.exports = {
 		},
 		experienceBox: {
 			marginBottom: '30px'
+		},
+		navButton: {
+			marginLeft:'20px', 
+			color: '#C6ACAC',
+			':hover': {
+				color: '#A26868'
+			}
 		}
 	}
 }

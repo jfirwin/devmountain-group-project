@@ -89,8 +89,8 @@ class ExperienceFields extends Component{
           {this.state.experience !== this.props.experience
             ?
             <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
-            <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-            <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
+              <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
+              <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
             </div>
             :
             null
