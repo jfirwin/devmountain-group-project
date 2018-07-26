@@ -7,54 +7,71 @@ import {getProfileDetails, setTheme} from '../ducks/action'
 import MediaQuery from 'react-responsive'
 import DefaultProfileMobile from './Themes/DefaultProfileMobile'
 
-const FullScreenCv = (props) => {
+class FullScreenCv extends Component {
+
+  state = {
+    theme: this.props.theme
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if(nextProps.theme && nextProps.user){
+      nextProps.setTheme(nextProps.user.theme)
+    }
+    return {theme: nextProps.theme}
+  }
+
+  render(){
   return(
       <div>
               {
-          props.loading
+          this.props.loading
           ?
           <p>Loading...</p>
           :
-            props.user && props.user.skills
+            this.props.user && this.props.user.skills
             ?
             <div>
-              <div>
-                <Link to='/'>
-                  <i className="fas fa-sign-out-alt"></i>
-                </Link>
-              </div>
-              <DefaultProfile user={props.user}/>
+              <DefaultProfile user={this.props.user} userLoggedIn={this.props.userLoggedIn} theme={this.state.theme}/>
             </div>
             :
-            <MissingPage username={props.username}/>
+            <MissingPage username={this.props.username}/>
         }
       </div>
-    )
+    )}
 }
 
-const MobileSizeScreenCV = (props) => {
-  return(
-      <div>
-        {
-            props.loading
-            ?
-            <p>Loading...</p>
-            :
-              props.user && props.user.skills
+class MobileSizeScreenCV extends Component {
+
+  state = {
+    theme: this.props.theme
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if(nextProps.theme && nextProps.user){
+      nextProps.setTheme(nextProps.user.theme)
+    }
+    return {theme: nextProps.theme}
+  }
+
+  render(){
+    return(
+        <div>
+          {
+              this.props.loading
               ?
-              <div>
-                <div>
-                  <Link to='/'>
-                    <i className="fas fa-sign-out-alt"></i>
-                  </Link>
-                </div>
-                <DefaultProfileMobile user={props.user}/>
-              </div>
+              <p>Loading...</p>
               :
-              <MissingPage username={props.username}/>
-          }
-      </div>
-    )
+                this.props.user && this.props.user.skills
+                ?
+                <div>
+                  <DefaultProfileMobile user={this.props.user} theme={this.state.theme} userLoggedIn={this.props.userLoggedIn}/>
+                </div>
+                :
+                <MissingPage username={this.props.username}/>
+            }
+        </div>
+      )
+    }
 }
 
 class Profile extends Component{
@@ -63,17 +80,7 @@ class Profile extends Component{
     this.props.getProfileDetails(this.props.match.params.username)
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(this.props.match.params.username !== nextProps.match.params.username) {
-      this.props.getProfileDetails(nextProps.match.params.username)
-    }
-  }
-
 	render(){
-
-    if(this.props.user && this.props.user.theme){
-        this.props.setTheme(this.props.user.theme)
-      }
 
 		return(
 			<div>
@@ -81,7 +88,10 @@ class Profile extends Component{
           <FullScreenCv
             user = {this.props.user}
             loading = {this.props.loading}
-            username= {this.props.match.params.username}
+            username = {this.props.match.params.username}
+            userLoggedIn = {this.props.userLoggedIn} 
+            setTheme = {this.props.setTheme}
+            theme = {this.props.theme}
             />
         </MediaQuery>
         <MediaQuery query='(max-width: 1000px)'>
@@ -89,6 +99,9 @@ class Profile extends Component{
             user = {this.props.user}
             loading = {this.props.loading}
             username= {this.props.match.params.username}
+            setTheme = {this.props.setTheme}
+            theme = {this.props.theme}
+            userLoggedIn = {this.props.userLoggedIn}
           />
         </MediaQuery>
         </div>
@@ -100,7 +113,9 @@ class Profile extends Component{
 const mapStateToProps = state => {
 	return {
 		user: state.user,
-    loading: state.loading
+    loading: state.loading,
+    userLoggedIn: state.userLoggedIn,
+    theme: state.theme
 	}
 }
 export default connect(mapStateToProps, {getProfileDetails, setTheme})(Profile)

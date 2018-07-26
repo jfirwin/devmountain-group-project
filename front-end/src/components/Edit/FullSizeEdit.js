@@ -27,15 +27,15 @@ const {
   slider
 } = style
 
-function EditPageButton(props) {
+function EditPageNavigationButton(props) {
   return(
     <div>
       <button
-        onClick={() => props.updateEditSelected(props.selected)}
+        onClick={() => props.updateEditSelected(props.value)}
         style={buttonStyle}
-        key={props.selected}
+        key={props.value}
       >
-        {props.selected}
+        {props.value}
       </button>
     </div>
   )
@@ -44,35 +44,12 @@ function EditPageButton(props) {
 function EditPageNav(props){
   let keys = ['Account', 'Education', 'Experience', 'Skills']
   return(keys.map((key) => {
-    return <EditPageButton selected={key} {...props}/>
+    return <EditPageNavigationButton value={key} {...props}/>
   }))
 }
 
 
-function FullSizeEditPage(props) {
-
-
-  return (
-    <div style={wrapper}>
-        <Navbar user = {props.user}/>
-        {props.user
-          ?
-          <ReactTransitionModule>
-            <div style={box}>
-              <div style={boxNav}>
-                <EditPageNav updateEditSelected={props.updateEditSelected}/>
-              </div>
-              <ProfileInput user={props.user} selected={props.editSelected} /> 
-            </div>
-          </ReactTransitionModule>
-          :
-          'Loading...'
-        }
-      </div>
-  )
-}
-
-function ProfileInput(props){
+function ProfileEditInput(props){
 
   return(
     <div style={fullSizeFormContainer}>
@@ -124,7 +101,7 @@ function ProfileInput(props){
         {
           props.selected == 'Skills' &&
           <div style={{marginRight: '100px'}}>
-            <h1 style={fullSizeTitle}>Skills</h1>
+            <h1 style={fullSizeTitle}> Skills </h1>
             {props.user.skills.map((skill, index) => {
               return(
                 <div key={`skills_${index}`} style={inputProfileSpacer}>
@@ -139,7 +116,30 @@ function ProfileInput(props){
   )
 }
 
-EditPageButton = Radium(EditPageButton)
+function FullSizeEditPage(props) {
+
+
+  return (
+    <div style={wrapper}>
+        <Navbar user = {props.user}/>
+        {props.user
+          ?
+          <ReactTransitionModule>
+            <div style={box} key='box'>
+              <div style={boxNav} key='boxNav'>
+                <EditPageNav updateEditSelected={props.updateEditSelected}/>
+              </div>
+              <ProfileEditInput user={props.user} selected={props.editSelected} /> 
+            </div>
+          </ReactTransitionModule>
+          :
+          'Loading...'
+        }
+      </div>
+  )
+}
+
+EditPageNavigationButton = Radium(EditPageNavigationButton)
 FullSizeEditPage = Radium(FullSizeEditPage)
 
 export default FullSizeEditPage
