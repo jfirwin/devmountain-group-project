@@ -25,10 +25,10 @@ const FullSizeHome = (props) => {
         </div>
         <div style = {style.homeFunctionsFullSize}>
           <div style= {style.buttonsAlign}>
-            <ButtonWindow button='Search' link='http://localhost:3000/#/search'>
+            <ButtonWindow button='Search' link={process.env.REACT_APP_SEARCH}>
             <p>Search a potential employee.</p>
             </ButtonWindow>
-            <ButtonWindow button='Sign in' link='http://localhost:3005/auth/login'>
+            <ButtonWindow button='Sign in' link={process.env.REACT_APP_LOGIN}>
             <p>Is this your first time visiting? Create a profile!</p>
             </ButtonWindow>
           </div>

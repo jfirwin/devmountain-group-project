@@ -15,7 +15,6 @@
   "bugs": {
     "url": "https://github.com/jfirwin/devmountain-group-project/issues"
   },
-  "homepage": "https://github.com/jfirwin/devmountain-group-project#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
