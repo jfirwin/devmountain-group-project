@@ -44,7 +44,7 @@ class CollapsiveMenu extends Component {
             onClose={this.handleClose}
           >
               <MenuItem onClick={this.handleClose}><Link to='/search' style={{color: 'black'}}>Search</Link></MenuItem>
-              <MenuItem onClick={this.handleClose}><a href='http://localhost:3005/auth/login' style={{color: 'black'}}>Login/SignUp</a></MenuItem>
+              <MenuItem onClick={this.handleClose}><a href={process.env.REACT_APP_LOGIN} style={{color: 'black'}}>Login/SignUp</a></MenuItem>
             </Menu>
           </div>
         }
@@ -67,7 +67,7 @@ class CollapsiveMenu extends Component {
               <MenuItem onClick={this.handleClose}><Link to={`/${this.props.userLoggedIn}`} style={{color: 'black'}}>Profile</Link></MenuItem>
               <MenuItem onClick={this.handleClose}><Link to='/search' style={{color: 'black'}}>Search</Link></MenuItem>
               <MenuItem onClick={this.handleClose}><Link to='/edit' style={{color: 'black'}}>Account</Link></MenuItem>
-              <MenuItem onClick={this.handleClose}><a href='http://localhost:3005/auth/logout' style={{color: 'black'}}>Logout</a></MenuItem>
+              <MenuItem onClick={this.handleClose}><a href={process.env.REACT_APP_LOGOUT} style={{color: 'black'}}>Logout</a></MenuItem>
             </Menu>
           </div>
         }
@@ -101,7 +101,7 @@ class Navbar extends Component {
                 <NavLink to='/edit' activeStyle={activeStyle}>
                   <p>Account</p>
                 </NavLink>           
-                <a href='http://localhost:3005/auth/logout'>
+                <a href={process.env.REACT_APP_LOGOUT}>
                   <p>Logout</p>
                 </a>
               </div>
@@ -111,7 +111,7 @@ class Navbar extends Component {
                 <NavLink to='/search' activeStyle={activeStyle}>
                   <p>Search</p>
                 </NavLink>
-                <a href='http://localhost:3005/auth/login'>
+                <a href={process.env.REACT_APP_LOGIN}>
                   <p>Login/Signup</p>
                 </a>
               </div>
