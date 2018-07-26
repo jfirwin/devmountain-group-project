@@ -84,10 +84,5 @@ let DefaultProfile = (props) => {
 
 DefaultProfile = Radium(DefaultProfile)
 
-function mapStateToProps(state) {
-  return {
-    state: state,
-    theme: state.theme
-  }
-}
-export default connect(mapStateToProps, {setTheme})(DefaultProfile)
+
+export default DefaultProfile

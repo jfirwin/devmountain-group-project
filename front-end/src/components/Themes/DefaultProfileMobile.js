@@ -1,16 +1,30 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import {setTheme} from '../../ducks/action'
+import { Link } from 'react-router-dom'
 
 
 const DefaultProfileMobile = (props) => {
+  console.log(props)
 
-  const {mobileWrapper, cvContainer, imageDiv, titleColor, textColor, cvContentMobile} = props.theme
+  const {mobileWrapper, cvContainer, imageDiv, titleColor, textColor, cvContentMobile, navButtonMobile} = props.theme
   return (
     <div style={mobileWrapper}>
       <div style={cvContainer}>
-        <div style={imageDiv}>
-          <img src={props.user.imgurl} alt={`${props.user.username} profile`} style={{'borderRadius':100}}/>
+        <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>            
+            <Link to='/'>
+              <i className="fas fa-sign-out-alt" style={navButtonMobile} key='home'></i>
+            </Link>
+            {
+              props.userLoggedIn && 
+              <Link to='/edit'>
+                <i className="far fa-edit" style={navButtonMobile} key='edit'></i>
+              </Link>
+            }
+            <Link to='/search'>
+              <i className="fas fa-search" style={navButtonMobile} key='search'></i>
+            </Link>
+          </div>
+          <div style={imageDiv}>
+          <img src={props.user.imgurl} alt={`${props.user.username} profile`} style={{'borderRadius':100, height: '150px'}}/>
           <h1 style={titleColor}>{props.user.firstname} {props.user.lastname}</h1>
           <h5 style={textColor}>{props.user.description}</h5>
         </div>
@@ -59,10 +73,5 @@ const DefaultProfileMobile = (props) => {
   )
 }
 
-function mapStateToProps(state) {
-  return {
-    state: state,
-    theme: state.theme
-  }
-}
-export default connect(mapStateToProps, {setTheme})(DefaultProfileMobile)
+
+export default DefaultProfileMobile

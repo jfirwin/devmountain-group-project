@@ -82,6 +82,14 @@ module.exports = {
 			':hover': {
 				color: '#163887'
 			}
+		},
+		navButtonMobile: {
+			marginLeft:'20px', 
+			fontSize: '35px',
+			color: '#110044',
+			':hover': {
+				color: '#163887'
+			}
 		}
 	},
 	light: {
@@ -167,6 +175,11 @@ module.exports = {
 			':hover': {
 				color: '#454152'
 			}
+		},
+		navButtonMobile: {
+			marginLeft:'20px', 
+			fontSize: '35px',
+			color: '#C6ACAC'
 		}
 	},
 	dark:{
@@ -251,6 +264,11 @@ module.exports = {
 			':hover': {
 				color: '#A26868'
 			}
+		},
+		navButtonMobile: {
+			marginLeft:'20px', 
+			fontSize: '35px',
+			color: '#C6ACAC'
 		}
 	}
 }
