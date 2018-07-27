@@ -29,20 +29,20 @@ const {
   } = style
 
   function ProfileEditInput(props){
-  
+
     return(
       <div style={{overflow: 'auto', width: '80%', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
         <div style={responsiveFormContainer}>
           {
-            props.selected == 'Account' &&
+            props.selected === 'Account' &&
             <div>
               <h1 style={responsiveTitle}>Account</h1>
               <UserFields user={props.user} spacer={responsiveSpacer} title={responsiveTitle} inputStyle={responsiveInputStyle}/>
             </div>
             }
-    
+
             {
-              props.selected == 'Education' &&
+              props.selected === 'Education' &&
               <div>
                 <h1 style={responsiveTitle}>Education</h1>
                 {props.user.education.map((school, index) => {
@@ -55,9 +55,9 @@ const {
                 <AddEducation spacer={responsiveSpacer} inputStyle={responsiveInputStyle}/>
               </div>
             }
-    
+
             {
-              props.selected == 'Experience' &&
+              props.selected === 'Experience' &&
               <div>
                 <h1 style={responsiveTitle}>Experience</h1>
                 {props.user.experience.map((job, index) => {
@@ -70,9 +70,9 @@ const {
                 <AddExperience spacer={responsiveSpacer} inputStyle={responsiveInputStyle}/>
               </div>
             }
-    
+
             {
-              props.selected == 'Skills' &&
+              props.selected === 'Skills' &&
               <div>
                 <h1>Skills</h1>
                 {props.user.skills.map((skill, index) => {
@@ -85,7 +85,7 @@ const {
                 <AddSkill spacer={responsiveSpacer}/>
               </div>
             }
-            
+
         </div>
       <button style={button} onClick={()=> props.goBackEditPage()}>Go Back</button>
       </div>
@@ -108,7 +108,7 @@ const {
             <p>Skills</p>
           </div>
           <div style={iconDiv}>
-            <LibraryBooks style={icons} onClick={() => props.updateEditSelected('Education')}> LibraryBooks </LibraryBooks> 
+            <LibraryBooks style={icons} onClick={() => props.updateEditSelected('Education')}> LibraryBooks </LibraryBooks>
             <p>Education</p>
           </div>
       </div>
@@ -124,10 +124,10 @@ const {
             ?
             <ReactTransitionModule>
               <div style={ResponsiveBox}>
-                { !props.editSelected ? 
+                { !props.editSelected ?
                 <ResponsiveNavigationGrid updateEditSelected={props.updateEditSelected}/>
                 :
-                <ProfileEditInput user={props.user} selected={props.editSelected} goBackEditPage={props.goBackEditPage}/> 
+                <ProfileEditInput user={props.user} selected={props.editSelected} goBackEditPage={props.goBackEditPage}/>
                 }
               </div>
             </ReactTransitionModule>

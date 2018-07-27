@@ -15,7 +15,7 @@ class Edit extends Component{
 
   }
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.user != nextProps.user || this.props.editSelected != nextProps.editSelected) {
+    if (this.props.user !== nextProps.user || this.props.editSelected !== nextProps.editSelected) {
       return true
     } else return false
   }
@@ -29,14 +29,14 @@ class Edit extends Component{
 		return(
 			<div>
         <MediaQuery query='(min-width: 1000px)'>
-          <FullSizeEditPage 
+          <FullSizeEditPage
             user={this.props.user}
             updateEditSelected={this.props.updateEditSelected}
             editSelected={this.props.editSelected}
             />
         </MediaQuery>
         <MediaQuery query='(max-width: 1000px)'>
-          <ResponsiveEditPage 
+          <ResponsiveEditPage
             user={this.props.user}
             updateEditSelected={this.props.updateEditSelected}
             editSelected={this.props.editSelected}
