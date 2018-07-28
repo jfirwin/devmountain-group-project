@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import DefaultProfile from './Themes/DefaultProfile'
 import MissingPage from './MissingPage'
-import {Link} from 'react-router-dom'
 import {getProfileDetails, setTheme} from '../ducks/action'
 import MediaQuery from 'react-responsive'
 import DefaultProfileMobile from './Themes/DefaultProfileMobile'
@@ -89,7 +88,7 @@ class Profile extends Component{
             user = {this.props.user}
             loading = {this.props.loading}
             username = {this.props.match.params.username}
-            userLoggedIn = {this.props.userLoggedIn} 
+            userLoggedIn = {this.props.userLoggedIn}
             setTheme = {this.props.setTheme}
             theme = {this.props.theme}
             />
