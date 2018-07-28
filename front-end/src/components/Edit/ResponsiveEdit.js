@@ -47,7 +47,7 @@ const {
                 <h1 style={responsiveTitle}>Education</h1>
                 {props.user.education.map((school, index) => {
                   return(
-                    <div key={`education_${index}`} style={{marginBottom: 50}}>
+                    <div key={`education_${school.id}`} style={{marginBottom: 50}}>
                       <EducationFields school={school} spacer={responsiveSpacer} inputStyle={responsiveInputStyle}/>
                     </div>
                   )
@@ -62,7 +62,7 @@ const {
                 <h1 style={responsiveTitle}>Experience</h1>
                 {props.user.experience.map((job, index) => {
                   return(
-                    <div key={`experience_${index}`}>
+                    <div key={`experience_${job.id}`}>
                       <ExperienceFields experience={job} spacer={responsiveSpacer} inputStyle={responsiveInputStyle}/>
                     </div>
                   )
@@ -77,7 +77,7 @@ const {
                 <h1>Skills</h1>
                 {props.user.skills.map((skill, index) => {
                   return(
-                    <div key={`skills_${index}`} >
+                    <div key={`skills_${skill.id}`} >
                       <SkillsFields title="Skill" skills={skill} />
                     </div>
                   )
