@@ -139,7 +139,7 @@ function FullSizeEditPage(props) {
   )
 }
 
-EditPageNavigationButton = Radium(EditPageNavigationButton)
-FullSizeEditPage = Radium(FullSizeEditPage)
+// EditPageNavigationButton = Radium(EditPageNavigationButton)
+// FullSizeEditPage = Radium(FullSizeEditPage)
 
 export default FullSizeEditPage
