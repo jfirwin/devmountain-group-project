@@ -2,45 +2,45 @@ var axios = require('axios')
 
 module.exports = {
 	getUsers: () => {
-		return axios.get('http://localhost:3005/api/search/tiles').then(response => response.data)
+		return axios.get(process.env.REACT_APP_GET_TILES).then(response => response.data)
 	},
 	auth: () => {
-		return axios.get('http://localhost:3005/auth/me', {withCredentials: true})
+		return axios.get(process.env.REACT_APP_CHECK_AUTH, {withCredentials: true})
 	},
 	getUserEdit: () => {
-		return axios.get('http://localhost:3005/auth/userEdit', {withCredentials: true})
+		return axios.get(process.env.REACT_APP_GET_USER_EDIT, {withCredentials: true})
 	},
 	getProfile: (username) => {
-    return axios.get(`http://localhost:3005/api/users/${username}`)
+    return axios.get(`${process.env.REACT_APP_GET_USER}${username}`)
   },
 	addEducation: (details) => {
-		return axios.post(`http://localhost:3005/api/users/education`, details, {withCredentials: true})
+		return axios.post(process.env.REACT_APP_POST_EDUCATION, details, {withCredentials: true})
 	},
 	updateEducation: (details) => {
-		return axios.put(`http://localhost:3005/api/users/education`, details, {withCredentials: true})
+		return axios.put(process.env.REACT_APP_PUT_EDUCATION, details, {withCredentials: true})
 	},
 	deleteEducation: (details) => {
-		return axios.delete(`http://localhost:3005/api/users/education`, {data: details, withCredentials: true})
+		return axios.delete(process.env.REACT_APP_DELETE_EDUCATION, {data: details, withCredentials: true})
 	},
 	addSkill: (details) => {
-		return axios.post(`http://localhost:3005/api/users/skills`, details, {withCredentials: true})
+		return axios.post(process.env.REACT_APP_POST_SKILLS, details, {withCredentials: true})
 	},
 	updateSkill: (details) => {
-		return axios.put(`http://localhost:3005/api/users/skills`, details, {withCredentials: true})
+		return axios.put(process.env.REACT_APP_PUT_SKILLS, details, {withCredentials: true})
 	},
 	deleteSkill: (details) => {
-		return axios.delete(`http://localhost:3005/api/users/skills`, {data: details, withCredentials: true})
+		return axios.delete(process.env.REACT_APP_DELETE_SKILLS, {data: details, withCredentials: true})
 	},
 	addExperience: (details) => {
-		return axios.post(`http://localhost:3005/api/users/experience`, details, {withCredentials: true})
+		return axios.post(process.env.REACT_APP_POST_EXPERIENCE, details, {withCredentials: true})
 	},
 	updateExperience: (details) => {
-		return axios.put(`http://localhost:3005/api/users/experience`, details, {withCredentials: true})
+		return axios.put(process.env.REACT_APP_PUT_EXPERIENCE, details, {withCredentials: true})
 	},
 	deleteExperience: (details) => {
-		return axios.delete(`http://localhost:3005/api/users/experience`, {data: details, withCredentials: true})
+		return axios.delete(process.env.REACT_APP_DELETE_EXPERIENCE, {data: details, withCredentials: true})
 	},
 	updateUser: (user) => {
-		return axios.put(`http://localhost:3005/api/users`, user, {withCredentials: true})
+		return axios.put(process.env.REACT_APP_PUT_USER_DETAILS, user, {withCredentials: true})
 	}
 }
