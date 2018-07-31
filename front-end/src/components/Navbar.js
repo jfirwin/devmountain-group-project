@@ -100,7 +100,11 @@ class Navbar extends Component {
                 </NavLink>
                 <NavLink to='/edit' activeStyle={activeStyle}>
                   <p>Account</p>
+<<<<<<< HEAD
                 </NavLink>
+=======
+                </NavLink>           
+>>>>>>> 0df573d40200f722d4932a31dca08ff48cb042dc
                 <a href={process.env.REACT_APP_LOGOUT}>
                   <p>Logout</p>
                 </a>

@@ -1,4 +1,3 @@
-
 const path = require('path')
 require('dotenv').config({path: path.join(__dirname,'.env')})
 const express = require('express')
@@ -12,6 +11,7 @@ app.use('/auth', authenthication)
 app.use('/api', routes)
 
 app.use( express.static( `${__dirname}/../front-end/build` ));
+
 
 
 const port = 3005
