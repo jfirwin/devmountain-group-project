@@ -1,4 +1,6 @@
-require('dotenv').config()
+
+const path = require('path')
+require('dotenv').config({path: path.join(__dirname,'.env')})
 const express = require('express')
 const app = express()
 const dbConnection = require('./config/db.js')(app)
@@ -13,6 +15,7 @@ app.use('/auth', authenthication)
 app.use('/api', routes)
 
 app.use( express.static( `${__dirname}/../front-end/build` ));
+
 
 const port = 3005
 app.listen(port, () =>{

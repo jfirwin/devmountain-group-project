@@ -3,18 +3,16 @@ import { Link } from 'react-router-dom'
 
 
 const DefaultProfileMobile = (props) => {
-  console.log(props)
-
   const {mobileWrapper, cvContainer, imageDiv, titleColor, textColor, cvContentMobile, navButtonMobile} = props.theme
   return (
     <div style={mobileWrapper}>
       <div style={cvContainer}>
-        <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>            
+        <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
             <Link to='/'>
               <i className="fas fa-sign-out-alt" style={navButtonMobile} key='home'></i>
             </Link>
             {
-              props.userLoggedIn && 
+              props.userLoggedIn &&
               <Link to='/edit'>
                 <i className="far fa-edit" style={navButtonMobile} key='edit'></i>
               </Link>

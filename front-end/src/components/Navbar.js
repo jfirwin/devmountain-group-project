@@ -22,14 +22,14 @@ class CollapsiveMenu extends Component {
 
 
   render(){
-    return(  
+    return(
       <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
         <NavLink to='/'>
           <p>Logo/Home</p>
         </NavLink>
         { !this.props.isAuthenticated &&
         <div>
-          <MenuIcon           
+          <MenuIcon
             aria-owns={this.state.anchorEl ? 'simple-menu' : null}
             aria-haspopup="true"
             onClick={this.handleClick}
@@ -49,8 +49,8 @@ class CollapsiveMenu extends Component {
           </div>
         }
         { this.props.isAuthenticated &&
-          <div> 
-            <MenuIcon           
+          <div>
+            <MenuIcon
             aria-owns={this.state.anchorEl ? 'simple-menu' : null}
             aria-haspopup="true"
             onClick={this.handleClick}
@@ -83,9 +83,9 @@ class Navbar extends Component {
     let activeStyle = {
       color: '#E3E38A'
     }
-  
+
     return (
-        <div className='nav-content nav-container'>    
+        <div className='nav-content nav-container'>
         <MediaQuery query='(min-width: 1000px)'>
           <NavLink to='/'>
             <p>Logo/Home</p>
@@ -97,10 +97,10 @@ class Navbar extends Component {
                 </NavLink>
                 <NavLink to='/Search' activeStyle={activeStyle}>
                   <p>Search</p>
-                </NavLink> 
+                </NavLink>
                 <NavLink to='/edit' activeStyle={activeStyle}>
                   <p>Account</p>
-                </NavLink>           
+                </NavLink>
                 <a href={process.env.REACT_APP_LOGOUT}>
                   <p>Logout</p>
                 </a>
@@ -125,7 +125,7 @@ class Navbar extends Component {
     )
   }
 }
-  
+
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.isAuthenticated,
@@ -134,4 +134,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Navbar)
-
