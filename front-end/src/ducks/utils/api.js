@@ -8,15 +8,7 @@ module.exports = {
 		return axios.get(process.env.REACT_APP_CHECK_AUTH, {withCredentials: true})
 	},
 	getUserEdit: () => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return axios.get(process.env.REACT_APP_AUTH_USER_EDIT, {withCredentials: true})
-=======
 		return axios.get(process.env.REACT_APP_GET_USER_EDIT, {withCredentials: true})
->>>>>>> 0df573d40200f722d4932a31dca08ff48cb042dc
-=======
-		return axios.get(process.env.REACT_APP_AUTH_USER_EDIT, {withCredentials: true})
->>>>>>> f17590cccf748d3d8f7d17343884eb00ac69f50c
 	},
 	getProfile: (username) => {
     return axios.get(`${process.env.REACT_APP_GET_USER}${username}`)
