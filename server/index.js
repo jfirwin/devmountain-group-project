@@ -9,7 +9,7 @@ const routes = require('./routes/router.js')(app)
 const authenthication = require('./routes/Authenthication')(app)
 const passport = require('passport')
 const Auth0Strategy = require('passport-auth0')
-const path = require('path')
+
 
 app.use('/auth', authenthication)
 app.use('/api', routes)
