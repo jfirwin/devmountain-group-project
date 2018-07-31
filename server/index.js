@@ -1,3 +1,4 @@
+const path = require('path')
 require('dotenv').config()
 const express = require('express')
 const app = express()
@@ -12,7 +13,7 @@ const path = require('path')
 app.use('/auth', authenthication)
 app.use('/api', routes)
 
-app.use( express.static( `${__dirname}/../front-end/build` ));
+app.use( express.static( `${__dirname}/../front-end/build` ) );
 
 const port = 3005
 app.listen(port, () =>{

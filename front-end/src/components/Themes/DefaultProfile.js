@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { setTheme } from '../../ducks/action'
 import { Link } from 'react-router-dom'
 import Radium from 'radium'
 
@@ -17,7 +15,7 @@ let DefaultProfile = (props) => {
           <Link to='/search'>
             <i className="fas fa-search" style={navButton} key='search'></i>
           </Link>
-          { 
+          {
           props.userLoggedIn === props.user.username &&
           <Link to='/edit'>
             <i className="far fa-edit" style={navButton} key='edit'></i>
