@@ -1,6 +1,6 @@
 
 const path = require('path')
-require('dotenv').config({path: path.join(__dirname,'.env')})
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const dbConnection = require('./config/db.js')(app)
@@ -9,6 +9,7 @@ const routes = require('./routes/router.js')(app)
 const authenthication = require('./routes/Authenthication')(app)
 const passport = require('passport')
 const Auth0Strategy = require('passport-auth0')
+const path = require('path')
 
 
 app.use('/auth', authenthication)
