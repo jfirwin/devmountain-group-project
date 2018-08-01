@@ -5,6 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MediaQuery from 'react-responsive'
+import logo from '../images/cv-finder-white.svg'
 
 class CollapsiveMenu extends Component {
 
@@ -25,7 +26,7 @@ class CollapsiveMenu extends Component {
     return(
       <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
         <NavLink to='/'>
-          <p>Logo/Home</p>
+          <img style={{height:"2.5em"}} src={logo} alt="CV Finder logo"/>
         </NavLink>
         { !this.props.isAuthenticated &&
         <div>
@@ -88,7 +89,7 @@ class Navbar extends Component {
         <div className='nav-content nav-container'>
         <MediaQuery query='(min-width: 1000px)'>
           <NavLink to='/'>
-            <p>Logo/Home</p>
+            <img style={{height:"2.5em"}} src={logo} alt="CV Finder logo"/>
           </NavLink>
             { this.props.isAuthenticated &&
               <div style={{display: 'flex', justifyContent: 'space-around', width: 300}}>
@@ -100,7 +101,7 @@ class Navbar extends Component {
                 </NavLink>
                 <NavLink to='/edit' activeStyle={activeStyle}>
                   <p>Account</p>
-                </NavLink>           
+                </NavLink>
                 <a href={process.env.REACT_APP_LOGOUT}>
                   <p>Logout</p>
                 </a>

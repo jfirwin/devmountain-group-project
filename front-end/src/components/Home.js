@@ -5,14 +5,15 @@ import {style} from './homeStyle'
 import resume from './images/default-theme.png'
 import MediaQuery from 'react-responsive'
 import '../App.css'
+import logo from '../images/cv-finder-black.svg'
 
 
 const FullSizeHome = (props) => {
   return(
       <div>
         <div style={style.centerPieceFullSize}>
-          <h1 style={style.welcome}>Website Name</h1>
-          <h5>Website name is a place where you can share your own, digtal resume in a unique way!</h5>
+          <img src={logo} alt="CV Finder Logo" style={{width:"75vw"}}/>
+          <h5>CV Finder is a place where you can share your own digtal resume in a unique way!</h5>
         </div>
         <div style={style.homeContentFullSize}>
           <div style={style.homeTextFullSize}>
@@ -42,7 +43,8 @@ const MobileSizeHome = () => {
   return(
       <div style={style.mobileContainer}>
         <div style={style.mobileCenterPiece}>
-          <h1>Website Name</h1>
+          <img src={logo} alt="CV Finder Logo" style={{width:"75vw"}}/>
+          <h5>CV Finder is a place where you can share your own digtal resume in a unique way!</h5>
         </div>
         <div style={style.homeTextMobile}>
             <p>We provide a service which will allow you to build AND show your resume.
