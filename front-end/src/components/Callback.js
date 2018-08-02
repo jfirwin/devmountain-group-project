@@ -5,7 +5,6 @@ import {auth} from '../ducks/action'
 
 class Callback extends Component {
   componentDidMount() {
-    console.log(this.props)
     this.props.auth()
       .then(result => {
         this.props.history.push('/edit')
