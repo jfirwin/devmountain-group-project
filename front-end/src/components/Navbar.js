@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MediaQuery from 'react-responsive'
-import logo from '../images/cv-finder-white.svg'
+import logo from '../images/cv-finder-white-text.svg'
 
 class CollapsiveMenu extends Component {
 
