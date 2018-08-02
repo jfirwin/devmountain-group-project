@@ -14,6 +14,7 @@ class ExperienceFields extends Component{
         company: '',
         description: '',
         location: '',
+        title: '',
         id: '',
         start_date: '',
         end_date: ''
@@ -64,27 +65,25 @@ class ExperienceFields extends Component{
       <ReactTransitionModule>
         <div>
           <div>
-            <label>
               <div style={spacer}>
-                <span>Company</span><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
+                <label>Company</label><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
               </div>
               <div style={spacer}>
-                <span>Title</span><input style={inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
+                <label>Title</label><input style={inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
               </div>
               <div style={spacer}>
-                <span>Location</span><input style={inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
+                <label>Location</label><input style={inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
               </div>
               <div style={spacer}>
-                <span>Description</span><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+                <label>Description</label><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
               </div>
               <div style={spacer}>
-                <span style={title}>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+                <label style={title}>Start Date</label><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
               <div style={spacer}>
-                <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+                <label>End Date</label><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
               </div>
               <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
-            </label>
           </div>
           {this.state.experience !== this.props.experience
             ?
@@ -103,9 +102,4 @@ class ExperienceFields extends Component{
 
 ExperienceFields = Radium(ExperienceFields)
 
-const mapStateToProps = state => {
-  return{
-    experienceTest: true
-  }
-}
-export default connect(mapStateToProps, {updateExperience, deleteExperience})(ExperienceFields)
+export default connect(null, {updateExperience, deleteExperience})(ExperienceFields)

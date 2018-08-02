@@ -71,7 +71,7 @@ const buttonSpacing = {
 const iconStyle = {
   ':hover': {cursor: 'pointer'},
   width: '20px',
-  marginTop: '15px'
+  marginTop: '35px'
 }
 
 const wrapper = {

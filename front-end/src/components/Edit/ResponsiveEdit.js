@@ -25,13 +25,17 @@ const {
     responsiveInputStyle,
     icons,
     iconDiv,
-    button
+    button,
+    spacer,
+    skillBox,
+    responsiveCompetencySpacer,
+    slider
   } = style
 
   function ProfileEditInput(props){
 
     return(
-      <div style={{overflow: 'auto', width: '80%', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
+      <div style={{overflow: 'auto', width: '100%', flexDirection: 'column', alignContent: 'center', justifyContent: 'center', padding: '20px'}}>
         <div style={responsiveFormContainer}>
           {
             props.selected === 'Account' &&
@@ -77,8 +81,15 @@ const {
                 <h1>Skills</h1>
                 {props.user.skills.map((skill, index) => {
                   return(
-                    <div key={`skills_${skill.id}`} >
-                      <SkillsFields title="Skill" skills={skill} />
+                    <div key={`skills_${skill.id}`} style={{marginTop: '50px'}}>
+                      <SkillsFields 
+                        title="Skill" 
+                        skills={skill} 
+                        spacer={spacer} 
+                        skillBox={skillBox} 
+                        competencySpacer={responsiveCompetencySpacer}
+                        slider={slider}
+                        />
                     </div>
                   )
                 })}
