@@ -10,17 +10,29 @@ let DefaultProfile = (props) => {
       <div style={cvContainer}>
         <div style={{width: '100%', textAlign: 'start'}}>
           <Link to='/'>
-            <i className="fas fa-sign-out-alt" style={navButton} key='home'></i>
+            <i className="fas fa-home" style={navButton} key='home'></i>
           </Link>
           <Link to='/search'>
             <i className="fas fa-search" style={navButton} key='search'></i>
           </Link>
           {
           props.userLoggedIn === props.user.username &&
-          <Link to='/edit'>
-            <i className="far fa-edit" style={navButton} key='edit'></i>
-          </Link>
+            <Link to='/edit'>
+              <i className="far fa-edit" style={navButton} key='edit'></i>
+            </Link>
           }
+          {
+            props.userLoggedIn === ""
+            ?
+            <a href={process.env.REACT_APP_LOGIN}>
+              <i className="fas fa-sign-in-alt" style={navButton} key='login'></i>
+            </a>
+            :
+            <a href={process.env.REACT_APP_LOGOUT}>
+              <i className="fas fa-sign-out-alt" style={navButton} key='logout'></i>
+            </a>
+          }
+
 
         </div>
         <div style={imageDiv}>
