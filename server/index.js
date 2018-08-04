@@ -9,14 +9,10 @@ const authenthication = require('./routes/Authenthication')(app)
 const passport = require('passport')
 const Auth0Strategy = require('passport-auth0')
 
-
-
 app.use('/auth', authenthication)
 app.use('/api', routes)
 
 app.use( express.static( `${__dirname}/../front-end/build` ));
-
-
 
 const port = 3005
 app.listen(port, () =>{
