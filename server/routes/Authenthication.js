@@ -89,7 +89,7 @@ module.exports = function(app) {
 
   router.get('/logout', (req, res) => {
     req.logout()
-    res.redirect('http://lcurvelo.auth0.com/v2/logout')
+    res.redirect('http://lcurvelo.auth0.com/v2/logout?returnTo=http%3A%2F%2F142.93.28.110:3005/#/')
   })
 
   return router
