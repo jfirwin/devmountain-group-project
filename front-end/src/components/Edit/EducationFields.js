@@ -15,11 +15,15 @@ class EducationField extends Component{
         id: '',
         start_date: '',
         end_date: ''
-      }
+      },
+      checked: false
     }
   }
   componentDidMount() {
     this.setState({education: this.props.school})
+    if(this.props.school.end_date){
+      this.setState({checked: false})
+    } else this.setState({checked: true})
   }
   updateSchool = (newValue) => {
     this.setState({education: {...this.state.education, school: newValue}})
@@ -33,8 +37,21 @@ class EducationField extends Component{
   updateEndDate = (newValue) => {
     this.setState({education: {...this.state.education, end_date: newValue}})
   }
+  updateCheckbox = () => {
+    if(!this.state.checked) {
+      this.setState({education: {...this.state.education, end_date: ''}})
+    } else {
+      this.setState({education: {...this.state.education, end_date: this.props.school.end_date}})
+    }
+    this.setState({checked: !this.state.checked})
+  }
   cancelEdit = () => {
     this.setState({education: this.props.school})
+    if(this.props.school.end_date !== '') {
+      this.setState({checked: false})
+    } else {
+      this.setState({checked: true})
+    }
   }
   saveEdit = () => {
     this.props.updateEducation(this.state.education)
@@ -51,6 +68,14 @@ class EducationField extends Component{
   render(){
 
     const {spacer, button, inputStyle, iconStyle} = style
+    const {school, emphasis, start_date, end_date} = this.state.education
+    const checked = this.state.checked
+    const checkValidity =
+      school.length > 0 &&
+      emphasis.length > 0 &&
+      (start_date !== '') &&
+      (checked === true ||
+        (end_date !== ''))
 
     return (
       <ReactTransitionModule>
@@ -66,7 +91,22 @@ class EducationField extends Component{
                 <span>Start Date</span><input style={inputStyle} key="startDate" type="date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
               <div style={spacer}>
-                <span>End Date</span><input style={inputStyle} key="endDate" type="date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              {
+                this.state.checked === true
+                ?
+                <div style = {this.props.spacer}>
+                  <input type="checkbox" checked={this.state.checked} onChange={()=>{this.updateCheckbox()}}/>I currently attend here
+                </div>
+                :
+                <div style = {{width:'100%'}}>
+                  <div style = {this.props.spacer}>
+                    End Date<input style={this.props.inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+                  </div>
+                  <div style = {this.props.spacer}>
+                    <input type="checkbox" checked={this.state.checked} onChange={()=>{this.updateCheckbox()}}/>I currently attend here
+                  </div>
+                </div>
+              }
               </div>
             </label>
             <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteEducation()}></i>
@@ -74,7 +114,7 @@ class EducationField extends Component{
             ?
             <div style={iconStyle}>
               <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-              <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
+              <button style={button} key="Save" onClick={()=>this.saveEdit()} disabled={!checkValidity}>Save</button>
             </div>
             :
             null

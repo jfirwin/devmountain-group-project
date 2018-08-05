@@ -14,14 +14,19 @@ class ExperienceFields extends Component{
         company: '',
         description: '',
         location: '',
+        title: '',
         id: '',
         start_date: '',
         end_date: ''
-      }
+      },
+      checked: false
     }
   }
   componentDidMount() {
     this.setState({experience: this.props.experience})
+    if(this.props.experience.end_date){
+      this.setState({checked: false})
+    } else this.setState({checked: true})
   }
   updateCompany = (newValue) => {
     this.setState({experience: {...this.state.experience, company: newValue}})
@@ -41,8 +46,21 @@ class ExperienceFields extends Component{
   updateEndDate = (newValue) => {
     this.setState({experience: {...this.state.experience, end_date: newValue}})
   }
+  updateCheckbox = () => {
+    if(!this.state.checked) {
+      this.setState({experience: {...this.state.experience, end_date: ''}})
+    } else {
+      this.setState({education: {...this.state.education, end_date: this.props.experience.end_date}})
+    }
+    this.setState({checked: !this.state.checked})
+  }
   cancelEdit = () => {
     this.setState({experience: this.props.experience})
+    if(this.props.experience.end_date !== '') {
+      this.setState({checked: false})
+    } else {
+      this.setState({checked: true})
+    }
   }
   saveEdit = () => {
     this.props.updateExperience(this.state.experience)
@@ -58,7 +76,17 @@ class ExperienceFields extends Component{
 
   render(){
 
-    const {spacer, title, button, inputStyle, iconStyle} = style
+    const {spacer, button, inputStyle, iconStyle} = style
+    const {company, description, title, location, start_date, end_date} = this.state.experience
+    const checked = this.state.checked
+    const checkValidity =
+      company.length > 0 &&
+      description.length > 0 &&
+      title.length > 0 &&
+      location.length > 0 &&
+      (start_date !== '') &&
+      (checked === true ||
+        end_date !== '')
 
     return (
       <ReactTransitionModule>
@@ -78,10 +106,25 @@ class ExperienceFields extends Component{
                 <span>Description</span><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
               </div>
               <div style={spacer}>
-                <span style={title}>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+                <span>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
               <div style={spacer}>
-                <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              {
+                this.state.checked === true
+                ?
+                <div style={spacer}>
+                  I currently work here<input type="checkbox" checked={this.state.checked} onChange={() =>{this.updateCheckbox()}}/>
+                </div>
+                :
+                <div>
+                  <div>
+                  <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+                  </div>
+                  <div>
+                  <input type="checkbox" checked={this.state.checked} onChange={() =>{this.updateCheckbox()}}/>I currently work here
+                  </div>
+                </div>
+              }
               </div>
               <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
             </label>
@@ -90,7 +133,7 @@ class ExperienceFields extends Component{
             ?
             <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
               <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-              <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
+              <button style={button} key="Save" onClick={()=>this.saveEdit()} disabled={!checkValidity}>Save</button>
             </div>
             :
             null
