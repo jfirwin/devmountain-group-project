@@ -47,8 +47,8 @@ FROM
             ) x
         )
         ORDER BY
-        E.start_date ASC,
-        E.end_date ASC
+        E.start_date DESC,
+        E.end_date DESC
       ) AS education
     FROM
       education_table E
@@ -74,8 +74,8 @@ FROM
             ) x
         )
         ORDER BY
-        X.start_date ASC,
-        X.end_date ASC
+        X.start_date DESC,
+        X.end_date DESC
       ) AS experience
     FROM
       experience_table X

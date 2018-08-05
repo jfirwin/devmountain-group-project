@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Radium from 'radium'
+import { dateHelper } from './dateHelper'
 
 
 let DefaultProfile = (props) => {
@@ -60,10 +61,9 @@ let DefaultProfile = (props) => {
               {props.user.education.map(school => {
                 return(
                   <div key={`education_${school.id}`} style={experienceBox}>
-                    <h4 style={titleColor}>{school.school}</h4>
-                    <h5 style={titleColor}>{school.emphasis}</h5>
-                    <h6 style={textColor}>Start Date: {school.start_date}</h6>
-                    <h6 style={textColor}>End Date: {school.end_date}</h6>
+                    <h4 style={titleColor}>{school.emphasis}</h4>
+                    <h5 style={titleColor}><i class='fas fa-graduation-cap' style={{marginRight:'5px'}}/>{school.school}</h5>
+                    <h6 style={textColor}><i class='fas fa-calendar-alt' style={{marginRight:'5px'}}/> {`${dateHelper(school.start_date)} — ${dateHelper(school.end_date)}`}</h6>
                   </div>
                 )
               })}
@@ -76,11 +76,10 @@ let DefaultProfile = (props) => {
                 return(
                   <div key={`experience_${experience.id}`} style={experienceBox}>
                     <h4 style={titleColor}>{experience.title}</h4>
-                    <h5 style={textColor}>{experience.company}</h5>
-                    <h5 style={textColor}>{experience.location}</h5>
+                    <h5 style={textColor}><i class='fas fa-building' style={{marginRight:'5px'}}/>{experience.company}</h5>
+                    <h5 style={textColor}><i class='fas fa-map-marker-alt' style={{marginRight:'5px'}}/>{experience.location}</h5>
+                    <h6 style={textColor}><i class='fas fa-calendar-alt' style={{marginRight:'5px'}}/>{`${dateHelper(experience.start_date)} — ${dateHelper(experience.end_date)}`}</h6>
                     <h5 style={textColor}>{experience.description}</h5>
-                    <h6 style={textColor}>Start Date: {experience.start_date}</h6>
-                    <h6 style={textColor}>End Date: {experience.end_date}</h6>
                   </div>
                 )
               })}
