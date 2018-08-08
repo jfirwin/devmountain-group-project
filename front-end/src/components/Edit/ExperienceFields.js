@@ -91,52 +91,44 @@ class ExperienceFields extends Component{
     return (
       <ReactTransitionModule>
         <div>
-          <div>
-            <label>
-              <div style={spacer}>
-                <span>Company</span><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
-              </div>
-              <div style={spacer}>
-                <span>Title</span><input style={inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
-              </div>
-              <div style={spacer}>
-                <span>Location</span><input style={inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
-              </div>
-              <div style={spacer}>
-                <span>Description</span><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
-              </div>
-              <div style={spacer}>
-                <span>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
-              </div>
-              <div style={spacer}>
-              {
-                this.state.checked === true
-                ?
-                <div style={spacer}>
-                  I currently work here<input type="checkbox" checked={this.state.checked} onChange={() =>{this.updateCheckbox()}}/>
-                </div>
-                :
-                <div>
-                  <div>
-                  <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
-                  </div>
-                  <div>
-                  <input type="checkbox" checked={this.state.checked} onChange={() =>{this.updateCheckbox()}}/>I currently work here
-                  </div>
-                </div>
-              }
-              </div>
-              <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
-            </label>
-          </div>
-          {this.state.experience !== this.props.experience
-            ?
-            <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
-              <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-              <button style={button} key="Save" onClick={()=>this.saveEdit()} disabled={!checkValidity}>Save</button>
+          <label>
+            <div style={spacer}>
+              <span>Company</span><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
             </div>
-            :
-            null
+            <div style={spacer}>
+              <span>Title</span><input style={inputStyle} key="Title" type="text" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
+            </div>
+            <div style={spacer}>
+              <span>Location</span><input style={inputStyle} key="Location" type="text" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
+            </div>
+            <div style={spacer}>
+              <span>Description</span><input style={inputStyle} key="Description" type="text" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+            </div>
+            <div style={spacer}>
+              <span>Start Date</span><input key="startDate" style={inputStyle} type="date" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+            </div>
+            {
+              this.state.checked === true
+              ?
+              null
+              :
+              <div style={spacer}>
+                <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+              </div>
+            }
+            <div style={spacer}>
+              <input type="checkbox" checked={this.state.checked} onChange={() =>{this.updateCheckbox()}}/>I currently work here
+            </div>
+            <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
+          </label>
+        {this.state.experience !== this.props.experience
+          ?
+          <div style={iconStyle}>
+            <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
+            <button style={button} key="Save" onClick={()=>this.saveEdit()} disabled={!checkValidity}>Save</button>
+          </div>
+          :
+          null
           }
         </div>
       </ReactTransitionModule>

@@ -80,36 +80,30 @@ class EducationField extends Component{
     return (
       <ReactTransitionModule>
         <div>
-            <label>
-              <div style={this.props.spacer}>
-                <span>School</span> <input style={inputStyle} key="school" type="text" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
+          <label>
+            <div style={spacer}>
+              <span>School</span> <input style={inputStyle} key="school" type="text" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
+            </div>
+            <div style={spacer}>
+              <span>Emphasis</span><input style={inputStyle} key="emphasis" type="text" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
+            </div>
+            <div style={spacer}>
+              <span>Start Date</span><input style={inputStyle} key="startDate" type="date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+            </div>
+            {
+              this.state.checked === true
+              ?
+              null
+              :
+              <div style = {spacer}>
+                <span>End Date</span><input style={inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
               </div>
-              <div style={spacer}>
-                <span>Emphasis</span><input style={inputStyle} key="emphasis" type="text" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
-              </div>
-              <div style={spacer}>
-                <span>Start Date</span><input style={inputStyle} key="startDate" type="date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
-              </div>
-              <div style={spacer}>
-              {
-                this.state.checked === true
-                ?
-                <div style = {this.props.spacer}>
-                  <input type="checkbox" checked={this.state.checked} onChange={()=>{this.updateCheckbox()}}/>I currently attend here
-                </div>
-                :
-                <div style = {{width:'100%'}}>
-                  <div style = {this.props.spacer}>
-                    End Date<input style={this.props.inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
-                  </div>
-                  <div style = {this.props.spacer}>
-                    <input type="checkbox" checked={this.state.checked} onChange={()=>{this.updateCheckbox()}}/>I currently attend here
-                  </div>
-                </div>
-              }
-              </div>
-            </label>
+            }
+            <div style = {spacer}>
+              <input type="checkbox" checked={this.state.checked} onChange={()=>{this.updateCheckbox()}}/>I currently attend here
+            </div>
             <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteEducation()}></i>
+          </label>
           {this.state.education !== this.props.school
             ?
             <div style={iconStyle}>
