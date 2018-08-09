@@ -32,6 +32,7 @@ const {
 
     return(
       <div style={{overflow: 'auto', width: '80%', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
+        <button style={button} onClick={()=> props.goBackEditPage()}>Go Back</button>
         <div style={responsiveFormContainer}>
           {
             props.selected === 'Account' &&
@@ -87,7 +88,6 @@ const {
             }
 
         </div>
-      <button style={button} onClick={()=> props.goBackEditPage()}>Go Back</button>
       </div>
     )
   }

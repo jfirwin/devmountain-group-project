@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Radium from 'radium'
+import { dateHelper } from './dateHelper'
 
 
 let DefaultProfile = (props) => {
@@ -10,17 +11,29 @@ let DefaultProfile = (props) => {
       <div style={cvContainer}>
         <div style={{width: '100%', textAlign: 'start'}}>
           <Link to='/'>
-            <i className="fas fa-sign-out-alt" style={navButton} key='home'></i>
+            <i className="fas fa-home" style={navButton} key='home'></i>
           </Link>
           <Link to='/search'>
             <i className="fas fa-search" style={navButton} key='search'></i>
           </Link>
           {
           props.userLoggedIn === props.user.username &&
-          <Link to='/edit'>
-            <i className="far fa-edit" style={navButton} key='edit'></i>
-          </Link>
+            <Link to='/edit'>
+              <i className="far fa-edit" style={navButton} key='edit'></i>
+            </Link>
           }
+          {
+            props.userLoggedIn === ""
+            ?
+            <a href={process.env.REACT_APP_LOGIN}>
+              <i className="fas fa-sign-in-alt" style={navButton} key='login'></i>
+            </a>
+            :
+            <a href={process.env.REACT_APP_LOGOUT}>
+              <i className="fas fa-sign-out-alt" style={navButton} key='logout'></i>
+            </a>
+          }
+
 
         </div>
         <div style={imageDiv}>
@@ -48,10 +61,9 @@ let DefaultProfile = (props) => {
               {props.user.education.map(school => {
                 return(
                   <div key={`education_${school.id}`} style={experienceBox}>
-                    <h4 style={titleColor}>{school.school}</h4>
-                    <h5 style={titleColor}>{school.emphasis}</h5>
-                    <h6 style={textColor}>Start Date: {school.start_date}</h6>
-                    <h6 style={textColor}>End Date: {school.end_date}</h6>
+                    <h4 style={titleColor}>{school.emphasis}</h4>
+                    <h5 style={titleColor}><i class='fas fa-graduation-cap' style={{marginRight:'5px'}}/>{school.school}</h5>
+                    <h6 style={textColor}><i class='fas fa-calendar-alt' style={{marginRight:'5px'}}/> {`${dateHelper(school.start_date)} — ${school.end_date ? dateHelper(school.end_date) : 'Present'}`}</h6>
                   </div>
                 )
               })}
@@ -64,11 +76,10 @@ let DefaultProfile = (props) => {
                 return(
                   <div key={`experience_${experience.id}`} style={experienceBox}>
                     <h4 style={titleColor}>{experience.title}</h4>
-                    <h5 style={textColor}>{experience.company}</h5>
-                    <h5 style={textColor}>{experience.location}</h5>
+                    <h5 style={textColor}><i class='fas fa-building' style={{marginRight:'5px'}}/>{experience.company}</h5>
+                    <h5 style={textColor}><i class='fas fa-map-marker-alt' style={{marginRight:'5px'}}/>{experience.location}</h5>
+                    <h6 style={textColor}><i class='fas fa-calendar-alt' style={{marginRight:'5px'}}/>{`${dateHelper(experience.start_date)} — ${experience.end_date ? dateHelper(experience.end_date) : 'Present'}`}</h6>
                     <h5 style={textColor}>{experience.description}</h5>
-                    <h6 style={textColor}>Start Date: {experience.start_date}</h6>
-                    <h6 style={textColor}>End Date: {experience.end_date}</h6>
                   </div>
                 )
               })}

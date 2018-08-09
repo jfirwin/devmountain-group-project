@@ -15,7 +15,8 @@ class AddEducation extends Component{
         start_date: '',
         end_date: ''
       },
-      add: false
+      add: false,
+      checked: true
     }
   }
   updateSchool = (newValue) => {
@@ -30,8 +31,14 @@ class AddEducation extends Component{
   updateEndDate = (newValue) => {
     this.setState({education: {...this.state.education, end_date: newValue}})
   }
+  updateCheckbox = () => {
+    if(this.state.checked) {
+      this.setState({education: {...this.state.education, end_date: ''}})
+    }
+    this.setState({checked: !this.state.checked})
+  }
   cancelAdd = () => {
-    this.setState({add: false, education: {school:'',emphasis:'',start_date:'',end_date:''}})
+    this.setState({add: false, checked: false, education: {school:'',emphasis:'',start_date:'',end_date:''}})
   }
   addEducation = () => {
     this.props.addEducation(this.state.education)
@@ -41,6 +48,14 @@ class AddEducation extends Component{
   render(){
 
     const {button, spacer, inputStyle, buttonSpacing} = style
+    const {school, emphasis, start_date, end_date} = this.state.education
+    const checked = this.state.checked
+    const checkValidity =
+      school.length > 0 &&
+      emphasis.length > 0 &&
+      (start_date !== '') &&
+      (checked === true ||
+        (end_date !== ''))
 
     return (
       <div>
@@ -59,13 +74,26 @@ class AddEducation extends Component{
               <div style = {this.props.spacer}>
                 Start Date<input style={this.props.inputStyle} type="date" key="Start Date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
-              <div style = {this.props.spacer}>
-                End Date<input style={this.props.inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
-              </div>
+                {
+                  this.state.checked === true
+                  ?
+                  <div style = {this.props.spacer}>
+                    <input type="checkbox" checked={this.state.checked} onChange={()=>{this.updateCheckbox()}}/>I currently attend here
+                  </div>
+                  :
+                  <div>
+                    <div style = {this.props.spacer}>
+                      End Date<input style={this.props.inputStyle} type="date" key="End Date" value={this.state.education.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+                    </div>
+                    <div style = {this.props.spacer}>
+                      <input type="checkbox" checked={this.state.checked} onChange={()=>{this.updateCheckbox()}}/>I currently attend here
+                    </div>
+                  </div>
+                }
             </label>
             <div style={buttonSpacing}>
               <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
-              <button style={button} key="Add" onClick={()=>this.addEducation()}>Add</button>
+              <button style={button} key="Add" onClick={()=>this.addEducation()} disabled={!checkValidity}>Add</button>
             </div>
           </div>
         </ReactTransitionModule>
