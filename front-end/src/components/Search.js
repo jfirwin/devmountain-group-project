@@ -66,7 +66,7 @@ let Tiles = (props) => {
 								return(
 								<Link to={`/${user.username}`} style={props.responsiveTileStyle || tileStyle} key={user.username ? user.username : index}>
 									<div key={user.username ? user.username : index} style={props.responsiveTileStyle || tileStyle}>
-										<img src={displayImage} alt='avatar' style={imgStyle}/>
+										<img src={displayImage} alt='avatar' style={imgStyle} onError={(e)=>{e.target.src='https://robohash.org/${user.firstname}-${user.lastname}?set=set4'}}/>
 										<div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: 10}}>
 											<div>
 												<p><span style={title}>Name:</span> {user.firstname + ' ' + user.lastname}</p>
