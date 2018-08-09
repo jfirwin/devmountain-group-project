@@ -135,6 +135,17 @@ const wrapper = {
     width: '50%'
   }
 
+  const image = {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    borderRadius: '50%',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '20px'
+  }
+
 module.exports = {
     title: title,
     spacer: spacer,
@@ -153,5 +164,6 @@ module.exports = {
     inputProfileSpacer: inputProfileSpacer,
     fullSizeFormContainer: fullSizeFormContainer,
     fullSizeTitle: fullSizeTitle,
-    slider: slider
+    slider: slider,
+    image: image
 }
