@@ -5,6 +5,8 @@ import { dateHelper } from './dateHelper'
 
 const DefaultProfileMobile = (props) => {
   const {mobileWrapper, cvContainer, imageDiv, titleColor, textColor, cvContentMobile, navButtonMobile} = props.theme
+  const displayImage = props.user.imgurl || `https://robohash.org/${props.user.firstname}-${props.user.lastname}?set=set4`
+
   return (
     <div style={mobileWrapper}>
       <div style={cvContainer}>
@@ -23,7 +25,7 @@ const DefaultProfileMobile = (props) => {
             </Link>
           </div>
           <div style={imageDiv}>
-          <img src={props.user.imgurl} alt={`${props.user.username} profile`} style={{'borderRadius':100, height: '150px'}}/>
+          <img src={displayImage} alt={`${props.user.username} profile`} onError={(e)=>{e.target.src='https://robohash.org/${props.user.firstname}-${props.user.lastname}?set=set4'}} style={{'borderRadius':100, height: '150px'}}/>
           <h1 style={titleColor}>{props.user.firstname} {props.user.lastname}</h1>
           <h5 style={textColor}>{props.user.description}</h5>
         </div>

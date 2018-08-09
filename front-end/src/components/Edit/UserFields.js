@@ -95,7 +95,20 @@ class UserFields extends Component{
   }
 
   render(){
-    const {buttonSpacing, button} = style
+    const {buttonSpacing, button, image} = style
+    const {firstname, lastname, username} = this.state.user
+    const altImage = `https://robohash.org/${firstname}-${lastname}?set=set4`
+    const imageDisplay =
+      this.state.user.imgurl === ''
+      ?
+      altImage
+      :
+      this.state.user.imgurl
+    const checkValidity =
+      firstname.length > 0 &&
+      lastname.length > 0 &&
+      username.length > 0
+    console.log(imageDisplay)
     return (
       <ReactTransitionModule>
         <div style={{width: '100%'}}>
@@ -114,6 +127,9 @@ class UserFields extends Component{
                 <span style={this.props.title}>Description</span><input key='Description' style={this.props.inputStyle} type="text" value={this.state.user.description} onChange={(e) => this.updateDescription(e.target.value)}/>
               </div>
               <div style={this.props.spacer}>
+                <img style={image} src={imageDisplay} alt={`${firstname}\'s Profile`} onError={(e)=>{e.target.src='https://robohash.org/${firstname}-${lastname}?set=set4'}}/>
+              </div>
+              <div style={this.props.spacer}>
                 <span style={this.props.title}>Image URL</span><input key='Image' style={this.props.inputStyle} type="text" value={this.state.user.imgurl} onChange={(e) => this.updateImgURL(e.target.value)}/>
               </div>
             </label>
@@ -130,7 +146,7 @@ class UserFields extends Component{
             ?
             <div style={buttonSpacing}>
               <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-              <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
+              <button style={button} key="Save" onClick={()=>this.saveEdit()} disabled={!checkValidity}>Save</button>
             </div>
             :
             null
