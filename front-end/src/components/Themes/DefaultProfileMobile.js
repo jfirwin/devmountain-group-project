@@ -46,10 +46,10 @@ const DefaultProfileMobile = (props) => {
             {props.user.education.length > 0 ? <h2 style={titleColor}>Education</h2> : <div/>}
               {props.user.education.map(school => {
               return(
-                <div key={`education_{school.id}`}>
+                <div key={`education_${school.id}`}>
                   <h4 style={titleColor}>{school.emphasis}</h4>
-                  <h5 style={titleColor}><i class="fa fa-graduation-cap" style={{marginRight: '5px'}}/>{school.school}</h5>
-                  <h6 style={textColor}><i class="fa fa-calendar-alt" style={{marginRight: '5px'}}/>{`${dateHelper(school.start_date)} — ${school.end_date ? dateHelper(school.end_date) : 'Present'}`}</h6>
+                  <h5 style={titleColor}><i className="fa fa-graduation-cap" style={{marginRight: '5px'}}/>{school.school}</h5>
+                  <h6 style={textColor}><i className="fa fa-calendar-alt" style={{marginRight: '5px'}}/>{`${dateHelper(school.start_date)} — ${school.end_date ? dateHelper(school.end_date) : 'Present'}`}</h6>
                 </div>
               )
             })}
@@ -60,9 +60,9 @@ const DefaultProfileMobile = (props) => {
               return(
                 <div key={`experience_${experience.id}`}>
                   <h4 style={titleColor}>{experience.title}</h4>
-                  <h5 style={textColor}><i class='fas fa-building' style={{marginRight:'5px'}}/>{experience.company}</h5>
-                  <h5 style={textColor}><i class='fas fa-map-marker-alt' style={{marginRight:'5px'}}/>{experience.location}</h5>
-                  <h6 style={textColor}><i class='fas fa-calendar-alt' style={{marginRight:'5px'}}/>{`${dateHelper(experience.start_date)} — ${experience.end_date ? dateHelper(experience.end_date) : 'Present'}`}</h6>
+                  <h5 style={textColor}><i className='fas fa-building' style={{marginRight:'5px'}}/>{experience.company}</h5>
+                  <h5 style={textColor}><i className='fas fa-map-marker-alt' style={{marginRight:'5px'}}/>{experience.location}</h5>
+                  <h6 style={textColor}><i className='fas fa-calendar-alt' style={{marginRight:'5px'}}/>{`${dateHelper(experience.start_date)} — ${experience.end_date ? dateHelper(experience.end_date) : 'Present'}`}</h6>
                   <h5 style={textColor}>{experience.description}</h5>
                 </div>
               )
