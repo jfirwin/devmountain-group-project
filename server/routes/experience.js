@@ -3,6 +3,9 @@ module.exports = function(app) {
   const router = express.Router()
 
   router.post('/', (req, res) => {
+    if(req.body.end_date === '') {
+      req.body.end_date = null
+    }
     app.get('db').experience.create_experience({
       authid: req.session.passport.user.authid,
       title: req.body.title,
@@ -14,7 +17,10 @@ module.exports = function(app) {
     })
       .then(response => {
         response[0].start_date = response[0].start_date.toISOString().split('T')[0]
-        response[0].end_date = response[0].end_date.toISOString().split('T')[0]
+        if(response[0].end_date !== null) {
+          response[0].end_date = response[0].end_date.toISOString().split('T')[0]
+          return res.status(200).send(response)
+        } else response[0].end_date = null
         return res.status(200).send(response)
       })
       .catch(err => {
@@ -24,6 +30,9 @@ module.exports = function(app) {
   })
 
   router.put('/', (req, res) => {
+    if(req.body.end_date === '') {
+      req.body.end_date = null
+    }
     app.get('db').experience.update_experience({
       authid: req.session.passport.user.authid,
       title: req.body.title,
@@ -36,7 +45,10 @@ module.exports = function(app) {
     })
     .then(response => {
       response[0].start_date = response[0].start_date.toISOString().split('T')[0]
-      response[0].end_date = response[0].end_date.toISOString().split('T')[0]
+      if(response[0].end_date !== null) {
+        response[0].end_date = response[0].end_date.toISOString().split('T')[0]
+        return res.status(200).send(response)
+      } else response[0].end_date = null
       return res.status(200).send(response)
     })
     .catch(err => {
