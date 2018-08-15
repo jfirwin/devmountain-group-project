@@ -2,13 +2,14 @@ var axios = require('axios')
 
 module.exports = {
 	getUsers: () => {
+		console.log(process.env)
 		return axios.get(process.env.REACT_APP_GET_TILES).then(response => response.data)
 	},
 	auth: () => {
 		return axios.get(process.env.REACT_APP_CHECK_AUTH, {withCredentials: true})
 	},
 	getUserEdit: () => {
-		return axios.get(process.env.REACT_APP_AUTH_USER_EDIT, {withCredentials: true})
+		return axios.get(process.env.REACT_APP_GET_USER_EDIT, {withCredentials: true})
 	},
 	getProfile: (username) => {
     return axios.get(`${process.env.REACT_APP_GET_USER}${username}`)

@@ -19,11 +19,7 @@ class Edit extends Component{
       return true
     } else return false
   }
-  componentWillReceiveProps(nextProps) {
-    if(this.props.match.params.username !== nextProps.match.params.username) {
-      this.props.getProfileDetails(nextProps.match.params.username)
-    }
-  }
+
 
 	render(){
 		return(
