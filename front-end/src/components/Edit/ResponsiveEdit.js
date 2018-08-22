@@ -25,7 +25,11 @@ const {
     responsiveInputStyle,
     icons,
     iconDiv,
-    button
+    button,
+    spacer,
+    skillBox,
+    responsiveCompetencySpacer,
+    slider
   } = style
 
   function ProfileEditInput(props){
@@ -78,8 +82,15 @@ const {
                 <h1>Skills</h1>
                 {props.user.skills.map((skill, index) => {
                   return(
-                    <div key={`skills_${skill.id}`} >
-                      <SkillsFields title="Skill" skills={skill} />
+                    <div key={`skills_${skill.id}`} style={{marginTop: '50px'}}>
+                      <SkillsFields 
+                        title="Skill" 
+                        skills={skill} 
+                        spacer={spacer} 
+                        skillBox={skillBox} 
+                        competencySpacer={responsiveCompetencySpacer}
+                        slider={slider}
+                        />
                     </div>
                   )
                 })}

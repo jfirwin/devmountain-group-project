@@ -24,7 +24,8 @@ const {
   title,
   inputStyle,
   competencySpacer,
-  slider
+  slider,
+  skillBox
 } = style
 
 function EditPageNavigationButton(props) {
@@ -105,7 +106,7 @@ function ProfileEditInput(props){
             {props.user.skills.map((skill, index) => {
               return(
                 <div key={`skills_${skill.id}`} style={inputProfileSpacer}>
-                  <SkillsFields title="Skill" skills={skill} spacer={spacer} competencySpacer={competencySpacer} slider={slider}/>
+                  <SkillsFields title="Skill" skills={skill} spacer={spacer} competencySpacer={competencySpacer} slider={slider} skillBox={skillBox}/>
                 </div>
               )
             })}

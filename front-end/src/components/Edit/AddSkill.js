@@ -52,7 +52,6 @@ class AddSkill extends Component{
           ?
           <ReactTransitionModule>
             <div>
-              <label style = {addSkill}>
                 <div style = {spacer}>
                   <span>Skill</span><input type="text" key="skill" value={this.state.skill.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
                 </div>
@@ -60,7 +59,6 @@ class AddSkill extends Component{
                   <span >Competency</span><input style={{border: 'none'}} type="range" min="0" max="100" key="competency" value={this.state.skill.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
                   {this.state.skill.lvl}%
                 </div>
-              </label>
               <div style={{display: 'flex', width: '30%', justifyContent: 'space-between'}}>
                 <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
                 <button style={button} key="Add" onClick={()=>this.addSkill()}>Add</button>
@@ -77,9 +75,4 @@ class AddSkill extends Component{
 
 AddSkill = Radium(AddSkill)
 
-const mapStateToProps = state => {
-  return{
-    skillTest: true
-  }
-}
-export default connect(mapStateToProps, {addSkill})(AddSkill)
+export default connect(null, {addSkill})(AddSkill)

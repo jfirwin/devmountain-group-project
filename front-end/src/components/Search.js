@@ -111,6 +111,7 @@ class Search extends Component{
 		const responsiveTileWrapper = {
 			height: '100%',
 			width: '100%',
+			padding: 'none',
 			'display': 'flex',
 			'flexDirection': 'column',
 			justifyContent: 'space-between',
@@ -166,8 +167,8 @@ class Search extends Component{
 				</MediaQuery>
 				<MediaQuery query='(max-width: 1000px)'>
 					<div style={responsiveContainer}>
-						<input style={inputStyle} key='midSizeSearchInput' placeholder='Search' type="text" onChange={(e) => this.props.updateSearchString(e.target.value)}/>
-						<Tiles users = {this.props.users} searchString = {this.props.searchString} responsiveTileWrapper={{...responsiveTileWrapper, padding:50}} responsiveTileStyle={responsiveTileStyle}/>
+						<input style={{...inputStyle, fontSize: 35}} key='midSizeSearchInput' placeholder='Search' type="text" onChange={(e) => this.props.updateSearchString(e.target.value)}/>
+						<Tiles users = {this.props.users} searchString = {this.props.searchString} responsiveTileWrapper={{...responsiveTileWrapper, padding:10}} responsiveTileStyle={responsiveTileStyle}/>
 					</div>
 				</MediaQuery>
 			</div>

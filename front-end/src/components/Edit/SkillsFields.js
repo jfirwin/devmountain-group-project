@@ -45,18 +45,18 @@ class SkillsFields extends Component{
 
   render(){
 
-    const {button, skillBox, inputStyle, iconStyle} = style
+    const {button, inputStyle, iconStyle} = style
 
     return (
       <ReactTransitionModule>
         <div>
-          <div style={skillBox}>
+          <div style={this.props.skillBox}>
               <div style={this.props.spacer}>
                 <span>Skill</span><input type="text" key="skill" style={inputStyle} value={this.state.skills.skill} onChange={(e) => this.updateSkill(e.target.value)}/>
               </div>
               <div style={this.props.competencySpacer}>
-                <span>Competency</span><input style={this.props.slider} type="range" key="Competency" max="100" min="0" value={this.state.skills.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
-                <span>{this.state.skills.lvl}%</span>
+                <p>Competency</p><input style={this.props.slider} type="range" key="Competency" max="100" min="0" value={this.state.skills.lvl} onChange={(e) => this.updateLevel(e.target.value)}/>
+                <p>{this.state.skills.lvl}%</p>
               </div>
               <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteSkill()}></i>         
           </div>
@@ -69,7 +69,7 @@ class SkillsFields extends Component{
             :
             null
           }
-        </div>
+          </div>
       </ReactTransitionModule>
     )
   }
@@ -77,9 +77,5 @@ class SkillsFields extends Component{
 
 SkillsFields = Radium(SkillsFields)
 
-const mapStateToProps = state => {
-  return{
-    skillTest: true
-  }
-}
-export default connect(mapStateToProps, {updateSkill, deleteSkill})(SkillsFields)
+
+export default connect(null, {updateSkill, deleteSkill})(SkillsFields)

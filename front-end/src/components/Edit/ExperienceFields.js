@@ -91,7 +91,6 @@ class ExperienceFields extends Component{
     return (
       <ReactTransitionModule>
         <div>
-          <label>
             <div style={spacer}>
               <span>Company</span><input style={inputStyle} key="Company" type="text" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
             </div>
@@ -113,14 +112,13 @@ class ExperienceFields extends Component{
               null
               :
               <div style={spacer}>
-                <span>End Date</span><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
+                <label>End Date</label><input key="EndDate" style={inputStyle} type="date" value={this.state.experience.end_date} onChange={(e) => this.updateEndDate(e.target.value)}/>
               </div>
             }
             <div style={spacer}>
               <input type="checkbox" checked={this.state.checked} onChange={() =>{this.updateCheckbox()}}/>I currently work here
             </div>
             <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteExperience()}></i>
-          </label>
         {this.state.experience !== this.props.experience
           ?
           <div style={iconStyle}>
@@ -138,9 +136,4 @@ class ExperienceFields extends Component{
 
 ExperienceFields = Radium(ExperienceFields)
 
-const mapStateToProps = state => {
-  return{
-    experienceTest: true
-  }
-}
-export default connect(mapStateToProps, {updateExperience, deleteExperience})(ExperienceFields)
+export default connect(null, {updateExperience, deleteExperience})(ExperienceFields)

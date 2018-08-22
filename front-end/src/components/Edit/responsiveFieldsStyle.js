@@ -1,5 +1,5 @@
 const responsiveFormContainer = {
-    width: '80%',
+    width: '100%',
     height: '70%',
     display: 'flex',
     flexDirection : 'column',
@@ -35,11 +35,11 @@ const responsiveFormContainer = {
 
   const responsiveCompetencySpacer = {
     width: '100%',
-    marginTop: 10,
+    marginTop: '30px',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignContent: 'space-between'
+    justifyContent: 'center',
+    alignContent: 'center'
   }
 
   const deleteButton = {
@@ -69,7 +69,7 @@ const responsiveFormContainer = {
   const iconStyle = {
     ':hover': {cursor: 'pointer'},
     width: '20px',
-    marginTop: '15px'
+    marginTop: '25px'
   }
 
   const wrapper = {
@@ -120,6 +120,23 @@ const responsiveFormContainer = {
     marginBottom: '40px'
   }
 
+  const skillBox = {
+    height: '120px',
+    marginTop: '20px',
+    witdh: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignContent: 'center',
+    justifyContent: 'space-between',
+    fontFamily: 'Montserrat',
+    familyWeight: '200',
+    marginBottom: '25px'
+  }
+
+  const slider = {
+    width: '80%'
+  }
+  
   module.exports = {
     responsiveFormContainer: responsiveFormContainer,
     responsiveSpacer: responsiveSpacer,
@@ -136,5 +153,7 @@ const responsiveFormContainer = {
     buttonStyle: buttonStyle,
     inputProfileSpacer: inputProfileSpacer,
     icons: icons,
-    iconDiv: iconDiv
+    iconDiv: iconDiv,
+    skillBox: skillBox,
+    slider: slider
   }

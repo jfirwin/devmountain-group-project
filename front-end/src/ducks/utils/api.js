@@ -2,6 +2,7 @@ var axios = require('axios')
 
 module.exports = {
 	getUsers: () => {
+		console.log(process.env)
 		return axios.get(process.env.REACT_APP_GET_TILES).then(response => response.data)
 	},
 	auth: () => {

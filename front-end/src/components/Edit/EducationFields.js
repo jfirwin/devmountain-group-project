@@ -80,7 +80,6 @@ class EducationField extends Component{
     return (
       <ReactTransitionModule>
         <div>
-          <label>
             <div style={spacer}>
               <span>School</span> <input style={inputStyle} key="school" type="text" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
             </div>
@@ -103,7 +102,6 @@ class EducationField extends Component{
               <input type="checkbox" checked={this.state.checked} onChange={()=>{this.updateCheckbox()}}/>I currently attend here
             </div>
             <i className="far fa-trash-alt" style={iconStyle} key="icon" onClick={()=>this.deleteEducation()}></i>
-          </label>
           {this.state.education !== this.props.school
             ?
             <div style={iconStyle}>
@@ -121,9 +119,5 @@ class EducationField extends Component{
 
 EducationField = Radium(EducationField)
 
-const mapStateToProps = state => {
-  return{
-    educationTest: true
-  }
-}
-export default connect(mapStateToProps, {updateEducation, deleteEducation})(EducationField)
+
+export default connect(null, {updateEducation, deleteEducation})(EducationField)

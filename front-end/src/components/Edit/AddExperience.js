@@ -74,21 +74,20 @@ class AddExperience extends Component{
         ?
         <ReactTransitionModule>
           <div>
-            <label>
-              <div style = {spacer}>
-                <span>Company</span><input style={inputStyle} type="text" key="Company" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
+              <div style={spacer}>
+                <label>Company</label><input style={inputStyle} type="text" key="Company" value={this.state.experience.company} onChange={(e) => this.updateCompany(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>Title</span><input style={inputStyle} type="text" key="Title" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
+              <div style={spacer}>
+                <label>Title</label><input style={inputStyle} type="text" key="Title" value={this.state.experience.title} onChange={(e) => this.updateTitle(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>Description</span><input style={inputStyle} type="text" key="Description" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
+              <div style={spacer}>
+                <label>Description</label><input style={inputStyle} type="text" key="Description" value={this.state.experience.description} onChange={(e) => this.updateDescription(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>Location</span><input style={inputStyle} type="text" key="Location" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
+              <div style={spacer}>
+                <label>Location</label><input style={inputStyle} type="text" key="Location" value={this.state.experience.location} onChange={(e) => this.updateLocation(e.target.value)}/>
               </div>
-              <div style = {spacer}>
-                <span>Start Date</span><input style={inputStyle} type="date" key="startDate" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+              <div style={spacer}>
+                <label>Start Date</label><input style={inputStyle} type="date" key="startDate" value={this.state.experience.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
               {
                 this.state.checked === true
@@ -123,9 +122,4 @@ class AddExperience extends Component{
 
 AddExperience = Radium(AddExperience)
 
-const mapStateToProps = state => {
-  return{
-    experienceTest: true
-  }
-}
-export default connect(mapStateToProps, {addExperience})(AddExperience)
+export default connect(null, {addExperience})(AddExperience)

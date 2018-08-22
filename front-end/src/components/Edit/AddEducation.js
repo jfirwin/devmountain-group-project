@@ -64,15 +64,14 @@ class AddEducation extends Component{
         ?
         <ReactTransitionModule>
           <div>
-            <label>
               <div style = {spacer}>
-                School<input style={inputStyle} type="text" key="School" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
+                <label>School</label><input style={inputStyle} type="text" key="School" value={this.state.education.school} onChange={(e) => this.updateSchool(e.target.value)}/>
               </div>
               <div style = {this.props.spacer}>
-                Emphasis<input style={this.props.inputStyle} type="text" key="Emphasis" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
+                <label>Emphasis</label><input style={this.props.inputStyle} type="text" key="Emphasis" value={this.state.education.emphasis} onChange={(e) => this.updateEmphasis(e.target.value)}/>
               </div>
               <div style = {this.props.spacer}>
-                Start Date<input style={this.props.inputStyle} type="date" key="Start Date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
+                <label>Start Date</label><input style={this.props.inputStyle} type="date" key="Start Date" value={this.state.education.start_date} onChange={(e) => this.updateStartDate(e.target.value)}/>
               </div>
                 {
                   this.state.checked === true
@@ -107,9 +106,4 @@ class AddEducation extends Component{
 
 AddEducation = Radium(AddEducation)
 
-const mapStateToProps = state => {
-  return{
-    educationTest: true
-  }
-}
-export default connect(mapStateToProps, {addEducation})(AddEducation)
+export default connect(null, {addEducation})(AddEducation)
