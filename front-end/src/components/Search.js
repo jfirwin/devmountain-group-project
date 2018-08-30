@@ -63,10 +63,11 @@ let Tiles = (props) => {
 				{
 					tiles.map((user, index) => {
 						if(user.username){
+							const displayImage = user.imgurl || `https://robohash.org/${user.firstname}-${user.lastname}?set=set4`
 								return(
 								<Link to={`/${user.username}`} style={props.responsiveTileStyle || tileStyle} key={user.username ? user.username : index}>
 									<div key={user.username ? user.username : index} style={props.responsiveTileStyle || tileStyle}>
-										<img src={user.imgurl} alt='avatar' style={imgStyle}/>
+										<img src={displayImage} alt='avatar' style={imgStyle}/>
 										<div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: 10}}>
 											<div>
 												<p><span style={title}>Name:</span> {user.firstname + ' ' + user.lastname}</p>
@@ -137,7 +138,7 @@ class Search extends Component{
 			alignItems: 'center',
 			marginTop: 100
 		}
-		
+
 		const inputStyle ={
 			width: '50vw',
 			height: 100,
