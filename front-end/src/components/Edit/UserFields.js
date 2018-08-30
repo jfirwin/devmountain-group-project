@@ -97,6 +97,11 @@ class UserFields extends Component{
 
   render(){
     const {buttonSpacing, button} = style
+    const {username, firstname, lastname} = this.state.user
+    const checkValidity =
+      (username !== '') &&
+      (firstname !== '') &&
+      (lastname !== '')
     return (
       <ReactTransitionModule>
         <div style={{width: '100%'}}>
@@ -129,7 +134,7 @@ class UserFields extends Component{
             ?
             <div style={buttonSpacing}>
               <button style={button} key="cancel" onClick={()=>this.cancelEdit()}>Cancel</button>
-              <button style={button} key="Save" onClick={()=>this.saveEdit()}>Save</button>
+              <button style={button} key="Save" onClick={()=>this.saveEdit()} disabled={!checkValidity}>Save</button>
             </div>
             :
             null
