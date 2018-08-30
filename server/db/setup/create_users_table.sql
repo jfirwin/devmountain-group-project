@@ -1,6 +1,6 @@
 CREATE TABLE users (
     authID VARCHAR(50) UNIQUE,
-    username VARCHAR(30) UNIQUE,
+    username VARCHAR(100) UNIQUE,
     firstname VARCHAR(20),
     lastname VARCHAR(20),
     theme VARCHAR(20),
