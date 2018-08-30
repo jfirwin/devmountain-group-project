@@ -105,8 +105,7 @@ class AddExperience extends Component{
                   </div>
                 </div>
               }
-            </label>
-            <div style={buttonSpacing}>
+              <div style={buttonSpacing}>
               <button style={button} key="cancel" onClick={()=>this.cancelAdd()}>Cancel</button>
               <button style={button} key="Add" onClick={()=>this.addExperience()} disabled={!checkValidity}>Add</button>
             </div>

@@ -1,7 +1,7 @@
 module.exports = {
 	defaultTheme: {
 		cvContainer: {
-  			width: '80%',
+  			width: '95%',
   			border: '4px solid #110044',
   			padding: '20px',
   			color: '#FFFFFF',
@@ -21,7 +21,7 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			paddingLeft:'100px', 
+			paddingLeft:'100px',
 			borderLeft:'2px #EBE6E3',
 			borderStyle: 'dashed'
 		},
@@ -40,7 +40,7 @@ module.exports = {
 			flexDirection: 'column',
 			alignItems: 'center',
 			justifyContent: 'center',
-			backgroundColor: '#EBE6E3'		
+			backgroundColor: '#EBE6E3'
 		},
 		cvContentMobile:{
 			display: 'flex',
@@ -66,7 +66,7 @@ module.exports = {
 			fontWeight: '400'
 		},
 		textColor: {
-			color: '#454152', 
+			color: '#454152',
 			familyFont: 'Montserrat',
 			fontWeight: '200'
 		},
@@ -77,14 +77,14 @@ module.exports = {
 			marginBottom: '30px'
 		},
 		navButton: {
-			marginLeft:'20px', 
+			marginLeft:'20px',
 			color: '#110044',
 			':hover': {
 				color: '#163887'
 			}
 		},
 		navButtonMobile: {
-			marginLeft:'20px', 
+			marginLeft:'20px',
 			fontSize: '35px',
 			color: '#110044',
 			':hover': {
@@ -94,7 +94,7 @@ module.exports = {
 	},
 	light: {
 		cvContainer: {
-  			width: '80%',
+  			width: '95%',
   			border: '3px solid #C6ACAC',
   			padding: '20px',
   			color: '#FFFFFF',
@@ -104,7 +104,7 @@ module.exports = {
   			alignItems: 'center',
   			backgroundColor: '#FFFFFF'
   		},
-		cvContent: { 
+		cvContent: {
 			display: 'flex',
 			flexDirection: 'row-reverse',
   			padding:'30px',
@@ -114,7 +114,7 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			paddingLeft:'100px', 
+			paddingLeft:'100px',
 			borderLeft:'2px #EBE6E3',
 			borderStyle: 'dashed'
 		},
@@ -133,7 +133,7 @@ module.exports = {
 			flexDirection: 'column',
 			alignItems: 'center',
 			justifyContent: 'center',
-			backgroundColor: '#EBE6E3'		
+			backgroundColor: '#EBE6E3'
 		},
 		cvContentMobile:{
 			display: 'flex',
@@ -170,21 +170,21 @@ module.exports = {
 			marginBottom: '30px'
 		},
 		navButton: {
-			marginLeft:'20px', 
+			marginLeft:'20px',
 			color: '#C6ACAC',
 			':hover': {
 				color: '#454152'
 			}
 		},
 		navButtonMobile: {
-			marginLeft:'20px', 
+			marginLeft:'20px',
 			fontSize: '35px',
 			color: '#C6ACAC'
 		}
 	},
 	dark:{
 		cvContainer: {
-  			width: '80%',
+  			width: '95%',
   			border: '3px solid #C6ACAC',
   			padding: '20px',
   			color: '#FFFFFF',
@@ -204,7 +204,7 @@ module.exports = {
 		},
 		rightPiece: {
 			width: '50%',
-			paddingLeft:'100px', 
+			paddingLeft:'100px',
 			borderLeft:'1px solid #8D4A4A'
 		},
 		leftPiece: {
@@ -222,7 +222,7 @@ module.exports = {
 			flexDirection: 'column',
 			alignItems: 'center',
 			justifyContent: 'center',
-			backgroundColor: '#A26868'		
+			backgroundColor: '#A26868'
 		},
 		cvContentMobile:{
 			display: 'flex',
@@ -259,14 +259,14 @@ module.exports = {
 			marginBottom: '30px'
 		},
 		navButton: {
-			marginLeft:'20px', 
+			marginLeft:'20px',
 			color: '#C6ACAC',
 			':hover': {
 				color: '#A26868'
 			}
 		},
 		navButtonMobile: {
-			marginLeft:'20px', 
+			marginLeft:'20px',
 			fontSize: '35px',
 			color: '#C6ACAC'
 		}
