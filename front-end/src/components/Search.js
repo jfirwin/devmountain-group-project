@@ -62,7 +62,7 @@ let Tiles = (props) => {
 			<div style={props.responsiveTileWrapper || tileWrapper}>
 				{
 					tiles.map((user, index) => {
-						if(user.username){
+						if(user.firstname && user.lastname){
 							const displayImage = user.imgurl || `https://robohash.org/${user.firstname}-${user.lastname}?set=set4`
 								return(
 								<Link to={`/${user.username}`} style={props.responsiveTileStyle || tileStyle} key={user.username ? user.username : index}>
