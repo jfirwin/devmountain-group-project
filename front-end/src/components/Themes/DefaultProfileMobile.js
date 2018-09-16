@@ -11,17 +11,28 @@ const DefaultProfileMobile = (props) => {
       <div style={cvContainer}>
         <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
             <Link to='/'>
-              <i className="fas fa-sign-out-alt" style={navButtonMobile} key='home'></i>
+              <i className="fas fa-home" style={navButtonMobile} key='home'></i>
+            </Link>
+            <Link to='/search'>
+              <i className="fas fa-search" style={navButtonMobile} key='search'></i>
             </Link>
             {
-              props.userLoggedIn &&
+            props.userLoggedIn === props.user.username &&
               <Link to='/edit'>
                 <i className="far fa-edit" style={navButtonMobile} key='edit'></i>
               </Link>
             }
-            <Link to='/search'>
-              <i className="fas fa-search" style={navButtonMobile} key='search'></i>
-            </Link>
+            {
+              props.userLoggedIn === ""
+              ?
+              <a href={process.env.REACT_APP_LOGIN}>
+                <i className="fas fa-sign-in-alt" style={navButtonMobile} key='login'></i>
+              </a>
+              :
+              <a href={process.env.REACT_APP_LOGOUT}>
+                <i className="fas fa-sign-out-alt" style={navButtonMobile} key='logout'></i>
+              </a>
+            }
           </div>
           <div style={imageDiv}>
           <img src={displayImage} alt={`${props.user.username} profile`} style={{'borderRadius':100, height: '150px'}}/>
