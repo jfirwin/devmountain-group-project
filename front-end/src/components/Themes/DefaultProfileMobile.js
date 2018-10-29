@@ -23,7 +23,7 @@ const DefaultProfileMobile = (props) => {
             </Link>
           </div>
           <div style={imageDiv}>
-          <img src={props.user.imgurl} alt={`${props.user.username} profile`} style={{'borderRadius':100, height: '150px'}}/>
+          <img src={props.user.imgurl ? props.user.imgurl : require('../../images/user_default.png')} alt={`${props.user.username} profile`} style={{'borderRadius':100, height: '150px'}}/>
           <h1 style={titleColor}>{props.user.firstname} {props.user.lastname}</h1>
           <h5 style={textColor}>{props.user.description}</h5>
         </div>

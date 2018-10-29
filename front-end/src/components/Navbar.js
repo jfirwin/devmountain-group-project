@@ -93,7 +93,7 @@ class Navbar extends Component {
           </NavLink>
             { this.props.isAuthenticated &&
               <div style={{display: 'flex', justifyContent: 'space-around', width: 300}}>
-                <NavLink to={`/${this.props.userLoggedIn}`} activeStyle={activeStyle}>
+                <NavLink to={`/${this.props.username}`} activeStyle={activeStyle}>
                   <p>Profile</p>
                 </NavLink>
                 <NavLink to='/Search' activeStyle={activeStyle}>

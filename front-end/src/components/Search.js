@@ -16,22 +16,23 @@ let Tiles = (props) => {
 			'display': 'flex',
 			'flexDirection': 'column',
 			alignItems: 'center',
-			'padding': 20,
 			border: '1px solid #AAAAAA',
 			borderRadius: '8px',
-			marginTop: '100px'
+			marginTop: '100px',
+			overflow: 'auto'
 		}
 
 		const tileStyle = {
 			display: 'flex',
 			height: 80,
-			width: '90%',
-			justifyContent: 'flex-start',
+			width: '100%',
 			alignItems: 'center',
 			':hover': {'backgroundColor': 'rgba(156, 140, 96, 0.05)', border: '2px solid rgba(207, 163, 0, 0.2)'},
 			padding: 20,
 			borderRadius: '8px',
-			color: 'black'
+			color: 'black',
+			marginBottom: '35px',
+			marginTop: '35px'
 		}
 
 		const imgStyle = {
@@ -62,17 +63,17 @@ let Tiles = (props) => {
 			<div style={props.responsiveTileWrapper || tileWrapper}>
 				{
 					tiles.map((user, index) => {
-						if(user.username){
+						if(user.firstname && user.lastname && user.username){
 								return(
 								<Link to={`/${user.username}`} style={props.responsiveTileStyle || tileStyle} key={user.username ? user.username : index}>
-									<div key={user.username ? user.username : index} style={props.responsiveTileStyle || tileStyle}>
-										<img src={user.imgurl} alt='avatar' style={imgStyle}/>
+									<div key={user.username} style={props.responsiveTileStyle || tileStyle}>
+										<img src={user.imgurl ? user.imgurl : require('../images/user_default.png')} alt='avatar' style={imgStyle}/>
 										<div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: 10}}>
-											<div>
-												<p><span style={title}>Name:</span> {user.firstname + ' ' + user.lastname}</p>
-												<p><span style={title}>Username:</span> {user.username}</p>
+											<div style={{width: '70%'}}>
+												<p>{`Name: ${user.firstname} ${user.lastname}`}</p>
+												<p>{`Username: ${user.username}`}</p>
 											</div>
-											<div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+											<div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', boxSizing: 'border-box'}}>
 												<p>{user.description}</p>
 											</div>
 										</div>

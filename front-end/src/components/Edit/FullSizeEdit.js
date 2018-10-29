@@ -122,7 +122,7 @@ function FullSizeEditPage(props) {
 
   return (
     <div style={wrapper}>
-        <Navbar user = {props.user}/>
+        <Navbar user = {props.user} username = {props.user.username}/>
         {props.user
           ?
           <ReactTransitionModule>

@@ -80,7 +80,7 @@ class Profile extends Component{
   }
 
 	render(){
-
+    console.log('this works')
 		return(
 			<div>
         <MediaQuery query='(min-width: 1000px)'>
@@ -93,7 +93,7 @@ class Profile extends Component{
             theme = {this.props.theme}
             />
         </MediaQuery>
-        <MediaQuery query='(max-width: 1000px)'>
+        <MediaQuery query='(max-width: 999px)'>
           <MobileSizeScreenCV
             user = {this.props.user}
             loading = {this.props.loading}

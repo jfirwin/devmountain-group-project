@@ -92,7 +92,7 @@ class Home extends Component{
         <MediaQuery query='(min-width: 1000px)'>
           <FullSizeHome />
         </MediaQuery>
-        <MediaQuery query='(max-width: 1000px)'>
+        <MediaQuery query='(max-width: 999px)'>
           <MobileSizeHome />
         </MediaQuery>
       </div>
