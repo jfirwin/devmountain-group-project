@@ -7,6 +7,7 @@ import { dateHelper } from './dateHelper'
 let DefaultProfile = (props) => {
   console.log(props)
   const {wrapper, cvContainer, imageDiv, titleColor, textColor, cvContent, rightPiece, leftPiece, contentBlock, experienceBox, navButton} = props.theme
+  const displayImage = props.user.imgurl || require('../../images/user_default.png')
   return (
     <div style={wrapper}>
       <div style={cvContainer}>
@@ -38,7 +39,8 @@ let DefaultProfile = (props) => {
 
         </div>
         <div style={imageDiv}>
-          <img src={props.user.imgurl ? props.user.imgurl : require('../../images/user_default.png')} alt={`${props.user.username} profile`} style={{'borderRadius':'50%', width: 250}}/>
+
+          <img src={displayImage} alt={`${props.user.username} profile`} style={{'borderRadius':'50%', width: 250}}/>
           <h1 style={titleColor}>{props.user.firstname} {props.user.lastname}</h1>
           <h5 style={textColor}>{props.user.description}</h5>
         </div>

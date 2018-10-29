@@ -68,6 +68,7 @@ let Tiles = (props) => {
 								<Link to={`/${user.username}`} style={props.responsiveTileStyle || tileStyle} key={user.username ? user.username : index}>
 									<div key={user.username} style={props.responsiveTileStyle || tileStyle}>
 										<img src={user.imgurl ? user.imgurl : require('../images/user_default.png')} alt='avatar' style={imgStyle}/>
+
 										<div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: 10}}>
 											<div style={{width: '70%'}}>
 												<p>{`Name: ${user.firstname} ${user.lastname}`}</p>
@@ -138,7 +139,7 @@ class Search extends Component{
 			alignItems: 'center',
 			marginTop: 100
 		}
-		
+
 		const inputStyle ={
 			width: '50vw',
 			height: 100,

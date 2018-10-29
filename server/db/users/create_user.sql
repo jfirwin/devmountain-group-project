@@ -1,5 +1,4 @@
 INSERT INTO users
-(authID)
-VALUES 
-(${authid});
-
+(authID, username)
+VALUES
+(${authid}, ${authid});

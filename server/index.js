@@ -5,9 +5,9 @@ const app = express()
 require('./config/db.js')(app)
 require('./config/middleware.js')(app)
 const routes = require('./routes/router.js')(app)
-const authenthication = require('./routes/Authenthication')(app)
+const authentication = require('./routes/Authentication')(app)
 
-app.use('/auth', authenthication)
+app.use('/auth', authentication)
 app.use('/api', routes)
 
 app.use( express.static( `${__dirname}/../front-end/build` ));
