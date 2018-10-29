@@ -7,6 +7,6 @@ module.exports = function(app) {
       console.log('db set up!')
       app.set('db', db)
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log(process.env))
     return connection
 }

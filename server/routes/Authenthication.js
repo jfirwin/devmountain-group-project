@@ -89,7 +89,7 @@ module.exports = function(app) {
 
   router.get('/logout', (req, res) => {
     req.logout()
-    res.redirect(process.env.AUTH0_LOGOUT)
+    res.redirect(process.env.AUTH0_LOGOUT_URL)
   })
 
   return router
